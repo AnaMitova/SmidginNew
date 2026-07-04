@@ -11,7 +11,7 @@
     <div class="bg-white shadow rounded-xl p-8">
 
         <h1 class="text-3xl font-bold mb-8">
-            Add Store
+            Додади продавница/локал
         </h1>
 
         <form action="{{ route('stores.store') }}"
@@ -21,7 +21,7 @@
             @csrf
 
             <div class="mb-5">
-                <label class="font-semibold">Name</label>
+                <label class="font-semibold">Име</label>
 
                 <input
                     type="text"
@@ -31,7 +31,7 @@
             </div>
 
             <div class="mb-5">
-                <label class="font-semibold">City</label>
+                <label class="font-semibold">Град</label>
 
                 <input
                     type="text"
@@ -41,20 +41,20 @@
             </div>
 
             <div class="mb-5">
-                <label class="font-semibold">Type</label>
+                <label class="font-semibold">Тип</label>
 
                 <select
                     name="type"
                     class="w-full border rounded-lg p-3">
 
-                    <option value="buy">Buy</option>
-                    <option value="taste">Taste</option>
+                    <option value="buy">Продавница</option>
+                    <option value="taste">Локал</option>
 
                 </select>
             </div>
 
             <div class="mb-5">
-                <label class="font-semibold">Address</label>
+                <label class="font-semibold">Адреса</label>
 
                 <input
                     type="text"
@@ -63,7 +63,7 @@
             </div>
 
             <div class="mb-5">
-                <label class="font-semibold">Hours</label>
+                <label class="font-semibold">Часови</label>
 
                 <input
                     type="text"
@@ -72,7 +72,7 @@
             </div>
 
             <div class="mb-5">
-                <label class="font-semibold">Phone</label>
+                <label class="font-semibold">Телефон</label>
 
                 <input
                     type="text"
@@ -90,7 +90,7 @@
             </div>
 
             <div class="mb-8">
-                <label class="font-semibold">Image</label>
+                <label class="font-semibold">Слика</label>
 
                 <input
                     type="file"
@@ -101,7 +101,7 @@
             <button
                 class="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg">
 
-                Save Store
+                Зачувај
 
             </button>
 

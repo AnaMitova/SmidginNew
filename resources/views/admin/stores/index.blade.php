@@ -11,12 +11,12 @@
 
     <div class="flex justify-between items-center mb-8">
         <h1 class="text-3xl font-bold">
-            Stores
+            Додавање на продавници и локали
         </h1>
 
         <a href="{{ route('stores.create') }}"
            class="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-lg">
-            + Add Store
+            + Додади продавница
         </a>
     </div>
 
@@ -28,17 +28,17 @@
 
             <tr>
 
-                <th class="text-left p-4">Image</th>
+                <th class="text-left p-4">Слика</th>
 
-                <th class="text-left p-4">Name</th>
+                <th class="text-left p-4">Име</th>
 
-                <th class="text-left p-4">City</th>
+                <th class="text-left p-4">Град</th>
 
-                <th class="text-left p-4">Type</th>
+                <th class="text-left p-4">Тип</th>
 
-                <th class="text-left p-4">Phone</th>
+                <th class="text-left p-4">Телефон</th>
 
-                <th class="text-left p-4">Actions</th>
+                <th class="text-left p-4"></th>
 
             </tr>
 
@@ -79,8 +79,8 @@
                     <td class="p-4 flex gap-2">
 
                         <a href="{{ route('stores.edit',$store) }}"
-                           class="bg-blue-500 text-white px-4 py-2 rounded">
-                            Edit
+                           class="bg-[#9CA3AF] text-white px-4 py-2 rounded">
+                            Промени
                         </a>
 
                         <form action="{{ route('stores.destroy',$store) }}"
@@ -91,9 +91,9 @@
 
                             <button
                                 onclick="return confirm('Delete this store?')"
-                                class="bg-red-500 text-white px-4 py-2 rounded">
+                                class="bg-[#f14244] text-white px-4 py-2 rounded">
 
-                                Delete
+                                Избриши
 
                             </button>
 

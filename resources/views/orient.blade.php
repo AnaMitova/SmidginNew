@@ -61,7 +61,7 @@
   <!-- Navbar -->
   <div id="homepage" class="md:px-28 pt-14 space-y-16 flex flex-col items-center">
     <div id="navbar" class="flex w-[99%] md:px-0 px-9 justify-between items-center">
-      <a href="./index.html" id="logo" class="md:w-[208px] w-[180px]">
+      <a href="./" id="logo" class="md:w-[208px] w-[180px]">
         <img src="./img/logo.png"/>
       </a>
 <i 
@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>      <div id="navs" class="hidden md:flex space-x-11 text-base items-center">
-        <a href="./whoweare.html" class="border-b-[1.5px] border-b-black pb-[1.7px]">WHO WE ARE</a>
-        <a href="./ourgin.html" class="border-b-[1.5px] border-b-black pb-[1.7px]">OUR GIN</a>
-        <a href="./whatweoffer.html" class="border-b-[1.5px] border-b-black pb-[1.7px]">WHAT WE OFFER</a>
-        <a href="findourstores.html" class="border-b-[1.5px] border-b-black pb-[1.7px]">FIND OUR STORES</a>
+        <a href="./whoweare" class="border-b-[1.5px] border-b-black pb-[1.7px]">WHO WE ARE</a>
+        <a href="./ourgin" class="border-b-[1.5px] border-b-black pb-[1.7px]">OUR GIN</a>
+        <a href="./whatweoffer" class="border-b-[1.5px] border-b-black pb-[1.7px]">WHAT WE OFFER</a>
+        <a href="./findourstores" class="border-b-[1.5px] border-b-black pb-[1.7px]">FIND OUR STORES</a>
         <a href="https://smidgin-shop.myshopify.com/?srsltid=AfmBOoqJHd6Cccrm3CCQvzWikXUkEKywegonf-rx2u145ZDkvLJxZu05" class="px-3 py-3 bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">BUY ONLINE</a>
       </div>
     </div>
@@ -110,17 +110,17 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
     <div class="flex flex-col w-full pl-9 space-y-3 justify-start">
       <a href="https://smidgin-shop.myshopify.com/?srsltid=AfmBOoqJHd6Cccrm3CCQvzWikXUkEKywegonf-rx2u145ZDkvLJxZu05" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">BUY ONLINE</a>
-      <a href="./whoweare.html" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">WHO WE ARE</a>
-    <a href="./ourgin.html" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">OUR GIN</a>
-    <a href="./whatweoffer.html" class="text-black underline hover:text-white  font-medium font-montserrat text-2xl">WHAT WE OFFER</a>
-    <a href="findourstores.html" class="text-black underline hover:text-white font-medium font-montserrat text-2xl">FIND OUR STORES</a>
+      <a href=""" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">WHO WE ARE</a>
+    <a href=""" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">OUR GIN</a>
+    <a href=""" class="text-black underline hover:text-white  font-medium font-montserrat text-2xl">WHAT WE OFFER</a>
+    <a href=""" class="text-black underline hover:text-white font-medium font-montserrat text-2xl">FIND OUR STORES</a>
     </div>
 <div id="slideshow" class="">
 
     <div id="DiscoverOurGin" class="overflow-x-auto mt-20">
         <div class="flex flex-nowrap pb-12  pl-4 space-x-0 items-end">
             
-            <a href="./classic.html">
+            <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
                 <img src="icons/classicFinal.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
@@ -128,13 +128,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         <p class="text-7xl text-red-500 font-montserrat pointer-events-auto">Smidgin</p>
                         <p class="text-8xl text-red-500 mr-[-150px] font-montserrat pointer-events-auto">Velvet</p>
                     </div>
-                    <a href="./velvet.html" class="mt-8 py-3 bg-red-500 rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
+                    <a href=""" class="mt-8 py-3 bg-red-500 rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
                 </div>
                <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">CLASSIC</div>
             </div>
              </a>
 
-            <a href="./velvet.html">
+            <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
                 <img src="icons/velvet.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
@@ -142,13 +142,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         <p class="text-7xl text-[#4D2957] font-montserrat pointer-events-auto">Smidgin</p>
                         <p class="text-8xl text-[#4D2957] mr-[-150px] font-Velvet pointer-events-auto">Velvet</p>
                     </div>
-                    <a href="./velvet.html" class="mt-8 py-3 bg-[#4D2957] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
+                    <a href=""" class="mt-8 py-3 bg-[#4D2957] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
                 </div>
                <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">VELVET</div>
             </div>
              </a>
              
-            <a href="./orient.html">
+            <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
                 <img src="icons/orient.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
@@ -156,13 +156,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         <p class="text-7xl text-[#821A16] font-montserrat pointer-events-auto">Smidgin</p>
                         <p class="text-7xl text-[#821A16] mr-[-150px] font-Papyrus pointer-events-auto">Orient</p>
                     </div>
-                    <a href="./orient.html" class="mt-8 px-5 py-3 bg-[#821A16] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
+                    <a href=""" class="mt-8 px-5 py-3 bg-[#821A16] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
                 </div>
                <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">ORIENT</div>
             </div>
              </a>
              
-             <a href="./light.html">
+             <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
                 <img src="icons/light.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
@@ -170,13 +170,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         <p class="text-7xl text-[#4164AD] font-montserrat pointer-events-auto">Smidgin</p>
                         <p class="text-7xl text-[#4164AD] mr-[-150px] font-montserrat pointer-events-auto">LIGHT</p>
                     </div>
-                    <a href="./light.html" class="mt-8 px-5 py-3 bg-[#4164AD] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
+                    <a href=""" class="mt-8 px-5 py-3 bg-[#4164AD] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
                 </div>
                <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">LIGHT</div>
             </div>
              </a>
 
-            <a href="./xo.html">
+            <a href=""">
             <div class="relative group  flex-shrink-0 w-[40%]  snap-start">
                 <img src="./icons/xo.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <p class="text-7xl text-[#A24B1E] font-montserrat pointer-events-auto">Smidgin</p>
                         <p class="text-7xl text-[#A24B1E] mr-[-150px] font-Baskervville pointer-events-auto">XO</p>
                     </div>
-                    <a href="./xo.html" class="mt-8 px-5 py-3 bg-[#A24B1E] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
+                    <a href=""" class="mt-8 px-5 py-3 bg-[#A24B1E] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
                 </div>
                <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">XO</div>
             </div>
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 
   <!-- Next Product -->
-  <a href="./light.html" class="group">
+  <a href=""" class="group">
     <div class="flex flex-col justify-center items-center mt-20 md:mt-44">
       <p class="text-[32px] md:text-[64px] font-montserrat">SMIDGIN <span class="text-[#4164AD]">LIGHT</span></p>
       <img src="./sliki/light.jpeg"       class="md:w-[300px] md:h-[400px] w-[220px] h-[320px]
@@ -274,9 +274,9 @@ document.addEventListener("DOMContentLoaded", function() {
        <p class="font-montserrat pt-2"><i class="fa-solid fa-phone"></i>  +389 76 405 175</p>
    </div>
    <div class="font-montserrat underline text-center w-1/3">
-       <a href="./returnoffer.html">Bottle Return Offer</a><br/>
-       <a href="./privacypolicy.html">Privacy Policy</a><br/>
-       <a href="./termsandconditions.html">Terms and Conditions</a>
+       <a href=""">Bottle Return Offer</a><br/>
+       <a href=""">Privacy Policy</a><br/>
+       <a href=""">Terms and Conditions</a>
    </div>
    <div class="w-1/3 flex  flex-col items-end space-y-7  md:pr-8">
      <div id="socialmedia" class="flex space-x-3 ">
@@ -295,9 +295,9 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="flex flex-col justify-center items-center">
     <img src="./img/logoFooter.png" class="w-1/3"/>
     <img src="./img/Screenshot 2025-10-31 at 00.17.38.png" class="w-1/3 mt-2"/>
-    <a class="underline text-gray-500 font-montserrat text-[14px] mt-5" href="./returnoffer.html">Bottle Return Offer</a><br/>
-    <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href="./privacypolicy.html">Privacy Policy</a><br/>
-    <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href="./termsandconditions.html">Terms and Conditions</a>
+    <a class="underline text-gray-500 font-montserrat text-[14px] mt-5" href=""">Bottle Return Offer</a><br/>
+    <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href=""">Privacy Policy</a><br/>
+    <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href=""">Terms and Conditions</a>
 </div>
 
 <div class="flex justify-between pr-7">
