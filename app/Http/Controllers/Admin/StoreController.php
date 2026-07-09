@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Store;
 use Illuminate\Http\Request;
+use App\Models\Recipe;
 
 class StoreController extends Controller
 {
     public function index()
     {
         $stores = Store::latest()->get();
-
-        return view('admin.stores.index', compact('stores'));
+        $recipes = Recipe::latest()->get();
+    
+        return view('admin.stores.index', compact('stores', 'recipes'));
     }
 
     public function create()

@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Home</title>
 
     <link href="./output.css" rel="stylesheet" type="text/css"/>
@@ -1232,8 +1233,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <script>
-  // 1. PASTE YOUR GOOGLE WEB APP URL HERE
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbylI2C9dzvwrYiHurlY9zIeTYKGI_3N-dYumhuecRhA-BAX90n-2PIQjaqP7jusNSnW4A/exec";
 
   // Display file name when selected
   function previewFile() {
@@ -1261,56 +1260,46 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = true;
 
     // Prepare the payload
-    const payload = {
-      recipe: textData,
-      image: "",
-      imageName: ""
-    };
+const formData = new FormData();
+
+formData.append('recipe', textData);
+
+if (fileInput.files.length > 0) {
+    formData.append('image', fileInput.files[0]);
+}
 
 // Helper function to send data
-    const sendData = (dataObj) => {
-      fetch(SCRIPT_URL, {
-        method: "POST",
-        // CRITICAL CHANGE: We use text/plain to avoid CORS preflight checks
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(dataObj)
-      })
-      .then(response => {
-        // Reset UI
-        submitBtn.innerText = originalBtnText;
-        submitBtn.disabled = false;
-        document.getElementById('recipeText').value = "";
-        document.getElementById('fileNameDisplay').textContent = "";
-        fileInput.value = ""; 
-        
-        closeModal('writerecipe');
-        openModal('cheerstoyou'); 
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        submitBtn.innerText = originalBtnText;
-        submitBtn.disabled = false;
-        alert("Something went wrong. Please try again.");
-      });
-    };
+fetch('/recipes', {
+    method: 'POST',
+    headers: {
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+    },
+    body: formData
+})
+.then(response => response.json())
+.then(() => {
 
-    // Check if there is an image to process
-    if (fileInput.files.length > 0) {
-      const file = fileInput.files[0];
-      const reader = new FileReader();
-      
-      reader.onload = function(e) {
-        payload.image = e.target.result; // Base64 string
-        payload.imageName = file.name;
-        sendData(payload);
-      };
-      
-      reader.readAsDataURL(file);
-    } else {
-      // Send text only
-      sendData(payload);
-    }
-  }
+    submitBtn.innerText = originalBtnText;
+    submitBtn.disabled = false;
+
+    document.getElementById('recipeText').value = "";
+    document.getElementById('fileNameDisplay').textContent = "";
+    fileInput.value = "";
+
+    closeModal('writerecipe');
+    openModal('cheerstoyou');
+
+})
+.catch(error => {
+
+    console.error(error);
+
+    submitBtn.innerText = originalBtnText;
+    submitBtn.disabled = false;
+
+    alert("Something went wrong.");
+
+});}
 
   // Ensure you have these helper functions defined somewhere in your code
   // function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
