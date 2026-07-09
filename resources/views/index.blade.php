@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div id="homepage" class="font-montserrat md:px-28 pt-14 bg-[#FEF2F1] md:h-[650px] h-[350px] space-y-16 flex flex-col items-center">
     <div id="navbar" class="flex w-[99%] md:px-0 px-9 justify-between items-center">
         <a href="./" id="logo" class="md:w-[208px] w-[180px]">
-            <img src="./img/logo.png"/>
+            <img src="./img/logo.png" loading="lazy" decoding="async"/>
         </a>
         <i onclick="openModal('ham-menu')" class="fa-solid right-10 top-12 fixed z-50 cursor-pointer md:hidden w-[46px] text-xl h-[46px] text-center flex justify-center items-center text-white bg-red-500 rounded-full p-2 fa-bars"></i>
         <div id="navs" class="hidden md:flex space-x-11 text-base items-center">
@@ -230,14 +230,17 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     </div>
     <div id="video" class="md:w-[99%] w-[90%] -mb-7">
-      <video 
+      <video
         class="w-full rounded-3xl shadow-md shadow-neutral-500"
-        src="./SMIDGIN VIDEO.mp4"
+        poster="./smidgin-poster.jpg"
+        preload="none"
         autoplay
         loop
         muted
         playsinline
       >
+        <source src="./smidgin-video.webm" type="video/webm" />
+        <source src="./smidgin-video.mp4" type="video/mp4" />
         Sorry, your browser doesn’t support embedded videos.
       </video>
     </div>   
@@ -245,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div id="ham-menu" class="fixed inset-0 bg-[#EF4135] z-50 hidden flex flex-col  pt-12 items-start justify-start space-y-0">
     <i onclick="closeModal('ham-menu')" class="fa-solid fa-xmark text-white text-3xl absolute top-6 right-6 cursor-pointer"></i>
     <div class="flex pl-9 pb-10 w-full justify-start" >
-      <img class="h-[42px]" src="./img/image.png"/>
+      <img class="h-[42px]" src="./img/image.png" loading="lazy" decoding="async"/>
     </div>
     <div class="flex flex-col w-full pl-9 space-y-3 justify-start">
       <a href="https://smidgin-shop.myshopify.com/?srsltid=AfmBOoqJHd6Cccrm3CCQvzWikXUkEKywegonf-rx2u145ZDkvLJxZu05" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">BUY ONLINE</a>
@@ -261,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 <a href="./classic">
                 <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                    <img src="icons/classicFinal.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="icons/classicFinal.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                         <div class="flex flex-col w-full items-center">
                             <p class="text-7xl text-red-500 font-montserrat pointer-events-auto">Smidgin</p>
@@ -275,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <a href="./velvet">
                 <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                    <img src="icons/velvet.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="icons/velvet.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                         <div class="flex flex-col w-full items-center">
                             <p class="text-7xl text-[#4D2957] font-montserrat pointer-events-auto">Smidgin</p>
@@ -289,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 <a href="./orient">
                 <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                    <img src="icons/orient.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="icons/orient.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                         <div class="flex -ml-7 flex-col w-full items-center">
                             <p class="text-7xl text-[#821A16] font-montserrat pointer-events-auto">Smidgin</p>
@@ -303,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 <a href="./light">
                 <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                    <img src="icons/light.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="icons/light.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                         <div class="flex -ml-7 flex-col w-full items-center">
                             <p class="text-7xl text-[#4164AD] font-montserrat pointer-events-auto">Smidgin</p>
@@ -317,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <a href="./xo">
                 <div class="relative group  flex-shrink-0 w-[40%]  snap-start">
-                    <img src="./icons/xo.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="./icons/xo.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                         <div class="flex flex-col w-full items-center">
                             <p class="text-7xl text-[#A24B1E] font-montserrat pointer-events-auto">Smidgin</p>
@@ -377,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <div id="gin" class="bg-white font-Baskervville flex md:flex-row flex-row-reverse items-center justify-center md:items-center md:justify-start md:space-x-40 md:px-36 px-0 md:pt-52">
     
-    <div class="md:w-1/3 w-[140px] md:pl-14 relative"> <img src="img/classic.png" class=" w-[303px]" id="bottle-image"/>
+    <div class="md:w-1/3 w-[140px] md:pl-14 relative"> <img src="img/classic.webp" class=" w-[303px]" id="bottle-image" loading="lazy" decoding="async"/>
         
         <div id="hotspot-cap" class="hotspot absolute cursor-pointer" style="top: 0%; left: 38%; width: 24%; height: 10%; border-radius: 50% 50% 10px 10px;"></div>
         <div id="hotspot-glass" class="hotspot absolute cursor-pointer" style="top: 10%; left: 32%; width: 36%; height: 25%; border-radius: 20px 20px 0 0;"></div>
@@ -440,21 +443,21 @@ document.addEventListener("DOMContentLoaded", () => {
             // Define the stories as HTML strings (formatted to fit the space)
             const stories = {
                 cap: `<div class="flex flex-col md:-mt-24">
-                <img src="sliki/wax.png" alt="Hand-Dipped Wax Seal" class="w-[120px] md:w-[250px] hidden md:block self-start mx-auto md:mx-0 "/>
+                <img src="sliki/wax.webp" alt="Hand-Dipped Wax Seal" class="w-[120px] md:w-[250px] hidden md:block self-start mx-auto md:mx-0 " loading="lazy" decoding="async"/>
                       <p class="text-red-500 md:text-4xl text-2xl">HAND-DIPPED WAX SEAL</p>
                       <p class="font-montserrat md:text-lg text-sm pt-2">Hand-applied wax seal,carefully curved for easy opening.Each seal is beautifully embossed with the iconic Macedonian lion,symbolyzing the rich history of the centuries-old heritage of the region</p>
-                    <img src="sliki/cap.png" alt="Hand-Dipped Wax Seal" class="w-[90px] md:w-[200px] self-end -mb-0 md:-mb-20 mx-auto md:mx-0 "/>
+                    <img src="sliki/cap.png" alt="Hand-Dipped Wax Seal" class="w-[90px] md:w-[200px] self-end -mb-0 md:-mb-20 mx-auto md:mx-0 " loading="lazy" decoding="async"/>
 
                       </div>`,
                 glass: `<div class="flex-col flex">
-                <img src="sliki/mask.png" alt="The Bottle Design" class="w-2/3 -pr-20 x-auto md:mx-0 self-end"/>
+                <img src="sliki/mask.webp" alt="The Bottle Design" class="w-2/3 -pr-20 x-auto md:mx-0 self-end" loading="lazy" decoding="async"/>
                         <p class="text-red-500 md:text-4xl text-2xl -mt-8">THE BOTTLE</p>
                         <p class="font-montserrat md:text-lg text-sm pt-2">The timeless design of our flavor bottle is inspired by the elegant and sophisticated gold mask from roman times discovered in the picturesque Ohrid region,exuding reinfimenet and class in every detail.</p>
                         <p class="font-montserrat md:text-lg text-sm pt-2 md:min-h-0 min-h-[140px]"></p>
                         </div>`,
                 label: `<p class="text-red-500 md:text-4xl text-2xl">OUR LABEL</p>
                         <p class="font-montserrat md:text-lg text-sm pt-2">Experience the epitome of refinement and class with our award-winning design label.Each bottle is carefully hand-applied with precision and an eye for detail,elevating any space with timeless elegance and sophistication.</p>
-                        <img src="sliki/hands.png" alt="Our Label Design" class="w-2/3 mb-4 mx-auto md:mx-0 rounded-xl shadow-lg"/>`
+                        <img src="sliki/hands.webp" alt="Our Label Design" class="w-2/3 mb-4 mx-auto md:mx-0 rounded-xl shadow-lg" loading="lazy" decoding="async"/>`
             };
 
             // Function to change text and add hover effect
@@ -551,7 +554,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="flex items-end flex-nowrap py-12 md:px-24 pl-4 space-x-2 md:space-x-9">
                 
                 <a href="./classic" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                   <img src="img/Screenshot 2025-09-20 at 04.39.20.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                   <img src="img/Screenshot 2025-09-20 at 04.39.20.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
                        <div class="-mt-7 -ml-7 flex flex-col w-full items-center">
                            <p class="text-7xl text-[#EF4135] font-montserrat">Smidgin</p>
@@ -563,11 +566,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
 
                 <a href="./velvet" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="img/velvet.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="img/velvet.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
                         <div class="flex flex-col w-full items-center">
                             <p class="text-7xl text-[#4D2957] font-montserrat">Smidgin</p>
-                            <img class="mr-[-150px] w-[216px]" src="sliki/velvetFont.png"/>
+                            <img class="mr-[-150px] w-[216px]" src="sliki/velvetFont.png" loading="lazy" decoding="async"/>
                         </div>
                         <span class="mt-8 px-5 py-3 bg-[#4D2957] rounded-xl font-montserrat text-white text-lg">Read more</span>
                     </div>
@@ -575,7 +578,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
                  
                 <a href="./orient" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="sliki/orient.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="sliki/orient.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
                         <div class="flex -ml-7 flex-col w-full items-center">
                             <p class="text-7xl text-[#821A16] font-montserrat">Smidgin</p>
@@ -587,7 +590,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
                  
                 <a href="./light" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="img/Screenshot 2025-11-06 at 01.34.38.png" class="w-[90%] md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="img/Screenshot 2025-11-06 at 01.34.38.webp" class="w-[90%] md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
                         <div class="flex -ml-7 flex-col w-full items-center">
                             <p class="text-7xl text-[#4164AD] font-montserrat">Smidgin</p>
@@ -599,7 +602,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
 
                 <a href="./xo" class="relative group flex-shrink-0 md:w-1/3 w-1/2 mt-12 snap-start">
-                    <img src="./sliki/xo.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                    <img src="./sliki/xo.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                     <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
                         <div class="flex flex-col w-full items-center">
                             <p class="text-7xl text-[#A24B1E] font-montserrat">Smidgin</p>
@@ -648,7 +651,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            sm:w-52 sm:h-52 
                            lg:w-48 lg:h-48 
                            xl:w-60 xl:h-60 
-                           2xl:w-72 2xl:h-72"/>
+                           2xl:w-72 2xl:h-72" loading="lazy" decoding="async"/>
             </div>
             
             <div id="ingredients-container" class="absolute inset-0"></div>
@@ -715,7 +718,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayDesktopDescription(ingredient) {
         descriptionPanel.innerHTML = `
             <div class="flex flex-col items-start font-montserrat text-red-500 justify-center h-full gap-4 lg:gap-6 px-2">
-                <img src="${ingredient.image}" alt="${ingredient.name}" class="w-20 h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 object-contain mb-2">
+                <img src="${ingredient.image}" alt="${ingredient.name}" class="w-20 h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 object-contain mb-2" loading="lazy" decoding="async">
                 <div class ="flex flex-col items-start justify-start">
                     <h3 class="text-2xl lg:text-2xl xl:text-3xl font-bold text-red-500 mb-2">${ingredient.name}</h3> 
                     <p class="text-base lg:text-base xl:text-lg text-start text-red-500 leading-relaxed">${ingredient.description}</p> 
@@ -735,7 +738,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         mobileOverlay.innerHTML = `
             <div class="flex flex-col items-center justify-center text-center font-montserrat text-red-500 z-30 p-1 bg-white/95 rounded-xl shadow-lg border border-red-100 p-6">
-                <img src="${ingredient.image}" alt="${ingredient.name}" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mb-3">
+                <img src="${ingredient.image}" alt="${ingredient.name}" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mb-3" loading="lazy" decoding="async">
                 <h3 class="text-lg sm:text-2xl font-bold text-red-500 mb-2">${ingredient.name}</h3> 
                 <p class="text-sm sm:text-base text-red-500 leading-snug max-w-xs px-1">${ingredient.description}</p>
                 <button id="close-overlay" class="mt-4 px-5 py-2 bg-red-500 text-white font-bold rounded-full text-sm shadow-md hover:bg-red-600 transition duration-150">CLOSE</button>
@@ -853,10 +856,10 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="flex md:flex-row flex-col items-center justify-center md:justify-start md:pl-36 md:space-x-14 pt-9">
         <div class="hidden md:block md:w-1/2">
-            <img src="./img/Screenshot 2025-08-30 at 14.26.32.png"/>
+            <img src="./img/Screenshot 2025-08-30 at 14.26.32.webp" loading="lazy" decoding="async"/>
         </div>
         <div class="md:hidden block w-2/3 -mr-14">
-            <img src="./img/Screenshot 2025-10-30 at 22.45.13.png"/>
+            <img src="./img/Screenshot 2025-10-30 at 22.45.13.webp" loading="lazy" decoding="async"/>
         </div>
         <div class=" font-montserrat md:w-1/2 md:pr-24 flex flex-col items-center space-y-8">
             <p class="text-center px-7 md:px-0 mt-7 md:mt-0 text-[16px] md:text-[20px]">Join us for a behind-the-scenes look at how Smidgin comes to life. You'll explore, taste, laugh, and leave with a new favorite spirit, and maybe a few fun facts to share at your next night out.</p>
@@ -884,10 +887,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="./whatweoffer" class="-mt-4 px-5 font-montserrat text-center py-[16px] w-[298px] h-[55px] bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">PERSONALIZE YOUR BOTTLE</a>
     </div>
     <div class="hidden md:flex md:items-center md:w-[510px] w-[94%] md:h-[510px]">
-        <img class="w-full h-full " src="./img/Screenshot 2025-08-30 at 14.38.07.png"/>
+        <img class="w-full h-full " src="./img/Screenshot 2025-08-30 at 14.38.07.webp" loading="lazy" decoding="async"/>
     </div>
     <div class="block self-center md:hidden md:w-[469px] w-[90%] mt-5 md:mt-0 md:h-[444px]">
-        <img src="./img/Screenshot 2025-10-30 at 23.00.51.png"/>
+        <img src="./img/Screenshot 2025-10-30 at 23.00.51.webp" loading="lazy" decoding="async"/>
     </div>
 </div>
 
@@ -919,7 +922,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="flex flex-nowrap items-end py-12 px-4 md:px-24 md:space-x-5 space-x-4">
         <!-- FIG SOUR -->
         <div class="md:min-w-[350px] min-w-[160px] md:px-6 flex flex-col group justify-center items-center">
-              <img src="img/figsour.png" class="hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('fig-sour')"/>
+              <img src="img/figsour.webp" class="hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('fig-sour')" loading="lazy" decoding="async"/>
               <p class="font-Baskervville md:text-2xl text-[18px] transition-transform group-hover:duration-500 delay-100 group-hover:underline cursor-pointer" onclick="openModal('fig-sour')">Fig Sour</p>   
         </div>
 
@@ -932,15 +935,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div id="main" class="relative flex items-center justify-center font-montserrat font-bold scale-90 md:scale-100">
               
-              <img src="/Strelki/Strelka2.png" class="block absolute bottom-[100%] left-[25%] md:left-[18%] w-[50px] md:w-[80px] h-auto z-0" style="transform: rotate(10deg) translateY(20px);" alt="">
+              <img src="/Strelki/Strelka2.png" class="block absolute bottom-[100%] left-[25%] md:left-[18%] w-[50px] md:w-[80px] h-auto z-0" style="transform: rotate(10deg) translateY(20px);" alt="" loading="lazy" decoding="async">
               
-              <img src="/Strelki/Strelka3.png" class="block absolute top-[5%] right-[19%] w-[50px] md:w-[80px] h-auto z-0" style="transform: rotate(-10deg);" alt="">
+              <img src="/Strelki/Strelka3.png" class="block absolute top-[5%] right-[19%] w-[50px] md:w-[80px] h-auto z-0" style="transform: rotate(-10deg);" alt="" loading="lazy" decoding="async">
             
-              <img src="/Strelki/Strelka4.png" class="block absolute top-[40%] right-[20%] w-[36px] md:w-[60px] h-auto z-0" style="transform: rotate(0deg);" alt="">
+              <img src="/Strelki/Strelka4.png" class="block absolute top-[40%] right-[20%] w-[36px] md:w-[60px] h-auto z-0" style="transform: rotate(0deg);" alt="" loading="lazy" decoding="async">
              
-              <img src="/Strelki/Strelka1.png" class="block absolute bottom-[50%] left-[20%] md:left-[13%] w-[40px] md:w-[70px] h-auto z-0" style="transform: rotate(-20deg);" alt="">
+              <img src="/Strelki/Strelka1.png" class="block absolute bottom-[50%] left-[20%] md:left-[13%] w-[40px] md:w-[70px] h-auto z-0" style="transform: rotate(-20deg);" alt="" loading="lazy" decoding="async">
 
-              <img src="/Strelki/Strelka5.png" class="block absolute bottom-[0%] right-[13%] w-[90px] md:w-[155px] h-auto z-0" style="transform: rotate(10deg);" alt="">
+              <img src="/Strelki/Strelka5.png" class="block absolute bottom-[0%] right-[13%] w-[90px] md:w-[155px] h-auto z-0" style="transform: rotate(10deg);" alt="" loading="lazy" decoding="async">
               
               <div id="levo" class="relative z-10 flex flex-col space-y-12 md:space-y-32 -mt-12 md:-mt-24 text-[12px] md:text-base text-center">
                 <div><p>50ml SMIDGIN <br />CLASSIC</p></div>
@@ -948,7 +951,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
 
               <div id="sredina" class="relative z-10 -mt-3 md:-mt-5 w-[180px] h-[160px] md:w-[330px] md:h-[292px] overflow-hidden mx-4 md:mx-8">
-                <img src="img/figsour.png" class="w-full h-full object-cover object-bottom" />
+                <img src="img/figsour.webp" class="w-full h-full object-cover object-bottom"  loading="lazy" decoding="async"/>
               </div>
 
               <div id="desno" class="relative z-10 flex flex-col space-y-5 md:space-y-10 text-[12px] md:text-base text-center">
@@ -985,7 +988,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         <!-- VELVET PERFECT -->
         <div class="md:min-w-[350px] min-w-[160px] md:px-6 flex flex-col group justify-center items-center">
-    <img src="img/velvetperfect.png" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('velvetperfect')"/>
+    <img src="img/velvetperfect.webp" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('velvetperfect')" loading="lazy" decoding="async"/>
     <p class="font-Baskervville md:text-2xl text-[18px] group-hover:underline transition-transform duration-500 delay-100">Velvet-Perfect Serve</p>  
 </div>
 
@@ -994,15 +997,15 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2 class="text-xl md:text-2xl font-Baskervville mb-6 md:mb-3 text-center">Velvet - Perfect Serve</h2>
 
     <div class="relative flex items-center justify-center font-montserrat font-bold scale-90 md:scale-100">
-      <img src="/Strelki/Strelka1.png" class="block absolute top-[53%] md:top-[50%] left-[15%] w-[75px] md:w-[120px] h-auto z-0" style="transform: rotate(10deg);" alt="">
-      <img src="/Strelki/Strelka2.png" class=" flip-hor block absolute bottom-[40%] right-[15%] w-[93px] md:w-[150px] h-auto z-0" style="transform: rotate(-10deg); transform: scaleY(-1); transform: scaleX(-1);" alt="">
+      <img src="/Strelki/Strelka1.png" class="block absolute top-[53%] md:top-[50%] left-[15%] w-[75px] md:w-[120px] h-auto z-0" style="transform: rotate(10deg);" alt="" loading="lazy" decoding="async">
+      <img src="/Strelki/Strelka2.png" class=" flip-hor block absolute bottom-[40%] right-[15%] w-[93px] md:w-[150px] h-auto z-0" style="transform: rotate(-10deg); transform: scaleY(-1); transform: scaleX(-1);" alt="" loading="lazy" decoding="async">
 
       <div class="relative z-10 -mt-12 md:-mt-24 w-1/3 text-[12px] md:text-[18px] text-center" id="levo-velvet">
         <p>50ml SMIDGIN <br />VELVET</p>
       </div>
 
       <div class="relative z-10 w-[180px] h-[220px] md:w-[312px] md:h-[388px] -mr-6 md:-mr-12 overflow-hidden -mt-5 mx-2 md:mx-0" id="sredina-velvet">
-        <img src="img/velvetperfect.png" class="w-full h-full object-cover object-bottom" />
+        <img src="img/velvetperfect.webp" class="w-full h-full object-cover object-bottom"  loading="lazy" decoding="async"/>
       </div>
 
       <div class="relative z-10 w-1/2 text-[12px] md:text-[18px] text-center -mb-16 md:-mb-32" id="desno-velvet">
@@ -1038,7 +1041,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- GIN TONIC -->
   <div class="md:min-w-[350px] min-w-[160px] md:px-6 flex flex-col group justify-center items-center">
-    <img src="img/gintonik.png" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('S&T')"/>
+    <img src="img/gintonik.webp" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('S&T')" loading="lazy" decoding="async"/>
     <p class="font-Baskervville md:text-2xl text-[18px] group-hover:underline transition-transform duration-500 delay-100">S&T</p>  
 </div>
 
@@ -1047,9 +1050,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2 class="text-xl md:text-2xl font-Baskervville mb-6 md:mb-3 text-center">S&T</h2>
 
     <div class="relative flex items-center justify-center font-montserrat font-bold scale-90 md:scale-100">
-      <img src="/Strelki/Strelka1.png" class="block absolute md:top-[13%] top-[2%] left-[14%] w-[50px] md:w-[110px] h-auto z-0" style="transform: rotate(15deg);" alt="">
-      <img src="/Strelki/Strelka2.png" class="block absolute bottom-[41%] left-[22%] w-[45px] md:w-[100px] h-auto z-0" style="transform: rotate(-10deg);" alt="">
-      <img src="/Strelki/Strelka3.png" class="block absolute bottom-[42%]  right-[22%] w-[50px] md:w-[110px] h-auto z-0" style="transform: rotate(10deg);" alt="">
+      <img src="/Strelki/Strelka1.png" class="block absolute md:top-[13%] top-[2%] left-[14%] w-[50px] md:w-[110px] h-auto z-0" style="transform: rotate(15deg);" alt="" loading="lazy" decoding="async">
+      <img src="/Strelki/Strelka2.png" class="block absolute bottom-[41%] left-[22%] w-[45px] md:w-[100px] h-auto z-0" style="transform: rotate(-10deg);" alt="" loading="lazy" decoding="async">
+      <img src="/Strelki/Strelka3.png" class="block absolute bottom-[42%]  right-[22%] w-[50px] md:w-[110px] h-auto z-0" style="transform: rotate(10deg);" alt="" loading="lazy" decoding="async">
 
       <div class="relative z-10 -mb-2 w-1/3 -mr-4 md:-mr-7 text-[12px] md:text-[18px] text-center space-y-10 md:space-y-20">
         <div><p>50ml SMIDGIN <br />VELVET</p></div>
@@ -1057,7 +1060,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="relative z-10 w-[180px] h-[220px] md:w-[312px] md:h-[388px] -mr-10 md:-mr-20 overflow-hidden -mt-5">
-        <img src="img/gintonik.png" class="w-full h-full object-cover object-bottom" />
+        <img src="img/gintonik.webp" class="w-full h-full object-cover object-bottom"  loading="lazy" decoding="async"/>
       </div>
 
       <div class="relative z-10 w-1/2 text-[12px] md:text-[18px] text-center -mb-16 md:-mb-32">
@@ -1093,7 +1096,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- NEGRONI  -->
      <div class="md:min-w-[350px] min-w-[160px] md:px-6 flex flex-col group justify-center items-center">
-    <img src="img/negroni.png" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('negroni')"/>
+    <img src="img/negroni.webp" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('negroni')" loading="lazy" decoding="async"/>
     <p class="font-Baskervville md:text-2xl text-[18px] group-hover:underline transition-transform duration-500 delay-100">Negroni</p>  
 </div>
 
@@ -1102,16 +1105,16 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2 class="text-xl md:text-2xl font-Baskervville mb-10 md:mb-20 text-center">Negroni</h2>
 
     <div class="relative flex items-center justify-center font-montserrat font-bold scale-90 md:scale-100">
-      <img src="/Strelki/Strelka1.png" class="block absolute top-[42%] left-[15%] w-[50px] md:w-[100px] h-auto z-0" style="transform: rotate(20deg);" alt="">
-      <img src="/Strelki/Strelka2.png" class="block absolute top-[-18%] right-[1%] w-[60px] md:w-[120px] h-auto z-0" style="transform: rotate(-10deg) scaleX(-1) scaleY(-1);" alt="">
-      <img src="/Strelki/Strelka3.png" class="block absolute bottom-[55%] right-[15%] w-[45px] md:w-[80px] h-auto z-0" style="transform: rotate(5deg); " alt="">
+      <img src="/Strelki/Strelka1.png" class="block absolute top-[42%] left-[15%] w-[50px] md:w-[100px] h-auto z-0" style="transform: rotate(20deg);" alt="" loading="lazy" decoding="async">
+      <img src="/Strelki/Strelka2.png" class="block absolute top-[-18%] right-[1%] w-[60px] md:w-[120px] h-auto z-0" style="transform: rotate(-10deg) scaleX(-1) scaleY(-1);" alt="" loading="lazy" decoding="async">
+      <img src="/Strelki/Strelka3.png" class="block absolute bottom-[55%] right-[15%] w-[45px] md:w-[80px] h-auto z-0" style="transform: rotate(5deg); " alt="" loading="lazy" decoding="async">
 
       <div class="relative z-10 mb-20 md:mb-40 -mr-4 md:-mr-7 text-[12px] md:text-[18px] text-center space-y-10 md:space-y-20">
         <p>50ml SMIDGIN <br />CLASSIC</p>
       </div>
 
       <div class="relative z-10 w-[200px] h-[190px] md:w-[362px] md:h-[350px] -mt-24 md:-mt-44 -mr-4 md:-mr-10 overflow-hidden">
-        <img src="img/negroni.png" class="w-full h-full object-cover" />
+        <img src="img/negroni.webp" class="w-full h-full object-cover"  loading="lazy" decoding="async"/>
       </div>
 
       <div class="relative z-10 flex flex-col text-[12px] md:text-[18px] text-center">
@@ -1209,7 +1212,7 @@ document.addEventListener("DOMContentLoaded", () => {
         src="./img/uploadpic.png"
         class="absolute bottom-4 right-4 w-[24px] h-[24px] md:w-[32px] md:h-[32px] cursor-pointer hover:opacity-70 transition"
         onclick="document.getElementById('recipePhoto').click()"
-      />
+       loading="lazy" decoding="async"/>
       <p id="fileNameDisplay" class="absolute bottom-4 left-4 text-xs text-gray-500"></p>
     </div>
 
@@ -1352,17 +1355,17 @@ fetch('/recipes', {
         <div class="flex md:flex-row flex-col">
             <div class="flex -mt-7 md:mt-0 flex-col space-y-7 md:space-y-14 items-center md:w-1/2 ">
                 <p class="md:text-[18px] text-[14px] font-montserrat">Conceived by two gin enthusiasts in search of the perfect spirit, Smidgin is a one-shot London Dry Gin, distilled at our MCM craft distillery in the heart of Skopje. The recipe is rooted in wild Macedonian nature, blending fresh foraged juniper berries and mountain tea into every small batch.</p>
-                <img class="md:hidden -mr-5" src="./img/Untitled design.png"/>
+                <img class="md:hidden -mr-5" src="./img/Untitled design.webp" loading="lazy" decoding="async"/>
                 <a href="./whoweare" class="px-5 py-3 w-36 text-center bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] font-montserrat rounded-xl text-white">READ MORE</a>
             </div>
             <div class="md:block hidden w-1/2 pl-10">
-                <img src="./img/Screenshot 2025-09-01 at 04.15.36.png"/>
+                <img src="./img/Screenshot 2025-09-01 at 04.15.36.webp" loading="lazy" decoding="async"/>
             </div>
 
         </div>
     </div>
     <div class="md:block hidden w-1/3 pl-7">
-        <img src="./img/Screenshot 2025-09-01 at 04.21.57.png"/>
+        <img src="./img/Screenshot 2025-09-01 at 04.21.57.webp" loading="lazy" decoding="async"/>
     </div>
 </div> 
 
@@ -1370,7 +1373,7 @@ fetch('/recipes', {
     <h1>FIND OUR STORES <p class="text-red-500 md:mt-0 -mt-3">WORLDWIDE</p></h1>
 </div>
 <div class="md:px-44 px-2 pt-6">
-    <img src="./img/Screenshot 2026-02-01 at 18.05.51.png"/>
+    <img src="./img/Screenshot 2026-02-01 at 18.05.51.webp" loading="lazy" decoding="async"/>
 </div>
 <div class="font-montserrat pt-9 flex flex-col space-y-6 items-center">
     <h1 class="text-center text-[14px] md:text-[20px] px-5 md:px-52">Smidgin is available in select boutiques, bars, and retailers around the world. Explore our global map to discover where you can sip, shop, and experience the spirit of Smidgin.</h1>
@@ -1382,7 +1385,7 @@ fetch('/recipes', {
        <h1>AWARD <SPAN class="text-red-500">WINNING</SPAN> GIN</h1>
    </div>
    <div class="md:px-36  pt-7 md:pt-16">
-       <img src="./img/Screenshot 2025-09-02 at 00.09.29.png"/>
+       <img src="./img/Screenshot 2025-09-02 at 00.09.29.webp" loading="lazy" decoding="async"/>
    </div>
    <div class="flex flex-col-reverse md:flex-row font-montserrat md:px-64 md:space-x-6 justify-between items-center pt-20">
        <div class="px-6 mt-14 md:mt-0 md:px-0 md:w-2/3 text-[15px] md:text-xl">
@@ -1406,22 +1409,22 @@ fetch('/recipes', {
     <div id="slideshowReviews" class="hidden md:block overflow-x-auto pt-16">
         <div class="flex flex-nowrap py-12 md:px-24 px-24  space-x-9">
             <div class="relative group flex-shrink-0 w-1/3  snap-start">
-                <img src="./img/Screenshot 2025-09-02 at 00.24.59.png"/>
+                <img src="./img/Screenshot 2025-09-02 at 00.24.59.png" loading="lazy" decoding="async"/>
             </div>
             <div class="relative group flex-shrink-0 w-1/3  snap-start">
-                <img src="./img/Screenshot 2025-09-02 at 00.25.16.png"/>
+                <img src="./img/Screenshot 2025-09-02 at 00.25.16.png" loading="lazy" decoding="async"/>
 
             </div>
             <div class="relative group flex-shrink-0 w-1/3  snap-start">
-                <img src="./img/Screenshot 2025-09-02 at 00.25.58.png"/>
+                <img src="./img/Screenshot 2025-09-02 at 00.25.58.png" loading="lazy" decoding="async"/>
 
             </div>
             <div class="relative group flex-shrink-0  w-1/3  snap-start">
-                <img src="./img/Screenshot 2025-09-02 at 00.26.48.png"/>
+                <img src="./img/Screenshot 2025-09-02 at 00.26.48.png" loading="lazy" decoding="async"/>
 
             </div>
             <div class="relative group flex-shrink-0  w-1/3  snap-start">
-                <img src="./img/Screenshot 2025-09-02 at 00.27.09.png"/>
+                <img src="./img/Screenshot 2025-09-02 at 00.27.09.png" loading="lazy" decoding="async"/>
 
             </div>
         </div>
@@ -1429,22 +1432,22 @@ fetch('/recipes', {
     <div id="slideshowReviews" class="block md:hidden overflow-x-auto pt-3 md:pt-16">
         <div class="flex flex-nowrap py-12 md:px-24 px-4  space-x-3">
             <div class="relative group flex-shrink-0 w-[60%]  snap-start">
-                <img src="./img/Screenshot 2025-10-31 at 00.10.54.png"/>
+                <img src="./img/Screenshot 2025-10-31 at 00.10.54.webp" loading="lazy" decoding="async"/>
             </div>
             <div class="relative group flex-shrink-0 w-[60%]  snap-start">
-                <img src="./img/Screenshot 2025-10-31 at 00.13.43.png"/>
+                <img src="./img/Screenshot 2025-10-31 at 00.13.43.png" loading="lazy" decoding="async"/>
 
             </div>
             <div class="relative group flex-shrink-0 w-[60%]   snap-start">
-                <img src="./img/Screenshot 2025-10-31 at 00.14.13.png"/>
+                <img src="./img/Screenshot 2025-10-31 at 00.14.13.png" loading="lazy" decoding="async"/>
 
             </div>
             <div class="relative group flex-shrink-0 w-[60%] snap-start">
-                <img src="./img/Screenshot 2025-10-31 at 00.14.35.png"/>
+                <img src="./img/Screenshot 2025-10-31 at 00.14.35.png" loading="lazy" decoding="async"/>
 
             </div>
             <div class="relative group flex-shrink-0 w-[60%] snap-start">
-                <img src="./img/Screenshot 2025-10-31 at 00.14.56.png"/>
+                <img src="./img/Screenshot 2025-10-31 at 00.14.56.png" loading="lazy" decoding="async"/>
 
             </div>
         </div>
@@ -1484,7 +1487,7 @@ fetch('/recipes', {
 <div>
 <div class="hidden md:flex px-32  items-end justify-between pt-16">
    <div class="w-1/3">
-       <img src="./img/logoFooter.png" class="w-[241px]"/>
+       <img src="./img/logoFooter.png" class="w-[241px]" loading="lazy" decoding="async"/>
        <p class="font-montserrat pt-7">Skenderoski and Lowther DOO Skopje</p>
        <p class="font-montserrat pt-2"><i class="fa-solid fa-location-dot"></i>   Boulevard Ilinden 80, Skopje, Macedonia</p>
        <p class="font-montserrat pt-2"><i class="fa-solid fa-phone"></i>  +389 76 405 175</p>
@@ -1496,21 +1499,21 @@ fetch('/recipes', {
    </div>
    <div class="w-1/3 flex  flex-col items-end space-y-7  md:pr-8">
      <div id="socialmedia" class="flex space-x-3 ">
-        <a href="mailto:info@smidgin.mk"><img src="footer/Column (3).png" /></a>
-        <a href="https://www.facebook.com/smidgin.mk/"><img src="footer/Row (2).png" /></a>
-        <a href="https://www.instagram.com/smidgin.mk/?hl=en"><img src="footer/Row (3).png" /></a>
-        <a href="https://mk.linkedin.com/company/smidgin"><img src="footer/Row (4).png" /></a>
+        <a href="mailto:info@smidgin.mk"><img src="footer/Column (3).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.facebook.com/smidgin.mk/"><img src="footer/Row (2).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.instagram.com/smidgin.mk/?hl=en"><img src="footer/Row (3).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://mk.linkedin.com/company/smidgin"><img src="footer/Row (4).png"  loading="lazy" decoding="async"/></a>
      </div>
      <div id="priznanija" class="flex justify-center space-x-4 items-center">
-        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[80px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png" /></a>
-        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[80px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png" /></a>
+        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[80px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[80px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png"  loading="lazy" decoding="async"/></a>
      </div>
    </div>
 </div>
 <div class="md:hidden mt-12">
 <div class="flex flex-col justify-center items-center">
-    <img src="./img/logoFooter.png" class="w-1/3"/>
-    <img src="./img/Screenshot 2025-10-31 at 00.17.38.png" class="w-1/3 mt-2"/>
+    <img src="./img/logoFooter.png" class="w-1/3" loading="lazy" decoding="async"/>
+    <img src="./img/Screenshot 2025-10-31 at 00.17.38.png" class="w-1/3 mt-2" loading="lazy" decoding="async"/>
     <a class="underline text-gray-500 font-montserrat text-[14px] mt-5" href="./returnoffer">Bottle Return Offer</a><br/>
     <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href="./privacypolicy">Privacy Policy</a><br/>
     <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href="./termsandconditions">Terms and Conditions</a>
@@ -1523,8 +1526,8 @@ fetch('/recipes', {
         <p class="pl-7 text-gray-500 text-[14px] font-montserrat pt-2"><i class="fa-solid fa-phone"></i>  +389 76 405 175</p>
     </div>
     <div class="flex flex-col space-y-2">
-        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[60px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png" /></a>
-        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[60px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png" /></a>
+        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[60px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[60px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png"  loading="lazy" decoding="async"/></a>
     </div>
     <!-- Back to Top Arrow -->
 </div>

@@ -81,7 +81,7 @@ class="w-full border p-3 rounded mb-4">
 
 @if($store->image)
 <img
-src="{{ asset('storage/'.$store->image) }}"
+src="{{ asset('storage/'.$store- loading="lazy" decoding="async">image) }}"
 class="w-40 rounded mb-4">
 @endif
 

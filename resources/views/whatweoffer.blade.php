@@ -80,7 +80,7 @@
 <div id="homepage" class="font-montserrat md:px-28 pt-14 pb-12 space-y-16 flex flex-col items-center">
     <div id="navbar" class="flex w-[99%] md:px-0 px-9 justify-between items-center">
         <a href="./" id="logo" class="md:w-[208px] w-[180px]">
-            <img src="./img/logo.png"/>
+            <img src="./img/logo.png" loading="lazy" decoding="async"/>
         </a>
 <i 
   id="floating-menu" 
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="ham-menu" class="fixed inset-0 bg-[#EF4135] z-50 hidden flex flex-col  pt-12 items-start justify-start space-y-0">
     <i onclick="closeModal('ham-menu')" class="fa-solid fa-xmark text-white text-3xl absolute top-6 right-6 cursor-pointer"></i>
     <div class="flex pl-9 pb-10 w-full justify-start" >
-      <img class="h-[42px]" src="./img/image.png"/>
+      <img class="h-[42px]" src="./img/image.png" loading="lazy" decoding="async"/>
     </div>
     <div class="flex flex-col w-full pl-9 space-y-3 justify-start">
       <a href="https://smidgin-shop.myshopify.com/?srsltid=AfmBOoqJHd6Cccrm3CCQvzWikXUkEKywegonf-rx2u145ZDkvLJxZu05" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">BUY ONLINE</a>
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/classicFinal.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="icons/classicFinal.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex flex-col w-full items-center">
                         <p class="text-7xl text-red-500 font-montserrat pointer-events-auto">Smidgin</p>
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/velvet.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="icons/velvet.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex flex-col w-full items-center">
                         <p class="text-7xl text-[#4D2957] font-montserrat pointer-events-auto">Smidgin</p>
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
              
             <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/orient.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="icons/orient.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex -ml-7 flex-col w-full items-center">
                         <p class="text-7xl text-[#821A16] font-montserrat pointer-events-auto">Smidgin</p>
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
              
              <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/light.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="icons/light.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex -ml-7 flex-col w-full items-center">
                         <p class="text-7xl text-[#4164AD] font-montserrat pointer-events-auto">Smidgin</p>
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             <a href=""">
             <div class="relative group  flex-shrink-0 w-[40%]  snap-start">
-                <img src="./icons/xo.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="./icons/xo.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex flex-col w-full items-center">
                         <p class="text-7xl text-[#A24B1E] font-montserrat pointer-events-auto">Smidgin</p>
@@ -387,7 +387,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
     <div id="BookATour" class="overflow-x-auto pb-12" >
         <div class="flex flex-nowrap md:py-12 md:px-24 px-7 space-x-7">
             <div id="Distillery" class="flex-none md:md:w-[390px] w-[280px]  group md:hover:h-[877px] transition-all duration-300 ease-in-out  h-[600px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/tour1.jpeg"/>
+                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/tour1.webp" loading="lazy" decoding="async"/>
                 <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                     <h1 class="font-bold text-[20px]">DISTILLERY TOUR</h1>
                     <P class="md:text-[16px] text-[12px] text-red-500">Basic</P>
@@ -402,7 +402,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
                 </div>
             </div>
             <div id="ExperienceBasic" class="flex-none md:md:w-[390px] w-[280px]  group md:hover:h-[1020px] transition-all duration-300 ease-in-out  h-[600px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./sliki/experiencee.jpeg"/>
+                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./sliki/experiencee.webp" loading="lazy" decoding="async"/>
                 <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                     <h1 class="font-bold text-[20px]">SMIDGIN EXPERIENCE</h1>
                     <P class="md:text-[16px] text-[12px] text-red-500">Basic</P>
@@ -417,7 +417,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
                 </div>
             </div>
             <div id="ExperiencePremium" class="flex-none md:md:w-[390px] w-[280px]  group md:hover:h-[1050px] transition-all duration-300 ease-in-out  h-[600px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/experience2.jpeg"/>
+                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/experience2.jpeg" loading="lazy" decoding="async"/>
                 <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                     <h1 class="font-bold text-[20px]">SMIDGIN EXPERIENCE</h1>
                     <P class="md:text-[16px] text-[12px] -mt-5 md:-mt-0 text-red-500">Premium</P>
@@ -432,7 +432,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
                 </div>
             </div>
             <div id="GinMaking" class="flex-none md:w-[390px] w-[280px]  group md:hover:h-[1330px] transition-all duration-300 ease-in-out h-[717px] md:h-[660px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/ginmaking.jpeg"/>
+                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/ginmaking.webp" loading="lazy" decoding="async"/>
                 <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                     <h1 class="font-bold text-[20px]">GIN MAKING CLASS</h1>
                     <P class="md:text-[16px] -mr-4 md:-mr-0 text-[12px] text-red-500">Limited Premium</P>
@@ -447,7 +447,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
                 </div>
             </div>
             <div id="YourGinForTheWin" class="flex-none md:md:w-[390px] w-[280px]  group md:hover:h-[1540px] transition-all duration-300 ease-in-out h-[705px] md:h-[650px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/event1.png"/>
+                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/event1.webp" loading="lazy" decoding="async"/>
                 <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                     <h1 class="font-bold text-[20px]">YOUR GIN FOR THE WIN</h1>
                     <P class="md:text-[16px] text-[12px] text-red-500">Competitional</P>
@@ -476,7 +476,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
     <div id="BookATour" class="overflow-x-auto">
         <div class="flex flex-nowrap py-12 md:px-24 px-7 space-x-7">
             <div id="AcademyEvent" class="flex-none md:w-[390px] w-[280px]  group md:hover:h-[1340px] transition-all duration-300 ease-in-out  h-[678px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/event2.png"/>
+                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/event2.webp" loading="lazy" decoding="async"/>
                 <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                     <h1 class="font-bold text-[20px]">SMIDGIN COCKTAIL ACADEMY EVENT</h1>
                     <P class="md:text-[16px] text-[12px] text-red-500"></P>
@@ -502,7 +502,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
     <div class="flex flex-col justify-center space-y-8 md:space-y-14 items-center px-5 md:px-0">
         <div class="flex flex-col md:flex-row justify-between space-x-0 md:space-x-4 px-5 md:px-7 py-5 md:py-7 items-center w-full md:w-[1057px] rounded-2xl text-center bg-white shadow-2xl">
             <div class="w-full md:w-1/2">
-                <img class="w-full h-auto md:h-[306px] object-cover" src="./img/personalizedbottle1.png"/>
+                <img class="w-full h-auto md:h-[306px] object-cover" src="./img/personalizedbottle1.webp" loading="lazy" decoding="async"/>
             </div>
             <div class="font-montserrat flex flex-col text-start h-full w-full md:w-1/2 pt-5 md:pt-0">
                 <h1 class="text-[18px] font-bold">PERSONALIZED SMIDGIN BOTTLE</h1><br/>
@@ -513,7 +513,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 
         <div class="flex flex-col md:flex-row-reverse justify-between space-x-0 md:space-x-4 px-5 md:px-7 py-5 md:py-7 items-center w-full md:w-[1057px] rounded-2xl text-center bg-white shadow-2xl">
             <div class="w-full md:w-1/2">
-                <img class="w-full h-auto md:h-[306px] object-cover" src="./img/personalizedbottle2.png"/>
+                <img class="w-full h-auto md:h-[306px] object-cover" src="./img/personalizedbottle2.webp" loading="lazy" decoding="async"/>
             </div>
             <div class="font-montserrat flex flex-col text-start h-full w-full md:w-1/2 pt-5 md:pt-0">
                 <h1 class="text-[18px] font-bold">PERSONALIZED SMIDGIN SET</h1><br/>
@@ -535,7 +535,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 <div>
 <div class="hidden md:flex px-32  items-end justify-between pt-16">
    <div class="w-1/3">
-       <img src="./img/logoFooter.png" class="w-[241px]"/>
+       <img src="./img/logoFooter.png" class="w-[241px]" loading="lazy" decoding="async"/>
        <p class="font-montserrat pt-7">Skenderoski and Lowther DOO Skopje</p>
        <p class="font-montserrat pt-2"><i class="fa-solid fa-location-dot"></i>   Boulevard Ilinden 80, Skopje, Macedonia</p>
        <p class="font-montserrat pt-2"><i class="fa-solid fa-phone"></i>  +389 76 405 175</p>
@@ -547,21 +547,21 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
    </div>
    <div class="w-1/3 flex  flex-col items-end space-y-7  md:pr-8">
      <div id="socialmedia" class="flex space-x-3 ">
-        <a href="mailto:info@smidgin.mk"><img src="footer/Column (3).png" /></a>
-        <a href="https://www.facebook.com/smidgin.mk/"><img src="footer/Row (2).png" /></a>
-        <a href="https://www.instagram.com/smidgin.mk/?hl=en"><img src="footer/Row (3).png" /></a>
-        <a href="https://mk.linkedin.com/company/smidgin"><img src="footer/Row (4).png" /></a>
+        <a href="mailto:info@smidgin.mk"><img src="footer/Column (3).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.facebook.com/smidgin.mk/"><img src="footer/Row (2).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.instagram.com/smidgin.mk/?hl=en"><img src="footer/Row (3).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://mk.linkedin.com/company/smidgin"><img src="footer/Row (4).png"  loading="lazy" decoding="async"/></a>
      </div>
      <div id="priznanija" class="flex justify-center space-x-4 items-center">
-        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[80px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png" /></a>
-        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[80px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png" /></a>
+        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[80px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[80px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png"  loading="lazy" decoding="async"/></a>
      </div>
    </div>
 </div>
 <div class="md:hidden mt-12">
 <div class="flex flex-col justify-center items-center">
-    <img src="./img/logoFooter.png" class="w-1/3"/>
-    <img src="./img/Screenshot 2025-10-31 at 00.17.38.png" class="w-1/3 mt-2"/>
+    <img src="./img/logoFooter.png" class="w-1/3" loading="lazy" decoding="async"/>
+    <img src="./img/Screenshot 2025-10-31 at 00.17.38.png" class="w-1/3 mt-2" loading="lazy" decoding="async"/>
     <a class="underline text-gray-500 font-montserrat text-[14px] mt-5" href=""">Bottle Return Offer</a><br/>
     <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href=""">Privacy Policy</a><br/>
     <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href=""">Terms and Conditions</a>
@@ -574,8 +574,8 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
         <p class="pl-7 text-gray-500 text-[14px] font-montserrat pt-2"><i class="fa-solid fa-phone"></i>  +389 76 405 175</p>
     </div>
     <div class="flex flex-col space-y-2">
-        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[60px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png" /></a>
-        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[60px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png" /></a>
+        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[60px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[60px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png"  loading="lazy" decoding="async"/></a>
     </div>
     <!-- Back to Top Arrow -->
 </div>
@@ -596,7 +596,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 <div id="DistilleryModal" class="fixed inset-0 bg-black/75 flex items-center justify-center z-50 hidden p-4">
     <div class="bg-white/80  backdrop-blur-sm rounded-2xl p-6 w-[90%] mx-auto shadow-2xl overflow-y-auto max-h-[75vh] md:max-h-full md:w-auto">
         <div class="flex flex-col">
-            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/tour1.jpeg" alt="Distillery Tour Group"/>
+            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/tour1.webp" alt="Distillery Tour Group" loading="lazy" decoding="async"/>
             
             <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                 <h1 class="font-bold text-[20px]">DISTILLERY TOUR</h1>
@@ -625,7 +625,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 <div id="ExperienceBasicModal" class="fixed inset-0 bg-black/75 flex items-center justify-center z-50 hidden p-4">
     <div class="bg-white/80  backdrop-blur-sm rounded-2xl p-6 w-[89%] h-[80%] mx-auto shadow-2xl overflow-y-auto">
         <div class="flex flex-col">
-            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./sliki/experiencee.jpeg" alt="Smidgin Experience Basic Group"/>
+            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./sliki/experiencee.webp" alt="Smidgin Experience Basic Group" loading="lazy" decoding="async"/>
             <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                 <h1 class="font-bold text-[20px]">SMIDGIN EXPERIENCE</h1>
                 <p class="text-[16px] text-red-500">Basic</p>
@@ -653,7 +653,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 <div id="ExperiencePremiumModal" class="fixed inset-0 bg-black/75 flex items-center justify-center z-50 hidden p-4">
     <div class="bg-white/80  backdrop-blur-sm  rounded-2xl p-6 w-[89%] h-[80%] mx-auto shadow-2xl overflow-y-auto">
         <div class="flex flex-col">
-            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/experience2.jpeg" alt="Smidgin Experience Premium Group"/>
+            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/experience2.jpeg" alt="Smidgin Experience Premium Group" loading="lazy" decoding="async"/>
             <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                 <h1 class="font-bold text-[20px]">SMIDGIN EXPERIENCE</h1>
                 <p class="text-[16px] text-red-500">Premium</p>
@@ -681,7 +681,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 <div id="YourGinForTheWinModal" class="fixed inset-0 bg-black/75 flex items-center justify-center z-50 hidden p-4">
     <div class="bg-white/80  backdrop-blur-sm rounded-2xl p-6 w-[89%] h-[80%] mx-auto shadow-2xl overflow-y-auto">
         <div class="flex flex-col">
-            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/event1.png" alt="Your Gin For The Win Group"/>
+            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/event1.webp" alt="Your Gin For The Win Group" loading="lazy" decoding="async"/>
             <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                 <h1 class="font-bold text-[20px]">YOUR GIN FOR THE WIN</h1>
                 <p class="text-[16px] text-red-500">Competitional</p>
@@ -709,7 +709,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 <div id="AcademyEventModal" class="fixed inset-0 bg-black/75 flex items-center justify-center z-50 hidden p-4">
     <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 w-[90%] mx-auto shadow-2xl overflow-y-auto max-h-[75vh] md:max-h-full md:w-auto">
         <div class="flex flex-col">
-            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/event2.png" alt="Smidgin Cocktail Academy Event"/>
+            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/event2.webp" alt="Smidgin Cocktail Academy Event" loading="lazy" decoding="async"/>
 
             <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                 <h1 class="font-bold text-[20px]">SMIDGIN COCKTAIL ACADEMY EVENT</h1>
@@ -741,7 +741,7 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 <div id="GinMakingModal" class="fixed inset-0 bg-black/75 flex items-center justify-center z-50 hidden p-4">
     <div class="bg-white/80  backdrop-blur-sm rounded-2xl p-6 w-[89%] h-[80%] mx-auto shadow-2xl overflow-y-auto">
         <div class="flex flex-col">
-            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/ginmaking.jpeg" alt="Gin Making Class Group"/>
+            <img class="mb-4 h-[140px] w-full object-cover rounded-2xl" src="./img/ginmaking.webp" alt="Gin Making Class Group" loading="lazy" decoding="async"/>
             <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
                 <h1 class="font-bold text-[20px]">GIN MAKING CLASS</h1>
                 <p class="text-[16px] text-red-500">Limited Premium</p>

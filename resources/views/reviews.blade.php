@@ -60,7 +60,7 @@
 <div id="homepage" class="font-montserrat md:px-28 pt-14 mb-12 space-y-16 flex flex-col items-center">
     <div id="navbar" class="flex w-[99%] md:px-0 px-9 justify-between items-center">
         <a href="./" id="logo" class="md:w-[208px] w-[180px]">
-            <img src="./img/logo.png"/>
+            <img src="./img/logo.png" loading="lazy" decoding="async"/>
         </a>
 <i 
   id="floating-menu" 
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="ham-menu" class="fixed inset-0 bg-[#EF4135] z-50 hidden flex flex-col  pt-12 items-start justify-start space-y-0">
     <i onclick="closeModal('ham-menu')" class="fa-solid fa-xmark text-white text-3xl absolute top-6 right-6 cursor-pointer"></i>
     <div class="flex pl-9 pb-10 w-full justify-start" >
-      <img class="h-[42px]" src="./img/image.png"/>
+      <img class="h-[42px]" src="./img/image.png" loading="lazy" decoding="async"/>
     </div>
     <div class="flex flex-col w-full pl-9 space-y-3 justify-start">
       <a href="https://smidgin-shop.myshopify.com/?srsltid=AfmBOoqJHd6Cccrm3CCQvzWikXUkEKywegonf-rx2u145ZDkvLJxZu05" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">BUY ONLINE</a>
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/classicFinal.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="icons/classicFinal.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex flex-col w-full items-center">
                         <p class="text-7xl text-red-500 font-montserrat pointer-events-auto">Smidgin</p>
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/velvet.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="icons/velvet.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex flex-col w-full items-center">
                         <p class="text-7xl text-[#4D2957] font-montserrat pointer-events-auto">Smidgin</p>
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
              
             <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/orient.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="icons/orient.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex -ml-7 flex-col w-full items-center">
                         <p class="text-7xl text-[#821A16] font-montserrat pointer-events-auto">Smidgin</p>
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
              
              <a href=""">
             <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/light.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="icons/light.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex -ml-7 flex-col w-full items-center">
                         <p class="text-7xl text-[#4164AD] font-montserrat pointer-events-auto">Smidgin</p>
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             <a href=""">
             <div class="relative group  flex-shrink-0 w-[40%]  snap-start">
-                <img src="./icons/xo.png" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100"/>
+                <img src="./icons/xo.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
                     <div class="flex flex-col w-full items-center">
                         <p class="text-7xl text-[#A24B1E] font-montserrat pointer-events-auto">Smidgin</p>
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <h1 class="font-Baskervville text-[32px] -mt-4 md:-mt-0 md:text-5xl px-7 md:px-32 pt-2">BIG <SPAN class="text-red-500">REPUTATION</SPAN></h1>
     </div>
     <div class="md:px-32 px-7">
-        <img class="md:w-[1256px] text-center rounded-3xl" src="./sliki/review.png"/>
+        <img class="md:w-[1256px] text-center rounded-3xl" src="./sliki/review.webp" loading="lazy" decoding="async"/>
     </div>
     <div class="px-7 md:px-32 pt-9 text-[30px] font-Baskervville font-semibold">
         <p>Smidgin Reviewed by the Scottish Gin Cooperative</p>
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     <div class="flex md:flex-row flex-col-reverse justify-between md:px-28 px-7 items-center md:space-x-10 pt-7">
-        <img class="w-[250px] h-[250px] md:w-[342.9705810546875px] md:h-[345px]" src="./sliki/theGinCooperative.png"/>
+        <img class="w-[250px] h-[250px] md:w-[342.9705810546875px] md:h-[345px]" src="./sliki/theGinCooperative.png" loading="lazy" decoding="async"/>
         <p class="font-montserrat text-[16px]">Scotland is a country that loves gin.  It is a country about the same size as North Macedonia and has over 160 gin distilleries, from huge industrial gin factories such as Gordons and Tanqueray to the smallest craft distilleries.  A few restaurants in Edinburgh even have a gin distillery right inside the restaurant.  Over the past decade, Scotland has made gin into an art form, with competitions and festivals almost every week in the summer months.<br/><br/>The Gin Cooperative is one of the leading authorities on Scottish gin.   Formed in 2017 to support Scottish gin makers, the Gin Cooperative is made up of an independent group of gin experts.<br/><br/>Graeme, who is the ‘Scottish half’ of Smidgin, took a few sample bottles of Smidgin to his hometown of Edinburgh last month and asked the Gin Cooperative to provide a review.  The team at the Gin Cooperative tasted Smidgin, both neat and with tonic, and here is what they said:</p>
     </div>
 
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="desno" class="flex items-end">
-            <img class="h-[300px] mt-7 md:mt-0 md:h-[337px]" src="./sliki/cashki.png"/>
+            <img class="h-[300px] mt-7 md:mt-0 md:h-[337px]" src="./sliki/cashki.webp" loading="lazy" decoding="async"/>
         </div>
     </div>
 
@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <p>SEAN MURPHY is a Scottish Gin Awards judge, writes about Scotland's favourite gins for the Scotsman Newspaper and works behind the bar at the world-famous Pot Still gin bar in Glasgow.  Sean is a true gin connoisseur.  Sean visited fifty Scottish distilleries to discover each one's secrets and wrote a book, Gin Galore about all 50 of the Scottish gins that he tried. We sent a sample of Smidgin to Sean to taste and this is what he said:<br/><br/><b>Initial thoughts:</b> I'm truly excited about trying a gin from what is essentially the home of juniper and getting to see what that the fresh Macedonian juniper imparts in terms of flavor. <br/><br/><b>Nose:</b> Straight off the bat you get that stringent juniper, very reminiscent of a walk in a forest on a warm day after a short burst of rain.  Over the top of that, there is a definite fresh vegetable/herbal note of the mountain tea.  The secondary notes then start to come through - picking up the citrus (grapefruit and orange) and more of the spicy notes (pepper) and a slight earthiness. <br/><br/><b>Palate:</b> First thing I noticed was the mouthfeel, rich and oily, very satisfying texture.   That Juniper really punches in here followed by the refreshing citrus mostly from the orange. Notes of spice and a herbal almost Mint and Thyme-like note from the Mountain tea. <br/><br/><b>With 50% water:</b> The juniper here is just wonderful, ranging to the almost floral and perfumey. The citrus really comes forward adding to a forest meadow-like feel on the nose.   <br/><br/><b>Final notes:</b> This is a straight-shooting and traditional juniper-forward gin.  Having fresh foraged North Macedonian juniper is definitely exciting.  Overall, a really fun gin that has strong appeal and a very interesting recipe.</p>
         </div>
         <div class="md:w-1/3 self-center flex flex-col items-center">
-            <img class="w-[270px] md:w-[368px]" src="./sliki/gingalore.png"/>
+            <img class="w-[270px] md:w-[368px]" src="./sliki/gingalore.webp" loading="lazy" decoding="async"/>
             <a href="https://www.amazon.co.uk/Gin-Galore-Journey-Source-Scotlands/dp/1785302159" class="block font-montserrat text-red-500 underline md:w-1/2 mt-8">Learn more about Sean's book; Gin Galore.</a>
         </div>
     </div>
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div>
 <div class="hidden md:flex px-32  items-end justify-between pt-16">
    <div class="w-1/3">
-       <img src="./img/logoFooter.png" class="w-[241px]"/>
+       <img src="./img/logoFooter.png" class="w-[241px]" loading="lazy" decoding="async"/>
        <p class="font-montserrat pt-7">Skenderoski and Lowther DOO Skopje</p>
        <p class="font-montserrat pt-2"><i class="fa-solid fa-location-dot"></i>   Boulevard Ilinden 80, Skopje, Macedonia</p>
        <p class="font-montserrat pt-2"><i class="fa-solid fa-phone"></i>  +389 76 405 175</p>
@@ -271,21 +271,21 @@ document.addEventListener("DOMContentLoaded", function() {
    </div>
    <div class="w-1/3 flex  flex-col items-end space-y-7  md:pr-8">
      <div id="socialmedia" class="flex space-x-3 ">
-        <a href="mailto:info@smidgin.mk"><img src="footer/Column (3).png" /></a>
-        <a href="https://www.facebook.com/smidgin.mk/"><img src="footer/Row (2).png" /></a>
-        <a href="https://www.instagram.com/smidgin.mk/?hl=en"><img src="footer/Row (3).png" /></a>
-        <a href="https://mk.linkedin.com/company/smidgin"><img src="footer/Row (4).png" /></a>
+        <a href="mailto:info@smidgin.mk"><img src="footer/Column (3).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.facebook.com/smidgin.mk/"><img src="footer/Row (2).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.instagram.com/smidgin.mk/?hl=en"><img src="footer/Row (3).png"  loading="lazy" decoding="async"/></a>
+        <a href="https://mk.linkedin.com/company/smidgin"><img src="footer/Row (4).png"  loading="lazy" decoding="async"/></a>
      </div>
      <div id="priznanija" class="flex justify-center space-x-4 items-center">
-        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[80px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png" /></a>
-        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[80px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png" /></a>
+        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[80px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[80px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png"  loading="lazy" decoding="async"/></a>
      </div>
    </div>
 </div>
 <div class="md:hidden mt-12">
 <div class="flex flex-col justify-center items-center">
-    <img src="./img/logoFooter.png" class="w-1/3"/>
-    <img src="./img/Screenshot 2025-10-31 at 00.17.38.png" class="w-1/3 mt-2"/>
+    <img src="./img/logoFooter.png" class="w-1/3" loading="lazy" decoding="async"/>
+    <img src="./img/Screenshot 2025-10-31 at 00.17.38.png" class="w-1/3 mt-2" loading="lazy" decoding="async"/>
     <a class="underline text-gray-500 font-montserrat text-[14px] mt-5" href=""">Bottle Return Offer</a><br/>
     <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href=""">Privacy Policy</a><br/>
     <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href=""">Terms and Conditions</a>
@@ -298,8 +298,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <p class="pl-7 text-gray-500 text-[14px] font-montserrat pt-2"><i class="fa-solid fa-phone"></i>  +389 76 405 175</p>
     </div>
     <div class="flex flex-col space-y-2">
-        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[60px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png" /></a>
-        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[60px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png" /></a>
+        <a href="https://www.momondo.de/city-guides/discover-skopje.18146.guide.ksp"><img class="w-[60px]" src="footer/be033833fdb4fe0437189251af49834c8d63ea3a.png"  loading="lazy" decoding="async"/></a>
+        <a href="https://www.kayak.es/Skopje.18146.guide"><img class="w-[60px]" src="footer/86ef22e36b59f7cf1d14803514de703ab033752c.png"  loading="lazy" decoding="async"/></a>
     </div>
     <!-- Back to Top Arrow -->
 </div>
