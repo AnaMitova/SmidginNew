@@ -53,7 +53,8 @@ use Illuminate\Support\Str;
                 <td class="px-4 py-1">
                     @if($store->image)
                         <img
-                            src="{{ asset('storage/'.$store- loading="lazy" decoding="async">image) }}"
+                            src="{{ asset('storage/'.$store->image) }}"
+                            loading="lazy" decoding="async"
                             class="w-16 h-16 rounded object-cover">
                     @endif
                 </td>
@@ -150,7 +151,8 @@ use Illuminate\Support\Str;
                     <td class="p-4">
                         @if($recipe->image)
                             <img
-                                src="{{ asset('storage/'.$recipe- loading="lazy" decoding="async">image) }}"
+                                src="{{ asset('storage/'.$recipe->image) }}"
+                                loading="lazy" decoding="async"
                                 class="w-16 h-16 object-cover rounded">
                         @else
                             -
