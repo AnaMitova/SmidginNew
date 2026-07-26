@@ -52,10 +52,10 @@ use Illuminate\Support\Str;
 
                 <td class="px-4 py-1">
                     @if($store->image)
-                        <img
-                            src="{{ asset('storage/'.$store->image) }}"
-                            loading="lazy" decoding="async"
-                            class="w-16 h-16 rounded object-cover">
+
+                    <img
+                        src="{{ asset('storage/' . $store->image) }}"
+                        class="w-16 h-16 rounded object-cover">
                     @endif
                 </td>
 
@@ -102,12 +102,12 @@ use Illuminate\Support\Str;
 
     </table>
 
-    @if($stores->count() > 7)
+    @if($stores->count() > 4)
         <div class="p-6 text-center border-t">
 
             <button
                 x-show="visible < {{ $stores->count() }}"
-                @click="visible += 7"
+                @click="visible += 4"
                 class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg">
 
                 Show More
@@ -150,10 +150,10 @@ use Illuminate\Support\Str;
 
                     <td class="p-4">
                         @if($recipe->image)
-                            <img
-                                src="{{ asset('storage/'.$recipe->image) }}"
-                                loading="lazy" decoding="async"
-                                class="w-16 h-16 object-cover rounded">
+
+                        <img
+                            src="{{ asset('storage/' . $recipe->image) }}"
+                            class="w-16 h-16 object-cover rounded">
                         @else
                             -
                         @endif
