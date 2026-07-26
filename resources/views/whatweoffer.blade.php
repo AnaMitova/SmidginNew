@@ -386,87 +386,115 @@ document.getElementById('requestForm').addEventListener('submit', async (e) => {
 
     <div id="BookATour" class="overflow-x-auto pb-12" >
         <div class="flex flex-nowrap md:py-12 md:px-24 px-7 space-x-7">
-            <div id="Distillery" class="flex-none md:md:w-[390px] w-[280px]  group md:hover:h-[877px] transition-all duration-300 ease-in-out  h-[600px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/tour1.webp" loading="lazy" decoding="async"/>
-                <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
-                    <h1 class="font-bold text-[20px]">DISTILLERY TOUR</h1>
-                    <P class="md:text-[16px] text-[12px] text-red-500">Basic</P>
-                </div>
-                <div class="flex flex-col font-montserrat gap-[10px] justify-start items-start">
-                    <p><b>Duration:</b> 1h</p>
-                    <p><b>Price per person:</b> 990den.</p>
-                    <p><b>Availability: </b>Earliest booking - 10AM, latest booking - 3PM, working days only</p>
-                    <p><b>Minimum capacity: </b>None</p>
-                    <p class="md:hidden pl-14 text-gray-500" onclick="openModal('DistilleryModal')">read more</p>
-                    <p class="hidden md:block text-[16px] opacity-0 group-hover:opacity-100 transition-opacity duration-400 py-4">Visit our MCM distillery and learn how Europe's best and first Macedonian gin is made. <br/>This tour lasts 1hr including tasting of all our gins, appetizers, educational part and one Perfect Serve drink (gin tonic) Available in Macedonian, Serbian and English.</p><a onclick="openRequestModal('Distillery')" class="hover:cursor-pointer hidden md:block px-5 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">SEND REQUEST</a>
-                </div>
-            </div>
-            <div id="ExperienceBasic" class="flex-none md:md:w-[390px] w-[280px]  group md:hover:h-[1020px] transition-all duration-300 ease-in-out  h-[600px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./sliki/experiencee.webp" loading="lazy" decoding="async"/>
-                <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
-                    <h1 class="font-bold text-[20px]">SMIDGIN EXPERIENCE</h1>
-                    <P class="md:text-[16px] text-[12px] text-red-500">Basic</P>
-                </div>
-                <div class="flex flex-col font-montserrat gap-[10px] justify-start items-start">
-                    <p><b>Duration:</b> 2h</p>
-                    <p><b>Price per person:</b> 1500den.</p>
-                    <p><b>Availability: </b>On request, confirmed with reservation ticket paid</p>
-                    <p><b>Minimum capacity: </b>6</p>
-                    <p class="md:hidden pl-14 text-gray-500" onclick="openModal('ExperienceBasicModal')">read more</p>
-                    <p class="hidden md:block text-[16px] opacity-0 group-hover:opacity-100 transition-opacity duration-400 py-4">This distillery tour, despite degustation of our gins, gives you unique experience combining the educational part, flavors experience, and two drinks specially made for you (one Gin tonic and one cocktail) accomplished with appetizers. Visit our MCM distillery and learn how Europe's best and first Macedonian gin is made. <br/><b>Includes:</b> degustation, educational part, aroma session, two drinks, appetizers. Latest booking available 08-10pm/ limited on 6-8 people Available in Macedonian, Serbian and English.</p><a onclick="openRequestModal('ExperienceBasic')" class="hover:cursor-pointer hidden md:block px-5 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">SEND REQUEST</a>
-                </div>
-            </div>
-            <div id="ExperiencePremium" class="flex-none md:md:w-[390px] w-[280px]  group md:hover:h-[1050px] transition-all duration-300 ease-in-out  h-[600px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/experience2.jpeg" loading="lazy" decoding="async"/>
-                <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
-                    <h1 class="font-bold text-[20px]">SMIDGIN EXPERIENCE</h1>
-                    <P class="md:text-[16px] text-[12px] -mt-5 md:-mt-0 text-red-500">Premium</P>
-                </div>
-                <div class="flex flex-col font-montserrat gap-[10px] justify-start items-start">
-                    <p><b>Duration:</b> 2h</p>
-                    <p><b>Price per person:</b> 1700den.</p>
-                    <p><b>Availability: </b>On request, confirmed with reservation ticket paid</p>
-                    <p><b>Minimum capacity: </b>8</p>
-                    <p class="md:hidden pl-14 text-gray-500" onclick="openModal('ExperiencePremiumModal')">read more</p>
-                    <p class="hidden md:block text-[16px] opacity-0 group-hover:opacity-100 transition-opacity duration-400 py-4">This distillery tour, despite degustation of our gins, gives you unique experience combining the educational part, flavors experience, and three drinks specially made for you by our mixologist (one Gin tonic and two signature cocktails) accomplished with appetizers. Visit our MCM distillery and learn how Europe's best and first Macedonian gin is made. <br/><b>Includes:</b> degustation, mixologist, educational part, aroma session, three drinks, appetizers. Latest booking available 08-10pm/ requests minimum 8 people to be organized Available in Macedonian, Serbian and English.</p><a onclick="openRequestModal('ExperiencePremium')" class="hover:cursor-pointer hidden md:block px-5 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">SEND REQUEST</a>
-                </div>
-            </div>
-            <div id="GinMaking" class="flex-none md:w-[390px] w-[280px]  group md:hover:h-[1330px] transition-all duration-300 ease-in-out h-[717px] md:h-[660px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/ginmaking.webp" loading="lazy" decoding="async"/>
-                <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
-                    <h1 class="font-bold text-[20px]">GIN MAKING CLASS</h1>
-                    <P class="md:text-[16px] -mr-4 md:-mr-0 text-[12px] text-red-500">Limited Premium</P>
-                </div>
-                <div class="flex flex-col font-montserrat gap-[10px] justify-start items-start">
-                    <p><b>Duration:</b> 3h</p>
-                    <p><b>Price per person:</b> 3500den. per person + 100 ml small bottle free or 900 den for 0.7L bottle personalized.</p>
-                    <p><b>Availability: </b>On request, confirmed with reservation ticket paid</p>
-                    <p><b>Minimum capacity: </b>2 - 4 people</p>
-                    <p class="md:hidden pl-14 text-gray-500" onclick="openModal('GinMakingModal')">read more</p>
-                    <p class="hidden md:block text-[16px] opacity-0 group-hover:opacity-100 transition-opacity duration-400 py-4">Enjoy the premium experience of crafting your own gin batch instructed by our master distiller Milica Pletvarska. You will have opportunity to hear the story of Smidgin firsthand, to enjoy our gins and one gin tonic while choosing the perfect combination of spices for your personal Smidgin bottle. The whole process is taken in small copper still pot giving you charming taste of your imagination. The whole process is finalized with bottling -personalizing with label previously created JUST FOR YOU and adding wax on the top for final touch. <br/><b>Including:</b> Educational part, aroma session, spices introduced, degustation, one gin tonic paired with appetizers, crafting your own gin, personalized label, labeling, waxing, 1 bottle of Personally made gin 0.7L (for 4 people you get 2 bottles 0.7L free) Available in Macedonian, Serbian and English.</p><a onclick="openRequestModal('GinMaking')" class="hover:cursor-pointer hidden md:block px-5 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">SEND REQUEST</a>
-                </div>
-            </div>
-            <div id="YourGinForTheWin" class="flex-none md:md:w-[390px] w-[280px]  group md:hover:h-[1540px] transition-all duration-300 ease-in-out h-[705px] md:h-[650px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col group justify-start items-start">
-                <img class="mb-4 w-[326px] h-[300px] rounded-2xl" src="./img/event1.webp" loading="lazy" decoding="async"/>
-                <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
-                    <h1 class="font-bold text-[20px]">YOUR GIN FOR THE WIN</h1>
-                    <P class="md:text-[16px] text-[12px] text-red-500">Competitional</P>
-                </div>
-                <div class="flex flex-col font-montserrat gap-[10px] justify-start items-start">
-                    <p><b>Duration:</b> 5 - 6h</p>
-                    <p><b>Price per person:</b> 2700den. per person + 100ml bottle for each</p>
-                    <p><b>Availability: </b>On request, confirmed with reservation ticket paid</p>
-                    <p><b>Minimum capacity: </b>6 - 12 people</p>
-                    <p class="md:hidden pl-14 text-gray-500" onclick="openModal('YourGinForTheWinModal')">read more</p>
-                    <p class="hidden md:block text-[16px] opacity-0 group-hover:opacity-100 transition-opacity duration-400 py-4">This event is created for all gin enthusiasts that want to try their skills and create something unique. Ideal for smaller groups, private parties and team building sessions. You will enjoy the premium experience of crafting your own gin batch instructed by our master distiller Milica Pletvarska. During the process you will be divided into two teams creating your own recipe for gin and competing with the other players by blind tasting at the end. This experience is complemented by the opportunity to hear the story of Smidgin firsthand, to enjoy our gins and one gin tonic while choosing the perfect combination of spices for your personal Smidgin bottle. The whole process is taken in small copper still pot giving you charming taste of your imagination. The whole process is finalized with bottling -personalizing with label previously created JUST FOR YOU and adding wax on the top for final touch. <br/><b>Including:</b> Educational part, aroma session, spices introduced, degustation, one gin tonic paired with appetizers, crafting your own gin, personalized label, labeling, waxing, blind tasting and introducing the winner team. Each team member gets 100ml bottle of their crafted product. Available in Macedonian, Serbian and English.</p>
-<a onclick="openRequestModal('YourGinForTheWin')" 
-   class="hover:cursor-pointer hidden md:block px-5 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">
-   SEND REQUEST
-</a>
+<div id="Distillery"
+    class="flex-none md:w-[390px] w-[280px] h-[630px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col">
 
+    <img class="mb-4 w-[326px] h-[300px] rounded-2xl"
+        src="./img/tour1.webp"
+        loading="lazy"
+        decoding="async" />
+
+    <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
+        <h1 class="font-bold text-[20px]">DISTILLERY TOUR</h1>
+        <p class="md:text-[16px] text-[12px] text-red-500">Basic</p>
+    </div>
+
+    <div class="flex flex-col font-montserrat gap-[10px] flex-grow">
+        <p><b>Duration:</b> 1h</p>
+        <p><b>Price per person:</b> 990den.</p>
+        <p><b>Availability:</b> Earliest booking - 10AM, latest booking - 3PM, working days only</p>
+        <p><b>Minimum capacity:</b> None</p>
+
+        <!-- Push buttons to bottom -->
+        <div class="mt-auto flex flex-col gap-3 pt-3">
+            <button
+                onclick="openModal('DistilleryModal')"
+                class="font-semibold text-gray-500 ">
+                Read More
+            </button>
+        </div>
+    </div>
+</div>
+<div id="DistilleryModal"
+    class="fixed inset-0 z-50 hidden items-center w-full justify-center bg-black/60 ">
+
+    <div class="bg-white rounded-3xl shadow-2xl h-[500px] w-[800px] overflow-hidden">
+
+        <div class="flex">
+
+            <!-- Image -->
+            <img
+                src="./img/tour1.webp"
+                class="h-full min-h-[500px] rounded-[50px] w-[45%] p-8 object-cover"
+                alt="">
+
+            <!-- Content -->
+            <div class="p-8 flex flex-col">
+
+                <h2 class="text-2xl font-montserrat font-bold mb-8">
+                    DISTILLERY TOUR
+                </h2>
+
+                <div class="text-[15px] font-montserrat space-y-2 mb-8">
+                    <p><b>Duration:</b> 1 hour</p>
+                    <p><b>Price:</b> 990 den.</p>
+                    <p><b>Availability:</b> 10:00–15:00 (working days)</p>
+                    <p><b>Minimum capacity:</b> None</p>
                 </div>
+
+                <p class="text-gray-700 text-[15px] font-montserrat leading-5 flex-grow">
+                    Visit our MCM distillery and learn how Europe's first
+                    Macedonian gin is crafted. During this one-hour experience
+                    you'll explore the distillery, discover our production
+                    process, taste every gin in our collection, enjoy carefully
+                    selected appetizers, and finish with one Perfect Serve
+                    Gin & Tonic. Tours are available in Macedonian, Serbian
+                    and English.
+                </p>
+
+                <div class="flex justify-between items-center pt-7">
+                    <button
+                        onclick="closeModal('DistilleryModal')"
+                        class="underline font-montserrat text-gray-700">
+                        Cancel
+                    </button>
+
+                    <button
+                        onclick="closeModal('DistilleryModal'); openRequestModal('Distillery')"
+                        class="px-6 py-3 rounded-xl font-montserrat bg-red-500 text-white shadow-lg hover:bg-red-600 transition">
+                        SEND REQUEST
+                    </button>
+                </div>
+
             </div>
 
+        </div>
+    </div>
+</div>
+<script>
+function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.classList.add("overflow-hidden");
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.classList.remove("overflow-hidden");
+}
+
+// Close when clicking outside the modal
+document.querySelectorAll('[id$="Modal"]').forEach(modal => {
+    modal.addEventListener("click", e => {
+        if (e.target === modal) {
+            closeModal(modal.id);
+        }
+    });
+});
+</script>
 
         </div>
     </div>
