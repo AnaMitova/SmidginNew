@@ -93,124 +93,82 @@
 </script>
 
 <body id="top">
-    <div id="AGE">
-<div id="top" class="overflow-hidden"> <div id="age-gate" class="hidden fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-white/50 backdrop-blur-lg transition-opacity duration-700">
-        <h1 class="text-4xl font-Baskervville md:text-5xl tracking-[0.2em] font-light text-black mb-2 uppercase text-center px-4">
-            Welcome to <span class="text-[#ff5a4e]">Smidgin</span>
-        </h1>
-        
-        <p class="text-sm  font-montserrat text-gray-700 mb-12 text-center px-6">
-            Enter your birth year to prove you're of legal drinking age.
-        </p>
 
-        <div class="flex gap-4 md:gap-6 font-montserrat">
-            <div class="flex flex-col items-center font-montserrat">
-                <input type="number" id="day" placeholder="DD"
-    min="1" max="31"
-    oninput="limitDigits(this,2); autoNext(this,'month')"
-    class="w-16 md:w-20 text-xl text-center bg-transparent border-b-2 border-[#ff5a4e] placeholder-[#ff5a4e] text-[#ff5a4e] focus:outline-none">
-            </div>
-            <div class="flex flex-col items-center">
-            <input type="number" id="month" placeholder="MM"
-    min="1" max="12"
-    oninput="limitDigits(this,2); autoNext(this,'year')"
-    class="w-16 md:w-20 text-xl text-center bg-transparent border-b-2 border-[#ff5a4e] placeholder-[#ff5a4e] text-[#ff5a4e] focus:outline-none">
-            </div>
-            <div class="flex flex-col items-center">
-        <input type="number" id="year" placeholder="YYYY"
-    min="1900" max="2100"
-    oninput="limitDigits(this,4); checkAge()"
-    class="w-24 md:w-32 text-xl text-center bg-transparent border-b-2 border-[#ff5a4e] placeholder-[#ff5a4e] text-[#ff5a4e] focus:outline-none">            </div>
-        </div>
+<script>
+function allowEntry() {
+    sessionStorage.setItem("ageVerified", "true");
 
-        <p id="error" class="hidden mt-6 text-red-600 text-xs font-sans font-bold">
-            You must be 18 or older to enter.
-        </p>
-    </div>
+    document.getElementById("age-gate").classList.add("opacity-0");
 
-    <div id="content-wrapper" class="blur-md transition-all duration-700">
-        
-        <a href="#top" id="backToTop" class="fixed bottom-6 right-6 z-[9999] w-12 h-12 flex justify-center items-center bg-white text-red-500 rounded-full shadow-2xl shadow-black hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none">
-            <i class="fa-solid fa-arrow-up text-xl"></i>
-        </a>
+    setTimeout(() => {
+        document.getElementById("age-gate").classList.add("hidden");
+        document.getElementById("content-wrapper").classList.remove("blur-md");
+    }, 700);
+}
 
-
-
-        </div>
-        <script>
-function limitDigits(el, max) {
-    if (el.value.length > max) {
-        el.value = el.value.slice(0, max);
-    }
+function denyEntry() {
+    document.getElementById("error").classList.remove("hidden");
 }
 </script>
 
 <script>
-function isRealDate(y, m, d) {
-    const test = new Date(y, m - 1, d);
-    return test.getFullYear() == y &&
-           test.getMonth() == m - 1 &&
-           test.getDate() == d;
-}
-
-function checkAge() {
-    const d = parseInt(day.value);
-    const m = parseInt(month.value);
-    const y = parseInt(year.value);
-
-    if (!d || !m || !y || year.value.length !== 4) return;
-
-    // ❌ invalid calendar date
-    if (!isRealDate(y, m, d)) {
-        document.getElementById('error').textContent = "Invalid birth date.";
-        document.getElementById('error').classList.remove('hidden');
-        return;
-    }
-
-    const birthDate = new Date(y, m - 1, d);
-    const today = new Date();
-
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const mdiff = today.getMonth() - birthDate.getMonth();
-
-    if (mdiff < 0 || (mdiff === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-
-    if (age >= 18) {
-        localStorage.setItem("ageVerified", "true");
-
-        const gate = document.getElementById('age-gate');
-        const wrapper = document.getElementById('content-wrapper');
-
-        gate.classList.add('opacity-0');
-        wrapper.classList.remove('blur-md');
-        document.body.classList.remove('overflow-hidden');
-
-        setTimeout(() => gate.classList.add('hidden'), 700);
-    } else {
-        document.getElementById('error').textContent =
-            "You must be 18 or older to enter.";
-        document.getElementById('error').classList.remove('hidden');
-    }
-}
-
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
     const gate = document.getElementById("age-gate");
-    const wrapper = document.getElementById("content-wrapper");
+    const content = document.getElementById("content-wrapper");
 
-    if (localStorage.getItem("ageVerified") === "true") {
+    if (sessionStorage.getItem("ageVerified") === "true") {
         gate.classList.add("hidden");
-        wrapper.classList.remove("blur-md");
-        document.body.classList.remove("overflow-hidden");
+        content.classList.remove("blur-md");
     } else {
-        gate.classList.remove("hidden"); // 👈 show only now
-        document.body.classList.add("overflow-hidden");
+        gate.classList.remove("hidden");
+        content.classList.add("blur-md");
     }
 });
 </script>
+<div id="AGE">
+<div id="age-top" class="overflow-hidden">
+
+    <div id="age-gate" class="hidden fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-white/50 backdrop-blur-lg transition-opacity duration-700">
+
+        <h1 class="text-4xl md:text-5xl font-Baskervville tracking-[0.1em] font-medium text-black mb-4 uppercase text-center px-4">
+            Welcome to <span class="text-[#ff5a4e]">Smidgin</span>
+        </h1>
+
+        <p class="text-[16px] font-montserrat text-black text-center px-6 mb-10">
+            Are you of legal drinking age (18+) in your country?
+        </p>
+
+        <div class="flex gap-4">
+            <button
+                onclick="allowEntry()"
+                class="px-12 py-3 bg-[#ff5a4e] text-white font-montserrat  rounded-xl hover:bg-[#e74b40] transition duration-300">
+                YES
+            </button>
+
+            <button
+                onclick="denyEntry()"
+                class="px-14 py-3 border-[0.5px] border-gray-700 text-black font-montserrat rounded-xl hover:bg-gray-200 transition duration-300">
+                NO
+            </button>
+        </div>
+
+        <p id="error" class="hidden mt-6 text-red-600 text-sm font-montserrat font-semibold text-center">
+            Sorry, you must be of legal drinking age to enter this website.
+        </p>
+
+    </div>
+
+    <div id="content-wrapper" class="blur-md transition-all duration-700">
+
+        <a href="#top" id="backToTop"
+            class="fixed bottom-6 right-6 z-[9999] w-12 h-12 flex justify-center items-center bg-white text-red-500 rounded-full shadow-2xl shadow-black hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </a>
+
+    </div>
+
+</div>
+</div>
 
 
 </div>
