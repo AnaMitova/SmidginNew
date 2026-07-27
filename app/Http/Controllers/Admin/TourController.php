@@ -49,8 +49,7 @@ class TourController extends Controller
         }
     
         Tour::create($data);
-        return redirect('/whatweoffer')
-            ->with('success', 'Tour created successfully!');
+        return redirect()->route('stores.index');
     }
 
     /**
