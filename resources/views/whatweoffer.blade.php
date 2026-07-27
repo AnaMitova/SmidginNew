@@ -236,12 +236,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <h2 class="text-2xl md:text-[28px] font-bold pt-4 pl-0 md:pl-4" >SEND REQUEST</h2>
 
-    <form 
+<form
     id="requestForm"
-    class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8 md:pt-16 "
->
-    <input type="hidden" id="tour" name="tour" value="Distillery">
+    action="{{ route('requests.store') }}"
+    method="POST"
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8 md:pt-16">
 
+    @csrf
+
+    <input type="hidden" id="tour_id" name="tour_id">
     <div class="flex flex-col gap-1 md:gap-8"> <div>
             <label class="block text-sm font-medium mb-1">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name" class="w-full border border-black text-[14px] rounded-md px-3 py-2 focus:ring focus:ring-gray-400" required/>
@@ -265,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="grid grid-cols-2 gap-4">
             <div>
                 <label class="block text-sm font-medium mb-1">Visitors</label>
-                <input type="number" id="visitors" name="visitors" placeholder="Number" class="w-full border border-black text-[14px] rounded-md px-3 py-2 focus:ring focus:ring-gray-400" required/>
+                <input type="number" id="people" name="people" placeholder="Number" class="w-full border border-black text-[14px] rounded-md px-3 py-2 focus:ring focus:ring-gray-400" required/>
             </div>
             <div>
                 <label class="block text-sm font-medium mb-1">Time</label>
@@ -274,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div>
             <label class="block text-sm font-medium mb-1">Leave a note</label>
-            <textarea placeholder="Anything we should know?" id="note" name="note" class="w-full border border-black text-[14px] rounded-md px-3 py-2 h-20 md:h-28 focus:ring focus:ring-gray-400"></textarea>
+            <textarea placeholder="Anything we should know?" id="message" name="message" class="w-full border border-black text-[14px] rounded-md px-3 py-2 h-20 md:h-28 focus:ring focus:ring-gray-400"></textarea>
         </div>
 <DIV class="flex justify-between">
         <label class="flex items-center gap-2 text-base">
@@ -322,177 +325,187 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 let selectedTour = '';
 
-function openRequestModal(tourName) {
-  selectedTour = tourName;
-  const tourInput = document.getElementById('tour');
-  if (tourInput) tourInput.value = tourName;
-  openModal('request');
+function openRequestModal(tourId) {
+
+    document.getElementById('tour_id').value = tourId;
+
+    const modal = document.getElementById('request');
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+
+    document.body.classList.add('overflow-hidden');
 }
 
-document.getElementById('requestForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const form = e.target;
-  const submitBtn = document.getElementById('submitBtn');
-  
-  // Disable button and show loading state
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'SENDING...';
-
-  // Create FormData object from the form
-  const formData = new FormData(form);
-  
-  // Set the tour value from selectedTour
-  formData.set('tour', selectedTour || form.tour.value);
-  
-  // Convert checkbox to Yes/No
-  formData.set('companyVisit', form.companyVisit.checked ? 'Yes' : 'No');
-
-  try {
-    const res = await fetch('https://script.google.com/macros/s/AKfycbzk6Fd7biCUDELicrYfPjDRK7iwPyRGANMY73Y1apzSxMWglIJ6ImGVGA5fYnHTlxjo/exec', {
-      method: 'POST',
-      body: formData
-    });
-
-    const result = await res.json();
-    console.log('Response:', result);
-
-    // Check if submission was successful
-    if (result.status === 'success' || res.ok) {
-      openModal('requestSent');
-      closeModal('request');
-      form.reset();
-      selectedTour = '';
-    } else {
-      alert('Something went wrong. Please try again.');
-    }
-  } catch (err) {
-    console.error('Fetch error:', err);
-    alert('Error sending request. Please check your connection and try again.');
-  } finally {
-    // Re-enable button
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'SEND REQUEST';
-  }
-});
 
 
 
 </script>
 
 
-    <!-- Book a tour offer -->
-    <h1 class="font-Baskervville px-7 md:px-28 md:mt-11 text-[30px] md:text-[43px] ">BOOK A SMIDGIN <span class="text-red-500">TOUR</span></h1>
+<!-- Book a tour offer -->
+<h1 class="font-Baskervville px-7 md:px-28 md:mt-11 text-[30px] md:text-[43px]">
+    BOOK A SMIDGIN <span class="text-red-500">TOUR</span>
+</h1>
 
-    <div id="BookATour" class="overflow-x-auto pb-12" >
-        <div class="flex flex-nowrap md:py-12 md:px-24 px-7 space-x-7">
-<div id="Distillery"
-    class="flex-none md:w-[390px] w-[280px] h-[630px] bg-white shadow-xl rounded-2xl p-[32px] flex flex-col">
+<div id="BookATour" class="overflow-x-auto pb-12 scrollbar-hide">
+    <div class="flex flex-nowrap md:py-12 md:px-24 px-7 space-x-7">
 
-    <img class="mb-4 w-[326px] h-[300px] rounded-2xl"
-        src="./img/tour1.webp"
-        loading="lazy"
-        decoding="async" />
+        @foreach($tours as $tour)
 
-    <div class="font-montserrat flex py-[16px] justify-between items-center w-full">
-        <h1 class="font-bold text-[20px]">DISTILLERY TOUR</h1>
-        <p class="md:text-[16px] text-[12px] text-red-500">Basic</p>
-    </div>
+        <!-- Card -->
+        <div
+            class="flex-none md:w-[390px] w-[280px] h-[630px] bg-white shadow-xl rounded-2xl p-8 flex flex-col">
 
-    <div class="flex flex-col font-montserrat gap-[10px] flex-grow">
-        <p><b>Duration:</b> 1h</p>
-        <p><b>Price per person:</b> 990den.</p>
-        <p><b>Availability:</b> Earliest booking - 10AM, latest booking - 3PM, working days only</p>
-        <p><b>Minimum capacity:</b> None</p>
-
-        <!-- Push buttons to bottom -->
-        <div class="mt-auto flex flex-col gap-3 pt-3">
-            <button
-                onclick="openModal('DistilleryModal')"
-                class="font-semibold text-gray-500 ">
-                Read More
-            </button>
-        </div>
-    </div>
-</div>
-<div id="DistilleryModal"
-    class="fixed inset-0 z-50 hidden items-center w-full justify-center bg-black/60 ">
-
-    <div class="bg-white rounded-3xl shadow-2xl h-[500px] w-[800px] overflow-hidden">
-
-        <div class="flex">
-
-            <!-- Image -->
             <img
-                src="./img/tour1.webp"
-                class="h-full min-h-[500px] rounded-[50px] w-[45%] p-8 object-cover"
-                alt="">
+                src="{{ asset('storage/' . $tour->image) }}"
+                class="mb-4 w-full h-[300px] rounded-2xl object-cover"
+                loading="lazy"
+                decoding="async">
 
-            <!-- Content -->
-            <div class="p-8 flex flex-col">
+            <div class="font-montserrat flex py-4 justify-between items-center">
 
-                <h2 class="text-2xl font-montserrat font-bold mb-8">
-                    DISTILLERY TOUR
+                <h2 class="font-bold text-[20px]">
+                    {{ strtoupper($tour->title) }}
                 </h2>
 
-                <div class="text-[15px] font-montserrat space-y-2 mb-8">
-                    <p><b>Duration:</b> 1 hour</p>
-                    <p><b>Price:</b> 990 den.</p>
-                    <p><b>Availability:</b> 10:00–15:00 (working days)</p>
-                    <p><b>Minimum capacity:</b> None</p>
-                </div>
-
-                <p class="text-gray-700 text-[15px] font-montserrat leading-5 flex-grow">
-                    Visit our MCM distillery and learn how Europe's first
-                    Macedonian gin is crafted. During this one-hour experience
-                    you'll explore the distillery, discover our production
-                    process, taste every gin in our collection, enjoy carefully
-                    selected appetizers, and finish with one Perfect Serve
-                    Gin & Tonic. Tours are available in Macedonian, Serbian
-                    and English.
+                <p class="text-red-500 md:text-base text-xs">
+                    {{ $tour->category }}
                 </p>
 
-                <div class="flex justify-between items-center pt-7">
-                    <button
-                        onclick="closeModal('DistilleryModal')"
-                        class="underline font-montserrat text-gray-700">
-                        Cancel
-                    </button>
+            </div>
+
+            <div class="font-montserrat flex flex-col gap-3 flex-grow">
+
+                <p><b>Duration:</b> {{ $tour->duration }}</p>
+
+                <p><b>Price per person:</b> {{ $tour->price }}</p>
+
+                <p><b>Availability:</b> {{ $tour->availability }}</p>
+
+                <p><b>Minimum capacity:</b> {{ $tour->capacity }}</p>
+
+                <div class="mt-auto pt-3">
 
                     <button
-                        onclick="closeModal('DistilleryModal'); openRequestModal('Distillery')"
-                        class="px-6 py-3 rounded-xl font-montserrat bg-red-500 text-white shadow-lg hover:bg-red-600 transition">
-                        SEND REQUEST
+                        onclick="openModal('tourModal{{ $tour->id }}')"
+                        class="font-semibold text-gray-500 hover:text-red-500 transition">
+
+                        Read More
+
                     </button>
+
                 </div>
 
             </div>
 
         </div>
+
+        <!-- Modal -->
+        <div
+            id="tourModal{{ $tour->id }}"
+            class="fixed inset-0 z-50 hidden items-center justify-center p-5">
+
+            <div class="bg-white rounded-3xl shadow-2xl w-[800px] overflow-hidden">
+
+                <div class="flex flex-col lg:flex-row">
+
+                    <!-- Image -->
+
+                    <img
+                        src="{{ asset('storage/'.$tour->image) }}"
+                        class="w-full lg:w-[45%] h-72 lg:h-auto object-cover p-6 rounded-[40px]">
+
+                    <!-- Content -->
+
+                    <div class="flex flex-col p-8 flex-1">
+
+                        <h2 class=" font-montserrat text-2xl font-semibold mb-8">
+
+                            {{ strtoupper($tour->title) }}
+
+                        </h2>
+
+                        <div class="font-montserrat text-[15px] space-y-2 mb-8">
+
+                            <p><b>Duration:</b> {{ $tour->duration }}</p>
+
+                            <p><b>Price:</b> {{ $tour->price }}</p>
+
+                            <p><b>Availability:</b> {{ $tour->availability }}</p>
+
+                            <p><b>Minimum capacity:</b> {{ $tour->capacity }}</p>
+
+                        </div>
+
+                        <div class="font-montserrat text-gray-700 leading-6 flex-grow whitespace-pre-line">
+
+                            {{ $tour->description }}
+
+                        </div>
+
+                        <div class="flex justify-between items-center mt-10">
+
+                            <button
+                                onclick="closeModal('tourModal{{ $tour->id }}')"
+                                class="underline font-montserrat">
+
+                                Cancel
+
+                            </button>
+
+                              <button
+                                onclick="closeModal('tourModal{{ $tour->id }}'); openRequestModal({{ $tour->id }})"
+                                class="px-6 py-3 rounded-xl font-montserrat bg-red-500 text-white shadow-lg hover:bg-red-600 transition">
+                                SEND REQUEST
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @endforeach
+
     </div>
 </div>
+
 <script>
-function openModal(id) {
+    function openModal(id) {
     const modal = document.getElementById(id);
+
     modal.classList.remove("hidden");
     modal.classList.add("flex");
+
     document.body.classList.add("overflow-hidden");
 }
 
 function closeModal(id) {
     const modal = document.getElementById(id);
+
     modal.classList.add("hidden");
     modal.classList.remove("flex");
+
     document.body.classList.remove("overflow-hidden");
 }
 
-// Close when clicking outside the modal
-document.querySelectorAll('[id$="Modal"]').forEach(modal => {
-    modal.addEventListener("click", e => {
+document.querySelectorAll("[id^='tourModal']").forEach(modal => {
+
+    modal.addEventListener("click", function(e) {
+
         if (e.target === modal) {
+
             closeModal(modal.id);
+
         }
+
     });
+
 });
 </script>
 
@@ -644,7 +657,8 @@ document.querySelectorAll('[id$="Modal"]').forEach(modal => {
             
             <div class="flex justify-end gap-3">
                 <button onclick="closeModal('DistilleryModal')" class=" font-montserrat px-6 py-2 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-100">Cancel</button>
-                <button onclick="openRequestModal('Distillery')" class="font-montserrat hover:cursor-pointer  px-5 py-3 bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl   text-white  hover:bg-red-600">SEND REQUEST</button>
+                <button onclick="closeModal('tourModal{{ $tour->id }}');
+         openRequestModal({{ $tour->id }})" class="font-montserrat px-6 py-2 bg-red-500 text-white rounded-xl hover:bg-red-600">SEND REQUEST</button>
             </div>
         </div>
     </div>
