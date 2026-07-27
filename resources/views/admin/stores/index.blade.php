@@ -84,8 +84,14 @@ use Illuminate\Support\Str;
         <p class="text-xs text-slate-500">Управување со тури</p>
     </button>
 
+    <button @click="activeTab = 'events'"
+    class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+    <h3 class="font-bold text-slate-900">Настани</h3>
+    <p class="text-xs text-slate-500">Управување со настани</p>
+    </button>
+
 </div>
-<!-- 1. ПРОДАВНИЦИ И ЛОКАЛИ -->
+            <!-- 1. ПРОДАВНИЦИ И ЛОКАЛИ -->
             <section x-show="activeTab === 'stores'" x-data="{ search: '', visible: 4 }" class="space-y-4">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
@@ -409,7 +415,149 @@ use Illuminate\Support\Str;
             </div>
         </section>
 
-    </main>
+        <!-- Events -->
+<!-- Events -->
+<section x-show="activeTab === 'events'" class="space-y-4">
+
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+
+        <div>
+            <div class="flex items-center gap-2.5">
+                <h2 class="text-xl font-bold text-slate-900">Настани</h2>
+
+                <span class="bg-indigo-50 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full border border-indigo-100">
+                    {{ $events->count() }}
+                </span>
+            </div>
+
+            <p class="text-xs text-slate-500 mt-0.5">
+                Управување со настани
+            </p>
+        </div>
+
+        <!-- ADD EVENT BUTTON -->
+        <a href="{{ url('/admin/events/create') }}"
+           class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-xs">
+
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+
+            Додади настан
+        </a>
+        
+
+    </div>
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-slate-50 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">
+                    <th class="py-3 px-6">Настан</th>
+                    <th class="py-3 px-4">Категорија</th>
+                    <th class="py-3 px-4">Датум</th>
+                    <th class="py-3 px-4">Локација</th>
+                    <th class="py-3 px-4">Цена</th>
+                    <th class="py-3 px-4">Креирано</th>
+                    <th class="py-3 px-6 text-right">Акции</th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y divide-slate-100 text-sm">
+
+                @forelse($events as $event)
+
+                    <tr class="hover:bg-slate-50/60 transition">
+
+                        <td class="py-3.5 px-6">
+                            <div class="flex items-center gap-3">
+
+                                @if($event->image)
+                                    <img src="{{ asset('storage/'.$event->image) }}"
+                                         class="w-12 h-12 rounded-xl object-cover border border-slate-200 shadow-xs">
+                                @else
+                                    <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200"></div>
+                                @endif
+
+                                <div>
+                                    <h3 class="font-semibold text-slate-900">
+                                        {{ $event->title }}
+                                    </h3>
+
+                                    <p class="text-xs text-slate-400 font-mono">
+                                        ID: #{{ $event->id }}
+                                    </p>
+                                </div>
+
+                            </div>
+                        </td>
+
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700 border border-indigo-100">
+                                {{ $event->category }}
+                            </span>
+                        </td>
+
+                        <td class="py-3.5 px-4 whitespace-nowrap">
+                            {{ $event->date }}
+                        </td>
+
+                        <td class="py-3.5 px-4">
+                            {{ $event->location }}
+                        </td>
+
+                        <td class="py-3.5 px-4 font-semibold">
+                            {{ $event->price }}
+                        </td>
+
+                        <td class="py-3.5 px-4 text-slate-500 text-xs font-mono">
+                            {{ $event->created_at->format('d.m.Y') }}
+                        </td>
+
+                        <td class="py-3.5 px-6 text-right">
+                            <div class="flex items-center justify-end gap-2">
+
+                                <a href="{{ route('events.edit', $event) }}"
+                                   class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-indigo-600 transition">
+                                    Промени
+                                </a>
+
+                                <form action="{{ route('events.destroy', $event) }}"
+                                      method="POST"
+                                      class="inline">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit"
+                                            onclick="return confirm('Дали сте сигурни дека сакате да го избришете овој настан?')"
+                                            class="px-3 py-1.5 text-xs font-medium text-rose-600 bg-rose-50 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+                                        Избриши
+                                    </button>
+
+                                </form>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                @empty
+
+                    <tr>
+                        <td colspan="7" class="text-center py-12 text-slate-400">
+                            Не се пронајдени настани.
+                        </td>
+                    </tr>
+
+                @endforelse
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</main>
 
 </body>
 </html>

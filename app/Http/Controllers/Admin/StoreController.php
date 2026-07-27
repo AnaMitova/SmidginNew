@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Recipe;
 use App\Models\TourRequest;
 use App\Models\Tour;
+use App\Models\Event;
 
 class StoreController extends Controller
 {
@@ -17,8 +18,10 @@ class StoreController extends Controller
         $recipes = Recipe::latest()->get();
         $requests =TourRequest::latest()->get();
         $tours = Tour::latest()->get();
+        $events = Event::latest()->get();
+
     
-        return view('admin.stores.index', compact('stores', 'recipes', 'requests', 'tours'));
+        return view('admin.stores.index', compact('stores', 'recipes', 'requests', 'tours', 'events'));
     }
 
     public function create()

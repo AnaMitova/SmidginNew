@@ -7,6 +7,7 @@ use App\Models\Store;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use App\Models\Recipe;
+use App\Models\Event;
 
 class TourController extends Controller
 {
@@ -16,8 +17,9 @@ class TourController extends Controller
     public function index()
     {
         $tours = Tour::latest()->get();
+        $events = Event::latest()->get();
     
-        return view('whatweoffer', compact('tours'));
+        return view('whatweoffer', compact('tours', 'events'));
     }
 
     /**

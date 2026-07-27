@@ -6,6 +6,7 @@ use App\Http\Controllers\StorePageController;
 use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourRequestController;
+use App\Http\Controllers\Admin\EventController;
 
 
 Route::view('/', 'index');
@@ -30,6 +31,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('stores', StoreController::class);
     Route::resource('recipes', RecipeController::class);
     Route::resource('tours', TourController::class);
+    Route::resource('events', EventController::class);
     Route::resource('requests', TourRequestController::class)
         ->only(['index', 'store']);
 });
