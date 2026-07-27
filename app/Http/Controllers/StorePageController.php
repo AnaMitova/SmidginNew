@@ -8,17 +8,23 @@ class StorePageController extends Controller
 {
     public function index()
     {
-$stores = Store::all();
+        $stores = Store::all();
 
-$cityData = $stores
-    ->groupBy('city')
-    ->map(function ($stores) {
-        return [
-            'buy' => $stores->where('type', 'buy')->values(),
-            'taste' => $stores->where('type', 'taste')->values(),
-        ];
-    });
+        $cityData = $stores
+            ->groupBy('city')
+            ->map(function ($stores) {
+                return [
+                    'buy' => $stores->where('type', 'buy')->values(),
+                    'taste' => $stores->where('type', 'taste')->values(),
+                ];
+            });
 
-return view('findourstores', compact('stores', 'cityData'));
+        $cities = $stores
+            ->pluck('city')
+            ->unique()
+            ->sort()
+            ->values();
+
+        return view('findourstores', compact('stores', 'cityData', 'cities'));
     }
 }

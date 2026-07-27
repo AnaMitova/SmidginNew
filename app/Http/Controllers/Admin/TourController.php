@@ -65,7 +65,7 @@ class TourController extends Controller
      */
     public function edit(Tour $tour)
     {
-        //
+        return view('admin.tours.edit', compact('tour'));
     }
 
     /**
@@ -73,7 +73,25 @@ class TourController extends Controller
      */
     public function update(Request $request, Tour $tour)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'category' => 'nullable|string|max:255',
+            'duration' => 'required|string|max:255',
+            'price' => 'required|string|max:255',
+            'availability' => 'required|string',
+            'capacity' => 'nullable|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image',
+        ]);
+    
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('tours', 'public');
+        }
+    
+        $tour->update($data);
+    
+        return redirect()->route('stores.index')
+            ->with('success', 'Tour updated successfully.');
     }
 
     /**
@@ -81,6 +99,9 @@ class TourController extends Controller
      */
     public function destroy(Tour $tour)
     {
-        //
+        $tour->delete();
+    
+        return redirect()->route('stores.index')
+            ->with('success', 'Tour deleted successfully.');
     }
 }

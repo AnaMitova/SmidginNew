@@ -56,11 +56,38 @@ use Illuminate\Support\Str;
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+    <main x-data="{ activeTab: null }" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
 
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+    <button @click="activeTab = 'stores'"
+        class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+        <h3 class="font-bold text-slate-900">Продавници</h3>
+        <p class="text-xs text-slate-500">Управување со локали</p>
+    </button>
+
+    <button @click="activeTab = 'recipes'"
+        class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+        <h3 class="font-bold text-slate-900">Рецепти</h3>
+        <p class="text-xs text-slate-500">Кориснички рецепти</p>
+    </button>
+
+    <button @click="activeTab = 'requests'"
+        class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+        <h3 class="font-bold text-slate-900">Барања</h3>
+        <p class="text-xs text-slate-500">Барања за тури</p>
+    </button>
+
+    <button @click="activeTab = 'tours'"
+        class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+        <h3 class="font-bold text-slate-900">Тури</h3>
+        <p class="text-xs text-slate-500">Управување со тури</p>
+    </button>
+
+</div>
 <!-- 1. ПРОДАВНИЦИ И ЛОКАЛИ -->
-        <section id="stores" x-data="{ search: '', visible: 4 }" class="space-y-4">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <section x-show="activeTab === 'stores'" x-data="{ search: '', visible: 4 }" class="space-y-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h2 class="text-xl font-bold text-slate-900">Продавници и локали</h2>
                     <p class="text-xs text-slate-500 mt-0.5">Преглед и управување со сите регистрирани локации</p>
@@ -161,7 +188,7 @@ use Illuminate\Support\Str;
         </section>
 
         <!-- 2. РЕЦЕПТИ ОД КОРИСНИЦИ -->
-        <section id="recipes" class="space-y-4">
+        <section x-show="activeTab === 'recipes'" class="space-y-4">
             <div>
                 <h2 class="text-xl font-bold text-slate-900">Рецепти од корисници</h2>
                 <p class="text-xs text-slate-500 mt-0.5">Испратени рецепти за преглед и модерација</p>
@@ -224,7 +251,7 @@ use Illuminate\Support\Str;
         </section>
 
         <!-- 3. БАРАЊА ЗА ТУРИ -->
-        <section id="requests" class="space-y-4">
+        <section x-show="activeTab === 'requests'" class="space-y-4">
             <div>
                 <h2 class="text-xl font-bold text-slate-900">Барања за тури</h2>
                 <p class="text-xs text-slate-500 mt-0.5">Доспеани резервации и прашања од корисници</p>
@@ -269,7 +296,7 @@ use Illuminate\Support\Str;
         </section>
 
         <!-- 4. УПРАВУВАЊЕ СО ТУРИ -->
-        <section id="tours" class="space-y-4">
+        <section x-show="activeTab === 'tours'" class="space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                     <div class="flex items-center gap-2.5">

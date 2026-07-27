@@ -456,41 +456,20 @@ document.addEventListener("DOMContentLoaded", function() {
                     <i id="dropdownArrow" class="fa-solid fa-chevron-down ml-2 text-xs transition-all duration-300"></i>
                 </button>
                 
-<div id="dropdownMenu" role="menu" aria-labelledby="dropdownToggle"
-  class="absolute font-montserrat flex flex-col items-center justify-start space-y-2 left-0 mt-2 w-40 rounded-lg bg-white shadow-xl z-50 ring-1 ring-black ring-opacity-5 opacity-0 scale-95 pointer-events-none transition-all duration-300 ease-out max-h-52 overflow-y-auto">
+<div id="dropdownMenu"
+class="absolute font-montserrat flex flex-col items-center justify-start space-y-2 left-0 mt-2 w-40 rounded-lg bg-white shadow-xl z-50 ring-1 ring-black ring-opacity-5 opacity-0 scale-95 pointer-events-none transition-all duration-300 ease-out max-h-52 overflow-y-auto">
 
-  <a href="#" data-city="Skopje" onclick="setCurrentCity('Skopje')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Skopje</a>
-  <a href="#" data-city="Bitola" onclick="setCurrentCity('Bitola')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Bitola</a>
-  <a href="#" data-city="Kumanovo" onclick="setCurrentCity('Kumanovo')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Kumanovo</a>
-  <a href="#" data-city="Prilep" onclick="setCurrentCity('Prilep')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Prilep</a>
-  <a href="#" data-city="Tetovo" onclick="setCurrentCity('Tetovo')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Tetovo</a>
-  <a href="#" data-city="Veles" onclick="setCurrentCity('Veles')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Veles</a>
-  <a href="#" data-city="Ohrid" onclick="setCurrentCity('Ohrid')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Ohrid</a>
-  <a href="#" data-city="Struga" onclick="setCurrentCity('Struga')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Struga</a>
-  <a href="#" data-city="Gostivar" onclick="setCurrentCity('Gostivar')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Gostivar</a>
-  <a href="#" data-city="Strumica" onclick="setCurrentCity('Strumica')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Strumica</a>
-  <a href="#" data-city="Kavadarci" onclick="setCurrentCity('Kavadarci')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Kavadarci</a>
-  <a href="#" data-city="Kochani" onclick="setCurrentCity('Kochani')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Kochani</a>
-  <a href="#" data-city="Kichevo" onclick="setCurrentCity('Kichevo')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Kichevo</a>
-  <a href="#" data-city="Shtip" onclick="setCurrentCity('Shtip')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Shtip</a>
-  <a href="#" data-city="Radovish" onclick="setCurrentCity('Radovish')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Radovish</a>
-  <a href="#" data-city="Gevgelija" onclick="setCurrentCity('Gevgelija')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Gevgelija</a>
-  <a href="#" data-city="Debar" onclick="setCurrentCity('Debar')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Debar</a>
-  <a href="#" data-city="Kriva Palanka" onclick="setCurrentCity('Kriva Palanka')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Kriva Palanka</a>
-  <a href="#" data-city="Sveti Nikole" onclick="setCurrentCity('Sveti Nikole')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Sveti Nikole</a>
-  <a href="#" data-city="Negotino" onclick="setCurrentCity('Negotino')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Negotino</a>
-  <a href="#" data-city="Delchevo" onclick="setCurrentCity('Delchevo')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Delchevo</a>
-  <a href="#" data-city="Vinica" onclick="setCurrentCity('Vinica')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Vinica</a>
-  <a href="#" data-city="Probishtep" onclick="setCurrentCity('Probishtip')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Probishtep</a>
-  <a href="#" data-city="Kratovo" onclick="setCurrentCity('Kratovo')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Kratovo</a>
-  <a href="#" data-city="Bogdanci" onclick="setCurrentCity('Bogdanci')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Bogdanci</a>
-  <a href="#" data-city="Demir Kapija" onclick="setCurrentCity('Demir Kapija')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Demir Kapija</a>
-  <a href="#" data-city="Dojran" onclick="setCurrentCity('Dojran')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Dojran</a>
-  <a href="#" data-city="Resen" onclick="setCurrentCity('Resen')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Resen</a>
-  <a href="#" data-city="Valandovo" onclick="setCurrentCity('Valandovo')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Valandovo</a>
-  <a href="#" data-city="Berovo" onclick="setCurrentCity('Berovo')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Berovo</a>
-  <a href="#" data-city="Pehchevo" onclick="setCurrentCity('Pehchevo')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Pehchevo</a>
-  <a href="#" data-city="Makedonska Kamenica" onclick="setCurrentCity('Makedonska Kamenica')" role="menuitem" class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">Makedonska Kamenica</a>
+@foreach($cities as $city)
+
+<a href="#"
+   data-city="{{ $city }}"
+   onclick="setCurrentCity('{{ $city }}')"
+   role="menuitem"
+   class="text-red-500 text-center w-full hover:bg-red-50 block px-4 py-3 text-sm hover:text-[#1977cc]">
+    {{ $city }}
+</a>
+
+@endforeach
 
 </div>
 

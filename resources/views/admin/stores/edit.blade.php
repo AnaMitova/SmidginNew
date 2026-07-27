@@ -5,7 +5,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-
+@if ($errors->any())
+    <div class="mb-6 rounded-lg bg-red-50 border border-red-200 p-4">
+        <p class="font-semibold text-red-700">
+            Не смеете да ги оставите задолжителните полиња празни.
+        </p>
+    </div>
+@endif
 <div class="max-w-3xl mx-auto py-10">
 
 <div class="bg-white p-8 rounded-xl shadow">
