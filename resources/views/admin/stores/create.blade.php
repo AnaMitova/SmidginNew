@@ -9,13 +9,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">    <script>
+
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
                     },
                 }
             }
@@ -25,7 +25,7 @@
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="font-sans antialiased text-slate-800 bg-slate-50 min-h-full">
+<body class="font-montserrat antialiased text-slate-800 bg-slate-50 min-h-full">
 
     <!-- Заглавие и навигација -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
@@ -36,7 +36,7 @@
                         А
                     </div>
                     <div>
-                        <h1 class="text-base font-bold text-slate-900 leading-tight">Административен панел</h1>
+                        <h1 class="text-base font-bold text-slate-900 leading-tight font-montserrat">Административен панел</h1>
                         <p class="text-xs text-slate-500">Управување со продавници и локали</p>
                     </div>
                 </div>

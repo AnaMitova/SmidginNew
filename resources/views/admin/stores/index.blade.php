@@ -13,13 +13,12 @@ use Illuminate\Support\Str;
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">    <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
                     },
                 }
             }
@@ -29,29 +28,24 @@ use Illuminate\Support\Str;
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="font-sans antialiased text-slate-800 bg-slate-50 min-h-full">
+<body class=" font-montserrat antialiased text-slate-800 bg-slate-50 min-h-full">
 
     <!-- Заглавие и навигација -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
+    <header class="bg-white border-b border-slate-200  sticky top-0 z-30 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
+            <div class="flex justify-start gap-8 h-28 items-center">
                 <div class="flex items-center gap-3">
-                    <div class="h-9 w-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
-                        А
+                    <div>
+                        <img src="{{ asset('sliki/logo.png') }}" alt="Logo" class="">
+                    </div>
                     </div>
                     <div>
-                        <h1 class="text-base font-bold text-slate-900 leading-tight">Административен панел</h1>
+                        <h1 class="text-base font-bold text-slate-900 leading-tight font-montserrat">Административен панел</h1>
                         <p class="text-xs text-slate-500">Управување со содржини</p>
                     </div>
                 </div>
 
-                <!-- Брзи линкови -->
-                <nav class="hidden md:flex space-x-1 text-sm font-medium">
-                    <a href="#stores" class="px-3 py-2 text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg transition">Продавници</a>
-                    <a href="#recipes" class="px-3 py-2 text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg transition">Рецепти</a>
-                    <a href="#requests" class="px-3 py-2 text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg transition">Барања за тури</a>
-                    <a href="#tours" class="px-3 py-2 text-slate-600 hover:text-indigo-600 hover:bg-slate-50 rounded-lg transition">Тури</a>
-                </nav>
+
             </div>
         </div>
     </header>
