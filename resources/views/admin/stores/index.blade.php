@@ -84,6 +84,12 @@ use Illuminate\Support\Str;
     <p class="text-xs text-slate-500">Управување со настани</p>
     </button>
 
+    <button @click="activeTab = 'subscribers'"
+    class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+    <h3 class="font-bold text-slate-900">Претплатници</h3>
+    <p class="text-xs text-slate-500">Subscribers / Leads</p>
+    </button>
+
 </div>
             <!-- 1. ПРОДАВНИЦИ И ЛОКАЛИ -->
             <section x-show="activeTab === 'stores'" x-data="{ search: '', visible: 4 }" class="space-y-4">
@@ -550,6 +556,132 @@ use Illuminate\Support\Str;
         </table>
     </div>
 </div>
+
+</section>
+
+<!-- 6. ПРЕТПЛАТНИЦИ / LEADS -->
+<section x-show="activeTab === 'subscribers'" x-data="{ search: '' }" class="space-y-4">
+
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+
+        <div>
+            <div class="flex items-center gap-2.5">
+                <h2 class="text-xl font-bold text-slate-900">Претплатници</h2>
+
+                <span class="bg-indigo-50 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full border border-indigo-100">
+                    {{ $subscribers->count() }}
+                </span>
+            </div>
+
+            <p class="text-xs text-slate-500 mt-0.5">
+                Пријави од попапот за претплата (Subscribers / Leads)
+            </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+
+            <!-- Поле за пребарување -->
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+                <input type="text"
+                       x-model="search"
+                       placeholder="Пребарај по име, е-пошта или телефон..."
+                       class="w-full sm:w-72 pl-9 pr-4 py-2 text-xs border border-slate-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition shadow-xs">
+            </div>
+
+            <a href="{{ route('subscribers.export') }}"
+               class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-xs whitespace-nowrap">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                <span>Export to CSV</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-50 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">
+                        <th class="py-3 px-6">Датум</th>
+                        <th class="py-3 px-4">Име</th>
+                        <th class="py-3 px-4">Е-пошта</th>
+                        <th class="py-3 px-4">Телефон</th>
+                        <th class="py-3 px-4">Код</th>
+                        <th class="py-3 px-6 text-right">Акции</th>
+                    </tr>
+                </thead>
+
+                <tbody class="divide-y divide-slate-100 text-sm">
+
+                    @forelse($subscribers as $subscriber)
+
+                        <tr data-search="{{ mb_strtolower($subscriber->first_name . ' ' . $subscriber->email . ' ' . $subscriber->full_phone, 'UTF-8') }}"
+                            x-show="search === '' || $el.dataset.search.includes(search.toLowerCase())"
+                            class="hover:bg-slate-50/60 transition">
+
+                            <td class="py-3.5 px-6 text-slate-500 text-xs font-mono whitespace-nowrap">
+                                {{ $subscriber->created_at->format('d.m.Y H:i') }}
+                            </td>
+
+                            <td class="py-3.5 px-4 font-semibold text-slate-900 whitespace-nowrap">
+                                {{ $subscriber->first_name }}
+                            </td>
+
+                            <td class="py-3.5 px-4 text-slate-600 font-mono text-xs">
+                                {{ $subscriber->email }}
+                            </td>
+
+                            <td class="py-3.5 px-4 text-slate-600 font-mono text-xs whitespace-nowrap">
+                                {{ $subscriber->full_phone }}
+                            </td>
+
+                            <td class="py-3.5 px-4 whitespace-nowrap">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200">
+                                    {{ $subscriber->discount_code }}
+                                </span>
+                            </td>
+
+                            <td class="py-3.5 px-6 text-right whitespace-nowrap">
+                                <form action="{{ route('subscribers.destroy', $subscriber) }}"
+                                      method="POST"
+                                      class="inline">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit"
+                                            onclick="return confirm('Дали сте сигурни дека сакате да го избришете овој претплатник?')"
+                                            class="px-3 py-1.5 text-xs font-medium text-rose-600 bg-rose-50 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+                                        Избриши
+                                    </button>
+
+                                </form>
+                            </td>
+
+                        </tr>
+
+                    @empty
+
+                        <tr>
+                            <td colspan="6" class="text-center py-12 text-slate-400">
+                                Сè уште нема претплатници.
+                            </td>
+                        </tr>
+
+                    @endforelse
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
 
 </main>
 

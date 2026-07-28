@@ -1563,5 +1563,6 @@ function scrollSlider(id, direction) {
 </script>
 
 
+@include('partials.subscribe-popup')
 </body>
 </html>

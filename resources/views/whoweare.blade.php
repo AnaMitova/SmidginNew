@@ -610,5 +610,6 @@ document.addEventListener("keydown", (e)=>{
 
     
 
+@include('partials.subscribe-popup')
 </body>
 </html>

@@ -281,5 +281,6 @@ document.addEventListener("DOMContentLoaded", function() {
      <br/>
      <br/>
 </div>
+@include('partials.subscribe-popup')
 </body>
 </html>

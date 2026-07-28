@@ -609,5 +609,6 @@ class="absolute font-montserrat flex flex-col items-center justify-start space-y
 </div>
 
 <script src="main.js"></script>
+@include('partials.subscribe-popup')
 </body>
 </html>

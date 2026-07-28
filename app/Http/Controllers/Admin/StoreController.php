@@ -9,6 +9,7 @@ use App\Models\Recipe;
 use App\Models\TourRequest;
 use App\Models\Tour;
 use App\Models\Event;
+use App\Models\Subscriber;
 
 class StoreController extends Controller
 {
@@ -19,9 +20,10 @@ class StoreController extends Controller
         $requests =TourRequest::latest()->get();
         $tours = Tour::latest()->get();
         $events = Event::latest()->get();
+        $subscribers = Subscriber::latest()->get();
 
-    
-        return view('admin.stores.index', compact('stores', 'recipes', 'requests', 'tours', 'events'));
+
+        return view('admin.stores.index', compact('stores', 'recipes', 'requests', 'tours', 'events', 'subscribers'));
     }
 
     public function create()

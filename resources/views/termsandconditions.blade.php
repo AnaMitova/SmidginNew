@@ -343,5 +343,6 @@ If you have an order query, please use our <u>contact form</u> email us at <u
 
 
 
+@include('partials.subscribe-popup')
 </body>
 </html>

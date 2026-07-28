@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourRequestController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
 
 
 Route::view('/', 'index');
@@ -27,6 +29,10 @@ Route::view('/termsandconditions', 'termsandconditions');
 Route::view('/velvet', 'velvet');
 Route::view('/xo', 'xo');
 
+// Under api/* so validation failures render as JSON — see shouldRenderJsonWhen()
+// in bootstrap/app.php. Stays in web.php to keep the session/CSRF middleware.
+Route::post('/api/subscribe', [SubscriberController::class, 'store'])->name('subscribe.store');
+
 Route::prefix('admin')->group(function () {
     Route::resource('stores', StoreController::class);
     Route::resource('recipes', RecipeController::class);
@@ -34,6 +40,11 @@ Route::prefix('admin')->group(function () {
     Route::resource('events', EventController::class);
     Route::resource('requests', TourRequestController::class)
         ->only(['index', 'store']);
+
+    Route::get('subscribers/export', [AdminSubscriberController::class, 'export'])
+        ->name('subscribers.export');
+    Route::delete('subscribers/{subscriber}', [AdminSubscriberController::class, 'destroy'])
+        ->name('subscribers.destroy');
 });
 
 
