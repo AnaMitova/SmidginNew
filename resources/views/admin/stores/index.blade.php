@@ -50,7 +50,9 @@ use Illuminate\Support\Str;
         </div>
     </header>
 
-    <main x-data="{ activeTab: null }" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+    {{-- Reopen the tab we were on after a save redirect (e.g. .../admin/stores#subscribers). --}}
+    <main x-data="{ activeTab: window.location.hash ? window.location.hash.slice(1) : null }"
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
@@ -643,6 +645,97 @@ use Illuminate\Support\Str;
                 <span>Export to CSV</span>
             </a>
         </div>
+    </div>
+
+    @if(session('success'))
+        <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold px-4 py-3 rounded-xl">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @php
+        $popupCode = old('discount_code', $subscriptionSetting->discount_code ?: \App\Models\SubscriptionSetting::DEFAULT_DISCOUNT_CODE);
+        $popupOffer = old('discount_text', $subscriptionSetting->discount_text ?: \App\Models\SubscriptionSetting::DEFAULT_DISCOUNT_TEXT);
+    @endphp
+
+    <!-- Поставки за попапот за претплата -->
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs p-5"
+         x-data="{ code: @js($popupCode), offer: @js($popupOffer) }">
+
+        <div class="mb-4">
+            <h3 class="text-sm font-bold text-slate-900">Понуда во попапот</h3>
+            <p class="text-xs text-slate-500 mt-0.5">
+                Тоа што го гледаат посетителите во попапот за претплата. Постојните претплатници го задржуваат кодот со кој се пријавиле.
+            </p>
+        </div>
+
+        <form action="{{ route('subscribers.settings.update') }}" method="POST" class="space-y-4">
+
+            @csrf
+            @method('PUT')
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <div>
+                    <label for="discount_code" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Код за попуст
+                    </label>
+
+                    <input type="text"
+                           id="discount_code"
+                           name="discount_code"
+                           value="{{ $popupCode }}"
+                           x-model="code"
+                           maxlength="50"
+                           class="w-full px-4 py-2 text-sm font-mono border rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition shadow-xs {{ $errors->has('discount_code') ? 'border-rose-400' : 'border-slate-200' }}">
+
+                    @error('discount_code')
+                        <p class="text-xs font-semibold text-rose-600 mt-1.5">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div>
+                    <label for="discount_text" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Текст на понудата <span class="font-normal text-slate-400">(на пр. 10% OFF)</span>
+                    </label>
+
+                    <input type="text"
+                           id="discount_text"
+                           name="discount_text"
+                           value="{{ $popupOffer }}"
+                           x-model="offer"
+                           maxlength="60"
+                           class="w-full px-4 py-2 text-sm border rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition shadow-xs {{ $errors->has('discount_text') ? 'border-rose-400' : 'border-slate-200' }}">
+
+                    @error('discount_text')
+                        <p class="text-xs font-semibold text-rose-600 mt-1.5">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+
+            <!-- Преглед -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 space-y-1.5">
+                <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Преглед</p>
+
+                <p class="text-xs text-slate-600">
+                    Subscribe for exclusive updates, special offers, and
+                    <strong class="text-slate-900" x-text="offer"></strong> your first order.
+                </p>
+
+                <p class="text-xs text-slate-600">
+                    Unlock <span class="font-semibold text-slate-900" x-text="offer"></span> Your First Order
+                </p>
+
+                <p class="text-xs text-slate-600">
+                    Код по пријавување: <span class="font-mono font-semibold text-rose-600" x-text="code"></span>
+                </p>
+            </div>
+
+            <button type="submit"
+                    class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-xs whitespace-nowrap">
+                Зачувај
+            </button>
+        </form>
     </div>
 
     <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">

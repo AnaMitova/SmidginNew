@@ -9,6 +9,10 @@
     // Home market first, then alphabetical (array + keeps the left-hand key order).
     $sgsubCountries = ['MK' => \App\Support\CountryFlags::all()['MK']]
         + \App\Support\CountryFlags::all();
+
+    // Editable from the "Претплатници" tab of the admin panel.
+    $sgsubCode = \App\Models\SubscriptionSetting::discountCode();
+    $sgsubOffer = \App\Models\SubscriptionSetting::discountText();
 @endphp
 
 @include('partials.flag-sprite')
@@ -16,7 +20,7 @@
 <div id="sgsub"
      data-endpoint="{{ url('/api/subscribe') }}"
      data-token="{{ csrf_token() }}"
-     data-code="WELCOME8"
+     data-code="{{ $sgsubCode }}"
      hidden>
 
     {{-- ───────────────────────────── Modal ───────────────────────────── --}}
@@ -41,7 +45,7 @@
                     <h2 class="sgsub-heading" id="sgsub-heading">Welcome to Smidgin!</h2>
 
                     <p class="sgsub-lede">
-                        Subscribe for exclusive updates, special offers, and <strong>10% OFF</strong> your first order.
+                        Subscribe for exclusive updates, special offers, and <strong>{{ $sgsubOffer }}</strong> your first order.
                     </p>
 
                     <form class="sgsub-form" id="sgsub-form" novalidate>
@@ -129,7 +133,7 @@
                 <h2 class="sgsub-heading sgsub-heading--success">Welcome to Smidgin!</h2>
 
                 <div class="sgsub-code-row">
-                    <span class="sgsub-code" id="sgsub-code">WELCOME8</span>
+                    <span class="sgsub-code" id="sgsub-code">{{ $sgsubCode }}</span>
                     <button type="button" class="sgsub-copy" id="sgsub-copy" aria-label="Copy discount code">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <rect x="3.5" y="3.5" width="12" height="14" rx="3" fill="currentColor"/>
@@ -149,7 +153,7 @@
     {{-- ─────────────────────────── Launcher pill ─────────────────────────── --}}
     <div class="sgsub-launcher" id="sgsub-launcher" hidden>
         <button type="button" class="sgsub-launcher-open" id="sgsub-launcher-open">
-            Unlock 10% OFF Your First Order
+            Unlock {{ $sgsubOffer }} Your First Order
         </button>
         <button type="button" class="sgsub-launcher-x" id="sgsub-launcher-x" aria-label="Dismiss offer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>

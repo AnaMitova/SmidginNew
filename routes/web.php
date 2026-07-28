@@ -59,6 +59,9 @@ Route::prefix('admin')->group(function () {
     Route::get('subscribers/export', [AdminSubscriberController::class, 'export'])
         ->name('subscribers.export');
 
+    Route::put('subscribers/settings', [AdminSubscriberController::class, 'updateSettings'])
+        ->name('subscribers.settings.update');
+
     Route::delete('subscribers/{subscriber}', [AdminSubscriberController::class, 'destroy'])
         ->name('subscribers.destroy');
 });

@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subscriber;
+use App\Models\SubscriptionSetting;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class SubscriberController extends Controller
 {
-    /**
-     * Code handed out by the subscription popup.
-     */
-    public const DISCOUNT_CODE = 'WELCOME8';
-
     /**
      * Store a lead coming from the subscription popup.
      */
@@ -41,7 +37,7 @@ class SubscriberController extends Controller
                 'country_iso'   => strtoupper($data['country_iso'] ?? 'MK'),
                 'country_code'  => $data['country_code'],
                 'phone'         => $data['phone'],
-                'discount_code' => self::DISCOUNT_CODE,
+                'discount_code' => SubscriptionSetting::discountCode(),
                 'source'        => $request->headers->get('referer'),
                 'ip_address'    => $request->ip(),
                 'status'        => 'Subscribed',
