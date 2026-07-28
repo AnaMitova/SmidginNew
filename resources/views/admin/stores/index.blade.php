@@ -36,12 +36,12 @@ use Illuminate\Support\Str;
             <div class="flex justify-start gap-8 h-28 items-center">
                 <div class="flex items-center gap-3">
                     <div>
-                        <img src="{{ asset('sliki/logo.png') }}" alt="Logo" class="">
+                        <img src="{{ asset('sliki/logo.png') }}" alt="Logo" class="w-[150px]">
                     </div>
                     </div>
                     <div>
-                        <h1 class="text-base font-bold text-slate-900 leading-tight font-montserrat">Административен панел</h1>
-                        <p class="text-xs text-slate-500">Управување со содржини</p>
+                        <h1 class="text-base font-bold text-slate-900  leading-tight font-montserrat">Административен панел</h1>
+                        <p class="text-xs text-[#EF4135]">Управување со содржини</p>
                     </div>
                 </div>
 

@@ -332,6 +332,53 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 <script>
+document.getElementById('requestForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = this;
+
+    const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+        }
+    });
+
+    if (response.ok) {
+        // Close request modal
+        document.getElementById('request').classList.add('hidden');
+
+        // Show success modal
+        const success = document.getElementById('requestSent');
+        success.classList.remove('hidden');
+        success.classList.add('flex');
+
+        // Reset form
+        form.reset();
+
+        // Hide after 3 seconds
+        setTimeout(() => {
+            success.classList.add('hidden');
+            success.classList.remove('flex');
+        
+            // Restore page scrolling
+            document.body.classList.remove('overflow-hidden');
+        }, 3000);
+
+        document.getElementById('requestSent').addEventListener('click', function () {
+            this.classList.add('hidden');
+            this.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        });
+    } else {
+        const data = await response.json();
+        alert(data.message || 'Something went wrong.');
+    }
+});
+</script>
+<script>
   const requestSent = document.getElementById("requestSent");
   const requestSentContent = document.getElementById("requestSentContent");
 
