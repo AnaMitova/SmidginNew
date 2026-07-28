@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="request" class="fixed hidden font-montserrat inset-0 flex items-center h-[700px] justify-center z-50 overflow-y-auto"> <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-5 md:p-10 w-full md:w-[752px] max-h-screen md:h-[700px] relative">
     <button class="absolute top-4 right-4 text-gray-500 text-xl font-bold" onclick="closeModal('request')">✕</button>
 
-    <h2 class="text-2xl md:text-[28px] font-bold pt-4 pl-0 md:pl-4" >SEND REQUEST</h2>
+    <h2 class="text-2xl md:text-[27px] font-bold pt-4 pl-0 md:pl-4" >SEND REQUEST</h2>
 
 <form
     id="requestForm"
@@ -658,7 +658,7 @@ document.querySelectorAll("[id^='tourModal']").forEach(modal => {
 
                 <div class="font-montserrat text-[15px] space-y-2 mb-8">
 
-                    <p><b>Category:</b> {{ $event->category }}</p>
+                    <p><b>Category: </b> {{ $event->category }}</p>
 
                     <p><b>Date:</b> {{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</p>
 
