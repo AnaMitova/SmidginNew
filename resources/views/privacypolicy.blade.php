@@ -291,5 +291,6 @@ Skenderoski and Lowther DOO may contact you via email to invite you to review an
      <br/>
 </div>
 @include('partials.subscribe-popup')
+@include('partials.store-locator')
 </body>
 </html>

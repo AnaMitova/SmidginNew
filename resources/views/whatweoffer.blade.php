@@ -733,5 +733,6 @@ document.querySelectorAll("[id^='tourModal']").forEach(modal => {
 
 
 @include('partials.subscribe-popup')
+@include('partials.store-locator')
 </body>
 </html>

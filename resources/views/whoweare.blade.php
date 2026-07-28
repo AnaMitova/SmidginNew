@@ -611,5 +611,6 @@ document.addEventListener("keydown", (e)=>{
     
 
 @include('partials.subscribe-popup')
+@include('partials.store-locator')
 </body>
 </html>

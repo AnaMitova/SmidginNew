@@ -368,81 +368,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // });
 </script>
 
-<div id="world-btn" class="fixed inset-0 hidden flex items-center justify-center z-50 p-4">
-  <div class="bg-gray-50/60 backdrop-blur-lg rounded-2xl shadow-2xl p-6 md:p-12 w-full max-w-lg md:max-w-[945px] h-[650px] md:h-[580px] relative flex flex-col md:justify-center justify-start items-start overflow-y-auto">
-    
-    <button class="absolute top-7 right-7 text-black text-2xl font-bold" onclick="closeModal('world-btn')">✕</button>
-    
-    <h2 class="text-2xl md:text-[32px] w-full text-left font-montserrat pb-8 md:pb-24 pt-4 md:pt-0">Select a Location</h2>
-    
-    <div id="Continents" class="flex flex-col space-y-8 md:space-y-12 w-full">
-        
-        <div id="NorthAmerica" class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-8 font-montserrat items-start md:items-center">
-            <p class="text-lg md:text-[20px] font-semibold flex-shrink-0 w-auto md:w-[170px]">North America</p>
-            <div class="flex flex-wrap gap-3">
-                <div class="w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer border-black bg-white justify-center items-center space-x-2">
-                    <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/usa.png" loading="lazy" decoding="async"/>
-                    <a href="https://potomacwines.com/spirits/gin/smidgin-small-batch-gin" class="text-base md:text-[20px]">United States</a>
-                </div>
-            </div>
-        </div>
-
-        <div id="Europe" class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-12 font-montserrat items-start md:items-center">
-            <p class="text-lg md:text-[20px] font-semibold flex-shrink-0 w-auto md:w-[150px]">Europe</p>
-            <div class="flex flex-col space-y-3 w-full">
-                <div class="flex flex-wrap gap-3">
-                    <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                        <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/serbia.webp" loading="lazy" decoding="async"/>
-                        <a class="text-base md:text-[20px]">Serbia</a>
-                    </div>
-                    <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                        <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/montenegro.webp" loading="lazy" decoding="async"/>
-                        <a class="text-base md:text-[20px]">Montenegro</a>
-                    </div>
-                    <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                        <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/slo.png" loading="lazy" decoding="async"/>
-                        <a href="https://makedonija-trade.si/izdelek/premium-gin-smidgin-07-l/" class="text-base md:text-[20px]">Slovenia</a>
-                    </div>
-                    <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                        <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/italy.png" loading="lazy" decoding="async"/>
-                        <a href="https://alambicco.shop/gin/14-smidgin-classico.html" class="text-base md:text-[20px]">Italy</a>
-                    </div>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                    <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                        <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/germany.png" loading="lazy" decoding="async"/>
-                        <a href="https://sunny-taste.de/" class="text-base md:text-[20px]">Germany</a>
-                    </div>
-                    <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                        <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/swit.webp" loading="lazy" decoding="async"/>
-                        <a href="https://www.gin-garage.ch/?s=smidgin" class="text-base md:text-[20px]">Switzerland</a>
-                    </div>
-                    <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                        <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/malta.png" loading="lazy" decoding="async"/>
-                        <a href="https://imbierekwines.com/" class="text-base md:text-[20px]">Malta</a>
-                    </div>
-                </div>
-            </div>
-        </div> 
-
-        <div id="Asia" class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-11 font-montserrat items-start md:items-center">
-            <p class="text-lg md:text-[20px] font-semibold flex-shrink-0 w-auto md:w-[150px]">Asia,<br class="md:hidden"/> Middle East</p> 
-            <div class="flex flex-wrap gap-3">
-                <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                    <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/dubai.png" loading="lazy" decoding="async"/>
-                    <a class="text-base md:text-[20px]">UAE, Dubai</a>
-                </div>
-                <div class="hover:border-red-500 hover:bg-red-50 duration-300 transition-colors hover:cursor-pointer w-auto flex py-2 px-3 md:py-[13px] md:px-[20px] rounded-2xl border border-black bg-white justify-center items-center space-x-2">
-                    <img class="w-[20px] h-[15px] md:w-[24px] md:h-[18px] rounded-[4px]" src="./img/australia.png" loading="lazy" decoding="async"/>
-                    <a href="https://www.virtualliquor.com.au/product/smidgin-gin-classic-700ml/" class="text-base md:text-[20px]">Australia</a>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-  </div>
-</div>
-
 <!-- Main Content -->
 <main class="md:px-32 md:pt-20 pt-6 mb-20">
     <div class="text-center md:mb-8 mb-12">        
@@ -524,7 +449,7 @@ class="absolute font-montserrat flex flex-col items-center justify-start space-y
             </script>
             
 
-            <button onclick="openModal('world-btn')" id="world" class=" px-8 font-montserrat sm:w-auto border border-white py-3 rounded-xl shadow-2xl hover:border-red-500 hover:bg-red-50 duration-300 transition-colors flex items-center justify-center space-x-2"><span>WORLD</span> <i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="button" data-store-locator id="world" title="Find our stores in the world" class=" px-8 font-montserrat sm:w-auto border border-white py-3 rounded-xl shadow-2xl hover:border-red-500 hover:bg-red-50 duration-300 transition-colors flex items-center justify-center space-x-2"><span>WORLD</span> <i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </div>
     <br/>
@@ -610,5 +535,6 @@ class="absolute font-montserrat flex flex-col items-center justify-start space-y
 
 <script src="main.js"></script>
 @include('partials.subscribe-popup')
+@include('partials.store-locator')
 </body>
 </html>

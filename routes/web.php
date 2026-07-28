@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\TourRequestController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
+use App\Http\Controllers\Admin\StoreLocationController;
 
 
 Route::view('/', 'index');
@@ -40,6 +41,12 @@ Route::prefix('admin')->group(function () {
     Route::resource('events', EventController::class);
     Route::resource('requests', TourRequestController::class)
         ->only(['index', 'store']);
+
+    // Declared before the resource so it is not swallowed by {store_location}.
+    Route::post('store-locations/reorder', [StoreLocationController::class, 'reorder'])
+        ->name('store-locations.reorder');
+    Route::resource('store-locations', StoreLocationController::class)
+        ->except(['index', 'show']);
 
     Route::get('subscribers/export', [AdminSubscriberController::class, 'export'])
         ->name('subscribers.export');

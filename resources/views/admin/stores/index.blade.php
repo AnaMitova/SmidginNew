@@ -90,6 +90,12 @@ use Illuminate\Support\Str;
     <p class="text-xs text-slate-500">Subscribers / Leads</p>
     </button>
 
+    <button @click="activeTab = 'store-locations'"
+    class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+    <h3 class="font-bold text-slate-900">Локации</h3>
+    <p class="text-xs text-slate-500">Store Locations</p>
+    </button>
+
 </div>
             <!-- 1. ПРОДАВНИЦИ И ЛОКАЛИ -->
             <section x-show="activeTab === 'stores'" x-data="{ search: '', visible: 4 }" class="space-y-4">
@@ -680,6 +686,226 @@ use Illuminate\Support\Str;
             </table>
         </div>
     </div>
+
+</section>
+
+<!-- 7. ЛОКАЦИИ НА ПРОДАВНИЦИ / STORE LOCATIONS -->
+<section x-show="activeTab === 'store-locations'" class="space-y-4">
+
+    @include('partials.flag-sprite')
+
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+            <div class="flex items-center gap-2.5">
+                <h2 class="text-xl font-bold text-slate-900">Локации на продавници</h2>
+                <span class="bg-indigo-50 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full border border-indigo-100">
+                    {{ $storeLocations->flatten()->count() }}
+                </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">
+                Се прикажуваат во модалот „Select a Location“. Влечете за да го смените редоследот.
+            </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <span id="sl-save-state" class="text-xs font-semibold text-emerald-600 opacity-0 transition-opacity">Зачувано</span>
+            <a href="{{ route('store-locations.create') }}"
+               class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-xs whitespace-nowrap">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                <span>Додади локација</span>
+            </a>
+        </div>
+    </div>
+
+    <div id="sl-root" data-reorder-url="{{ route('store-locations.reorder') }}" class="space-y-5">
+
+        @forelse($storeLocations as $region => $locations)
+            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+
+                <div class="flex items-center justify-between px-5 py-3 bg-slate-50 border-b border-slate-200">
+                    <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">{{ $region }}</h3>
+                    <span class="text-[11px] text-slate-400">{{ $locations->count() }}</span>
+                </div>
+
+                <ul class="divide-y divide-slate-100" data-sl-group>
+                    @foreach($locations as $location)
+                        <li data-sl-id="{{ $location->id }}" draggable="true"
+                            class="flex items-center gap-3 px-5 py-3 bg-white hover:bg-slate-50/60 transition cursor-grab active:cursor-grabbing">
+
+                            <span class="shrink-0 text-slate-300" title="Влечете за редослед">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <circle cx="7" cy="4" r="1.4"/><circle cx="13" cy="4" r="1.4"/>
+                                    <circle cx="7" cy="10" r="1.4"/><circle cx="13" cy="10" r="1.4"/>
+                                    <circle cx="7" cy="16" r="1.4"/><circle cx="13" cy="16" r="1.4"/>
+                                </svg>
+                            </span>
+
+                            <span class="shrink-0 w-8 h-8 rounded-full overflow-hidden ring-1 ring-slate-200 bg-slate-100 flex items-center justify-center">
+                                @if($location->flag_image)
+                                    <img src="{{ asset('storage/' . $location->flag_image) }}" class="w-full h-full object-cover" alt="">
+                                @elseif($location->flag_sprite_id)
+                                    <svg viewBox="0 0 24 16" preserveAspectRatio="xMidYMid slice" class="w-full h-full">
+                                        <use href="#{{ $location->flag_sprite_id }}"></use>
+                                    </svg>
+                                @endif
+                            </span>
+
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-semibold text-slate-900 text-sm truncate">{{ $location->name }}</span>
+
+                                    @if(! $location->is_active)
+                                        <span class="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-100 text-slate-500 border border-slate-200">
+                                            Скриена
+                                        </span>
+                                    @endif
+
+                                    @if($location->opens_in_new_tab)
+                                        <span class="shrink-0 text-slate-300" title="Се отвора во нов таб">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                        </span>
+                                    @endif
+                                </div>
+                                <a href="{{ $location->store_url }}" target="_blank" rel="noopener noreferrer"
+                                   class="text-[11px] text-slate-400 font-mono hover:text-indigo-600 truncate block">
+                                    {{ $location->store_url }}
+                                </a>
+                            </div>
+
+                            <div class="shrink-0 flex items-center gap-1.5">
+                                <button type="button" data-sl-move="up" aria-label="Помести нагоре"
+                                        class="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-indigo-600 hover:bg-slate-100 rounded-lg transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+                                </button>
+                                <button type="button" data-sl-move="down" aria-label="Помести надолу"
+                                        class="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-indigo-600 hover:bg-slate-100 rounded-lg transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </button>
+
+                                <a href="{{ route('store-locations.edit', $location) }}"
+                                   class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-indigo-600 transition">
+                                    Промени
+                                </a>
+
+                                <form action="{{ route('store-locations.destroy', $location) }}" method="POST" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                            onclick="return confirm('Дали сте сигурни дека сакате да ја избришете оваа локација?')"
+                                            class="px-3 py-1.5 text-xs font-medium text-rose-600 bg-rose-50 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+                                        Избриши
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @empty
+            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs py-12 text-center">
+                <p class="text-slate-400 text-sm">Сè уште нема додадено локации.</p>
+                <a href="{{ route('store-locations.create') }}" class="inline-block mt-3 text-xs font-semibold text-indigo-600 hover:text-indigo-700">
+                    Додади ја првата локација
+                </a>
+            </div>
+        @endforelse
+    </div>
+
+    <script>
+    (function () {
+        var root = document.getElementById('sl-root');
+        if (!root || root.dataset.ready === '1') return;
+        root.dataset.ready = '1';
+
+        var token = '{{ csrf_token() }}';
+        var state = document.getElementById('sl-save-state');
+        var dragged = null;
+
+        function flashSaved(ok) {
+            state.textContent = ok ? 'Зачувано' : 'Грешка при зачувување';
+            state.classList.toggle('text-emerald-600', ok);
+            state.classList.toggle('text-rose-600', !ok);
+            state.style.opacity = '1';
+            setTimeout(function () { state.style.opacity = '0'; }, 1800);
+        }
+
+        /* Persist the full list in DOM order, so region grouping stays intact. */
+        function save() {
+            var ids = [].map.call(root.querySelectorAll('[data-sl-id]'), function (li) {
+                return parseInt(li.dataset.slId, 10);
+            });
+            if (!ids.length) return;
+
+            fetch(root.dataset.reorderUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': token,
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ ids: ids })
+            }).then(function (r) { flashSaved(r.ok); })
+              .catch(function () { flashSaved(false); });
+        }
+
+        /* ── Drag and drop, scoped to a single region group ─────────────── */
+        root.addEventListener('dragstart', function (e) {
+            var li = e.target.closest('[data-sl-id]');
+            if (!li) return;
+            dragged = li;
+            li.classList.add('opacity-40');
+            e.dataTransfer.effectAllowed = 'move';
+            // Firefox needs data set for the drag to start at all.
+            e.dataTransfer.setData('text/plain', li.dataset.slId);
+        });
+
+        root.addEventListener('dragend', function () {
+            if (dragged) dragged.classList.remove('opacity-40');
+            dragged = null;
+        });
+
+        root.addEventListener('dragover', function (e) {
+            if (!dragged) return;
+            var over = e.target.closest('[data-sl-id]');
+            if (!over || over === dragged) return;
+            if (over.parentElement !== dragged.parentElement) return;   // same region only
+
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+
+            var box = over.getBoundingClientRect();
+            var after = (e.clientY - box.top) > box.height / 2;
+            over.parentElement.insertBefore(dragged, after ? over.nextSibling : over);
+        });
+
+        root.addEventListener('drop', function (e) {
+            if (!dragged) return;
+            e.preventDefault();
+            save();
+        });
+
+        /* ── Keyboard-accessible fallback ───────────────────────────────── */
+        root.addEventListener('click', function (e) {
+            var btn = e.target.closest('[data-sl-move]');
+            if (!btn) return;
+
+            var li = btn.closest('[data-sl-id]');
+            var sibling = btn.dataset.slMove === 'up'
+                ? li.previousElementSibling
+                : li.nextElementSibling;
+            if (!sibling) return;
+
+            if (btn.dataset.slMove === 'up') {
+                li.parentElement.insertBefore(li, sibling);
+            } else {
+                li.parentElement.insertBefore(sibling, li);
+            }
+            btn.focus();
+            save();
+        });
+    })();
+    </script>
 
 </section>
 

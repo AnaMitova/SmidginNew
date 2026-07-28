@@ -373,5 +373,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 @include('partials.subscribe-popup')
+@include('partials.store-locator')
 </body>
 </html>
