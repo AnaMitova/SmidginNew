@@ -56,7 +56,32 @@
   });
 </script>
 
-<body id="top">    <!-- Homepage Section -->
+<body id="top">    
+        @php
+    $banner = \App\Models\PromotionBanner::where('active', true)->first();
+@endphp
+
+@if($banner)
+<div
+    class="w-full py-2 px-4 text-center"
+    style="background: {{ $banner->background_color }}; color: {{ $banner->text_color }};">
+    
+    @if($banner->link)
+        <a href="{{ $banner->link }}" class="font-montserrat hover:underline">
+            {{ $banner->text }}
+
+            @if($banner->button_text)
+                <span class="ml-3 px-3 py-1 rounded-full bg-white text-black text-sm">
+                    {{ $banner->button_text }}
+                </span>
+            @endif
+        </a>
+    @else
+        {{ $banner->text }}
+    @endif
+
+</div>
+@endif<!-- Homepage Section -->
 <div id="homepage" class="font-montserrat md:px-28 pt-14 mb-12 space-y-16 flex flex-col items-center">
     <div id="navbar" class="flex w-[99%] md:px-0 px-9 justify-between items-center">
         <a href="./" id="logo" class="md:w-[208px] w-[180px]">

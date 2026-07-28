@@ -11,6 +11,7 @@ use App\Models\Tour;
 use App\Models\Event;
 use App\Models\Subscriber;
 use App\Models\StoreLocation;
+use App\Models\PromotionBanner;
 
 class StoreController extends Controller
 {
@@ -23,9 +24,20 @@ class StoreController extends Controller
         $events = Event::latest()->get();
         $subscribers = Subscriber::latest()->get();
         $storeLocations = StoreLocation::ordered()->get()->groupBy('region');
+        $banner = PromotionBanner::firstOrCreate(
+    [],
+    [
+        'text' => 'Welcome to Smidgin!',
+        'link' => '/',
+        'button_text' => 'Learn More',
+        'background_color' => '#F97316',
+        'text_color' => '#FFFFFF',
+        'active' => true,
+    ]
+);
 
 
-        return view('admin.stores.index', compact('stores', 'recipes', 'requests', 'tours', 'events', 'subscribers', 'storeLocations'));
+        return view('admin.stores.index', compact('stores', 'recipes', 'requests', 'tours', 'events', 'subscribers', 'storeLocations', 'banner'));
     }
 
     public function create()

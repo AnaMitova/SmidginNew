@@ -211,6 +211,31 @@ function updateCards(sectionId, data) {
 </script>
 
 <body id="top">
+      @php
+    $banner = \App\Models\PromotionBanner::where('active', true)->first();
+@endphp
+
+@if($banner)
+<div
+    class="w-full py-2 px-4 text-center"
+    style="background: {{ $banner->background_color }}; color: {{ $banner->text_color }};">
+    
+    @if($banner->link)
+        <a href="{{ $banner->link }}" class="font-montserrat hover:underline">
+            {{ $banner->text }}
+
+            @if($banner->button_text)
+                <span class="ml-3 px-3 py-1 rounded-full bg-white text-black text-sm">
+                    {{ $banner->button_text }}
+                </span>
+            @endif
+        </a>
+    @else
+        {{ $banner->text }}
+    @endif
+
+</div>
+@endif
 
 
 <!-- Homepage Section -->

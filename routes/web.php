@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
 use App\Http\Controllers\Admin\StoreLocationController;
+use App\Http\Controllers\Admin\BannerController;
 
 
 Route::view('/', 'index');
@@ -39,17 +40,25 @@ Route::prefix('admin')->group(function () {
     Route::resource('recipes', RecipeController::class);
     Route::resource('tours', TourController::class);
     Route::resource('events', EventController::class);
+
+    Route::get('banner', [BannerController::class, 'edit'])
+        ->name('banner.edit');
+
+    Route::put('banner', [BannerController::class, 'update'])
+        ->name('banner.update');
+
     Route::resource('requests', TourRequestController::class)
         ->only(['index', 'store']);
 
-    // Declared before the resource so it is not swallowed by {store_location}.
     Route::post('store-locations/reorder', [StoreLocationController::class, 'reorder'])
         ->name('store-locations.reorder');
+
     Route::resource('store-locations', StoreLocationController::class)
         ->except(['index', 'show']);
 
     Route::get('subscribers/export', [AdminSubscriberController::class, 'export'])
         ->name('subscribers.export');
+
     Route::delete('subscribers/{subscriber}', [AdminSubscriberController::class, 'destroy'])
         ->name('subscribers.destroy');
 });

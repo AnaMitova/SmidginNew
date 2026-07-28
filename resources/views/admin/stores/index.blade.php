@@ -95,6 +95,11 @@ use Illuminate\Support\Str;
     <h3 class="font-bold text-slate-900">Локации</h3>
     <p class="text-xs text-slate-500">Store Locations</p>
     </button>
+    <button @click="activeTab = 'banner'"
+        class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+        <h3 class="font-bold text-slate-900">Банер</h3>
+        <p class="text-xs text-slate-500">Промотивен банер</p>
+    </button>
 
 </div>
             <!-- 1. ПРОДАВНИЦИ И ЛОКАЛИ -->
@@ -263,11 +268,33 @@ use Illuminate\Support\Str;
         </section>
 
         <!-- 3. БАРАЊА ЗА ТУРИ -->
-        <section x-show="activeTab === 'requests'" class="space-y-4">
-            <div>
-                <h2 class="text-xl font-bold text-slate-900">Барања за тури</h2>
-                <p class="text-xs text-slate-500 mt-0.5">Доспеани резервации и прашања од корисници</p>
-            </div>
+            <section x-show="activeTab === 'requests'" x-data="{ search: '' }" class="space-y-4">            
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+
+    <div>
+        <h2 class="text-xl font-bold text-slate-900">Барања за тури</h2>
+        <p class="text-xs text-slate-500 mt-0.5">
+            Доспеани резервации и прашања од корисници
+        </p>
+    </div>
+
+    <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+        </div>
+
+        <input
+            x-model="search"
+            type="text"
+            placeholder="Пребарај по име, тура или е-пошта..."
+            class="w-full sm:w-72 pl-9 pr-4 py-2 text-xs border border-slate-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition shadow-xs">
+    </div>
+
+</div>
+
 
             <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
                 <div class="overflow-x-auto">
@@ -286,7 +313,16 @@ use Illuminate\Support\Str;
                         </thead>
                         <tbody class="divide-y divide-slate-100 text-sm">
                             @foreach($requests as $request)
-                                <tr class="hover:bg-slate-50/60 transition">
+                                <tr
+    data-search="{{ mb_strtolower(
+        $request->tour->title . ' ' .
+        $request->name . ' ' .
+        $request->email . ' ' .
+        $request->phone,
+        'UTF-8'
+    ) }}"
+    x-show="$el.dataset.search.includes(search.toLowerCase()) || search === ''"
+    class="hover:bg-slate-50/60 transition">
                                     <td class="py-3 px-6 font-semibold text-slate-900 whitespace-nowrap">{{ $request->tour->title }}</td>
                                     <td class="py-3 px-4 text-slate-800 whitespace-nowrap">{{ $request->name }}</td>
                                     <td class="py-3 px-4 text-slate-600 font-mono text-xs">{{ $request->email }}</td>
@@ -907,6 +943,78 @@ use Illuminate\Support\Str;
     })();
     </script>
 
+</section>
+
+<!-- Pop up banner -->
+<section x-show="activeTab === 'banner'" class="space-y-4">
+    <div>
+        <h2 class="text-xl font-bold text-slate-900">Промотивен банер</h2>
+        <p class="text-xs text-slate-500 mt-0.5">
+            Промени го банерот што се прикажува на врвот на веб-страницата.
+        </p>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-xs p-6">
+        <form action="{{ route('banner.update') }}" method="POST" class="space-y-5">
+            @csrf
+            @method('PUT')
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Текст</label>
+                <input type="text"
+                       name="text"
+                       value="{{ $banner->text }}"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Линк</label>
+                <input type="text"
+                       name="link"
+                       value="{{ $banner->link }}"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-2">Текст на копче</label>
+                <input type="text"
+                       name="button_text"
+                       value="{{ $banner->button_text }}"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Боја на позадина</label>
+                    <input type="color"
+                           name="background_color"
+                           value="{{ $banner->background_color }}"
+                           class="w-full h-12 rounded-xl border border-slate-300">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Боја на текст</label>
+                    <input type="color"
+                           name="text_color"
+                           value="{{ $banner->text_color }}"
+                           class="w-full h-12 rounded-xl border border-slate-300">
+                </div>
+            </div>
+
+            <label class="flex items-center gap-3">
+                <input type="checkbox"
+                       name="active"
+                       value="1"
+                       {{ $banner->active ? 'checked' : '' }}>
+                <span>Активен банер</span>
+            </label>
+
+            <button type="submit"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-xl">
+                Зачувај
+            </button>
+        </form>
+    </div>
 </section>
 
 </main>
