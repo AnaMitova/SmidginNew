@@ -510,11 +510,9 @@ function openRequestModal(tourId) {
 
                         </div>
 
-                        <div class="font-montserrat text-gray-700 leading-6 flex-grow whitespace-pre-line">
-
-                            {{ $tour->description }}
-
-                        </div>
+<div class="font-montserrat text-gray-700 leading-6 flex-grow whitespace-pre-line max-h-52 overflow-y-auto pr-3">
+    {{ $tour->description }}
+</div>
 
                         <div class="flex justify-between items-center mt-10">
 
@@ -729,7 +727,7 @@ document.querySelectorAll("[id^='tourModal']").forEach(modal => {
             <div class="font-montserrat flex flex-col text-start h-full w-full md:w-1/2 pt-5 md:pt-0">
                 <h1 class="text-[18px] font-bold">PERSONALIZED SMIDGIN SET</h1><br/>
                 <p class="text-[16px]">Create your own set with a personalized 0.7L Smidgin bottle and our signature branded glass. Whether you're gifting it or treating yourself, it's the perfect way to make your Smidgin moment truly yours.<br/><br/>Your name, your message, your style, all in one bold and memorable package.</p><br/>
-                <a href="https://smidgin-shop.myshopify.com/products/personalized-smidgin-bottle" class="px-5 py-3 w-full md:w-[174px] text-center bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">GO TO SHOP</a>
+                <a href="https://smidgin-shop.myshopify.com/products/personalized-smidgin-set?_pos=1&_sid=bfc2ed3f6&_ss=r" class="px-5 py-3 w-full md:w-[174px] text-center bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">GO TO SHOP</a>
             </div>
         </div>
     </div>
