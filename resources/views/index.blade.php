@@ -336,14 +336,56 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 </style>
 
+
+
+
 <div id="gin" class="bg-white font-Baskervville flex md:flex-row flex-row-reverse items-center justify-center md:items-center md:justify-start md:space-x-40 md:px-36 px-0 md:pt-52">
     
-    <div class="md:w-1/3 w-[140px] md:pl-14 relative"> <img src="img/classic.webp" class=" w-[303px]" id="bottle-image" loading="lazy" decoding="async"/>
-        
-        <div id="hotspot-cap" class="hotspot absolute cursor-pointer" style="top: 0%; left: 38%; width: 24%; height: 10%; border-radius: 50% 50% 10px 10px;"></div>
-        <div id="hotspot-glass" class="hotspot absolute cursor-pointer" style="top: 10%; left: 32%; width: 36%; height: 25%; border-radius: 20px 20px 0 0;"></div>
-        <div id="hotspot-label" class="hotspot absolute cursor-pointer" style="top: 35%; left: 12%; width: 76%; height: 50%; border-radius: 25px;"></div>
-        <div id="hotspot-bottom-glass" class="hotspot absolute cursor-pointer" style="top: 85%; left: 15%; width: 70%; height: 15%; border-radius: 0 0 40% 40%;"></div>
+    <div class="md:w-1/3 w-[140px] md:pl-14 relative">
+    
+        <!-- Base bottle -->
+        <img src="img/classic.webp"
+             id="bottle-image"
+             class="w-[303px] block"
+             loading="lazy"
+             decoding="async"/>
+    
+        <!-- Glow Layers -->
+        <img src="img/cap.png"
+             id="cap-part"
+             class="bottle-layer"
+             loading="lazy"
+             decoding="async"/>
+    
+        <img src="img/classic.webp"
+             id="glass-part"
+             class="bottle-layer"
+             loading="lazy"
+             decoding="async"/>
+    
+        <img src="img/label.png"
+             id="label-part"
+             class="bottle-layer"
+             loading="lazy"
+             decoding="async"/>
+    
+        <!-- Hotspots -->
+        <div id="hotspot-cap"
+             class="hotspot absolute cursor-pointer"
+             style="top:0%;left:38%;width:24%;height:10%;border-radius:50% 50% 10px 10px;"></div>
+    
+        <div id="hotspot-glass"
+             class="hotspot absolute cursor-pointer"
+             style="top:10%;left:32%;width:36%;height:25%;border-radius:20px 20px 0 0;"></div>
+    
+        <div id="hotspot-label"
+             class="hotspot absolute cursor-pointer"
+             style="top:35%;left:12%;width:76%;height:50%;border-radius:25px;"></div>
+    
+        <div id="hotspot-bottom-glass"
+             class="hotspot absolute cursor-pointer"
+             style="top:85%;left:15%;width:70%;height:15%;border-radius:0 0 40% 40%;"></div>
+    
     </div>
 
     <div id="bottle-headline" class="flex w-[56%]  flex-col space-y-3">
@@ -360,7 +402,36 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
 </div>
 
+<style>
+.bottle-layer{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
 
+    opacity:0;
+    pointer-events:none;
+
+    /* transition:.25s; */
+
+    filter:
+        drop-shadow(0 0 5px rgba(239, 65, 53, 0.5))
+        drop-shadow(0 0 10px rgba(239, 65, 53, 0.4))
+        drop-shadow(0 0 16px rgba(239, 65, 53, 0.3));
+}
+
+.bottle-layer.active{
+    opacity:1;
+}
+
+/* Desktop / Tablet */
+@media (min-width: 768px) {
+    .bottle-layer.active{
+        transform: translateX(22px);
+    }
+}
+</style>
 
 
 <script>
@@ -384,7 +455,36 @@ window.addEventListener("DOMContentLoaded", () => {
         
         // Get the bottle image itself
         const bottleImage = document.getElementById('bottle-image');
-
+        const capLayer = document.getElementById('cap-part');
+        const glassLayer = document.getElementById('glass-part');
+        const labelLayer = document.getElementById('label-part');
+        
+        function clearGlow(){
+            capLayer.classList.remove('active');
+            glassLayer.classList.remove('active');
+            labelLayer.classList.remove('active');
+        }
+        
+        function glowPart(part){
+        
+            clearGlow();
+        
+            switch(part){
+        
+                case 'cap':
+                    capLayer.classList.add('active');
+                    break;
+        
+                case 'glass':
+                    glassLayer.classList.add('active');
+                    break;
+        
+                case 'label':
+                    labelLayer.classList.add('active');
+                    break;
+            }
+        }
+        
         // Get the instruction text element
         const instructionText = document.querySelector('#gin .font-montserrat.text-sm.text-red-500');
 
@@ -419,19 +519,14 @@ window.addEventListener("DOMContentLoaded", () => {
             };
 
             // Function to change text and add hover effect
-            function showStory(html) {
-                // Ensure the container class is maintained while updating content
-                storyText.className = "flex w-[56%]  flex-col space-y-3 pl-3"; 
+            function showStory(html, part) {
                 storyText.innerHTML = html;
-                bottleImage.classList.add('bottle-glow');
+                glowPart(part);
             }
-
-            // Function to reset text and remove hover effect
+            
             function resetStory() {
                 storyText.innerHTML = defaultStoryHTML;
-                // Reapply the necessary classes for the default view
-                storyText.className = "flex w-[56%]  flex-col space-y-3 pl-3"; 
-                bottleImage.classList.remove('bottle-glow');
+                clearGlow();
             }
 
             // --- Event Handling Logic ---
@@ -461,7 +556,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                 currentActiveHotspot = null;
                             } else {
                                 // If a different hotspot or none is active, show the new story
-                                showStory(hotspot.story);
+                                showStory(hotspot.story, hotspot.name);
                                 currentActiveHotspot = hotspotName;
                             }
                         });
@@ -484,8 +579,11 @@ window.addEventListener("DOMContentLoaded", () => {
                 // Use mouseenter/mouseleave for large screens (hover functionality)
                 hotspots.forEach(hotspot => {
                     if (hotspot.element) {
-                        hotspot.element.addEventListener('mouseenter', () => showStory(hotspot.story));
-                        hotspot.element.addEventListener('mouseleave', () => resetStory());
+                        hotspot.element.addEventListener('mouseenter', () => {
+                            showStory(hotspot.story, hotspot.name);
+                        });
+                        
+                        hotspot.element.addEventListener('mouseleave', resetStory);
                     }
                 });
             }
