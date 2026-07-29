@@ -128,7 +128,7 @@ function scrollSlider(id, direction) {
 <!-- Homepage Section -->
 <div id="homepage" class="font-montserrat md:px-28 pt-14 space-y-16 flex flex-col items-center">
     <div id="navbar" class="flex w-[99%] md:px-0 px-9 justify-between items-center">
-        <a href="./" id="logo" class="md:w-[208px] w-[180px]">
+        <a href="{{ url('/') }}" id="logo" class="md:w-[208px] w-[180px]">
             <img src="./img/logo.png" loading="lazy" decoding="async"/>
         </a>
 <i 
@@ -176,90 +176,12 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
     <div class="flex flex-col w-full pl-9 space-y-3 justify-start">
       <a href="https://smidgin-shop.myshopify.com/?srsltid=AfmBOoqJHd6Cccrm3CCQvzWikXUkEKywegonf-rx2u145ZDkvLJxZu05" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">BUY ONLINE</a>
-      <a href=""" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">WHO WE ARE</a>
-    <a href=""" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">OUR GIN</a>
-    <a href=""" class="text-black underline hover:text-white  font-medium font-montserrat text-2xl">WHAT WE OFFER</a>
-    <a href=""" class="text-black underline hover:text-white font-medium font-montserrat text-2xl">FIND OUR STORES</a>
+      <a href="{{ url('/whoweare') }}" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">WHO WE ARE</a>
+    <a href="{{ url('/ourgin') }}" class="text-black hover:text-white  font-medium font-montserrat underline text-2xl">OUR GIN</a>
+    <a href="{{ url('/whatweoffer') }}" class="text-black underline hover:text-white  font-medium font-montserrat text-2xl">WHAT WE OFFER</a>
+    <a href="{{ url('/findourstores') }}" class="text-black underline hover:text-white font-medium font-montserrat text-2xl">FIND OUR STORES</a>
     </div>
-<div id="slideshow" class="">
-
-    <div id="DiscoverOurGin" class="overflow-x-auto mt-20">
-        <div class="flex flex-nowrap pb-12  pl-4 space-x-0 items-end">
-            
-            <a href=""">
-            <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/classicFinal.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
-                    <div class="flex flex-col w-full items-center">
-                        <p class="text-7xl text-red-500 font-montserrat pointer-events-auto">Smidgin</p>
-                        <p class="text-8xl text-red-500 mr-[-150px] font-montserrat pointer-events-auto">Velvet</p>
-                    </div>
-                    <a href=""" class="mt-8 py-3 bg-red-500 rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
-                </div>
-               <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">CLASSIC</div>
-            </div>
-             </a>
-
-            <a href=""">
-            <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/velvet.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
-                    <div class="flex flex-col w-full items-center">
-                        <p class="text-7xl text-[#4D2957] font-montserrat pointer-events-auto">Smidgin</p>
-                        <p class="text-8xl text-[#4D2957] mr-[-150px] font-Velvet pointer-events-auto">Velvet</p>
-                    </div>
-                    <a href=""" class="mt-8 py-3 bg-[#4D2957] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
-                </div>
-               <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">VELVET</div>
-            </div>
-             </a>
-             
-            <a href=""">
-            <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/orient.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
-                    <div class="flex -ml-7 flex-col w-full items-center">
-                        <p class="text-7xl text-[#821A16] font-montserrat pointer-events-auto">Smidgin</p>
-                        <p class="text-7xl text-[#821A16] mr-[-150px] font-Papyrus pointer-events-auto">Orient</p>
-                    </div>
-                    <a href=""" class="mt-8 px-5 py-3 bg-[#821A16] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
-                </div>
-               <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">ORIENT</div>
-            </div>
-             </a>
-             
-             <a href=""">
-            <div class="relative group flex-shrink-0 w-[40%] snap-start">
-                <img src="icons/light.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
-                    <div class="flex -ml-7 flex-col w-full items-center">
-                        <p class="text-7xl text-[#4164AD] font-montserrat pointer-events-auto">Smidgin</p>
-                        <p class="text-7xl text-[#4164AD] mr-[-150px] font-montserrat pointer-events-auto">LIGHT</p>
-                    </div>
-                    <a href=""" class="mt-8 px-5 py-3 bg-[#4164AD] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
-                </div>
-               <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">LIGHT</div>
-            </div>
-             </a>
-
-            <a href=""">
-            <div class="relative group  flex-shrink-0 w-[40%]  snap-start">
-                <img src="./icons/xo.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none group-hover:duration-500">
-                    <div class="flex flex-col w-full items-center">
-                        <p class="text-7xl text-[#A24B1E] font-montserrat pointer-events-auto">Smidgin</p>
-                        <p class="text-7xl text-[#A24B1E] mr-[-150px] font-Baskervville pointer-events-auto">XO</p>
-                    </div>
-                    <a href=""" class="mt-8 px-5 py-3 bg-[#A24B1E] rounded-xl font-montserrat text-white pointer-events-auto text-lg">Read more</a>
-                </div>
-               <div class="md:hidden mt-4 text-black text-[20px] underline font-montserrat text-center">XO</div>
-            </div>
-             </a>
-        </div>
-    </div>
-    <i class="fa-solid fa-arrows-left-right flex justify-center -mt-4 text-[30px]"></i>
-
-</div>
+@include('partials.gin-menu-strip')
     
 
 
@@ -283,91 +205,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <!-- Slideshow Section -->
-<div id="slideshow" class="md:pt-20 pt-14">
-    <div class="md:pl-36 pl-9 flex justify-start space-x-3 font-Baskervville">
-        <p class="md:text-5xl text-[32px]">DISCOVER OUR</p>
-        <p class="md:text-5xl text-[32px] text-red-500">GIN</p>
-    </div>
-    
-    <div class="relative group/slider">
-        <div id="DiscoverOurGinMain" class="overflow-x-auto md:pt-9 scroll-smooth scrollbar-hide">
-            <div class="flex items-end flex-nowrap py-12 md:px-24 pl-4 space-x-2 md:space-x-9">
-                
-                <a href=""" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                   <img src="img/Screenshot 2025-09-20 at 04.39.20.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                   <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                       <div class="-mt-7 -ml-7 flex flex-col w-full items-center">
-                           <p class="text-7xl text-[#EF4135] font-montserrat">Smidgin</p>
-                           <p class="text-7xl text-[#EF4135] mr-[-150px] font-montserrat">Classic</p> 
-                       </div>
-                       <span class="mt-8 px-5 py-3 bg-red-500 rounded-xl font-montserrat text-white text-lg">Read more</span>
-                   </div>
-                   <div class="md:hidden mt-4 text-[#EF4135] text-[20px] underline font-montserrat text-center">CLASSIC</div>
-                </a>
-
-                <a href=""" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="img/velvet.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                        <div class="flex flex-col w-full items-center">
-                            <p class="text-7xl text-[#4D2957] font-montserrat">Smidgin</p>
-                            <img class="mr-[-150px] w-[216px]" src="sliki/velvetFont.png" loading="lazy" decoding="async"/>
-                        </div>
-                        <span class="mt-8 px-5 py-3 bg-[#4D2957] rounded-xl font-montserrat text-white text-lg">Read more</span>
-                    </div>
-                   <div class="md:hidden mt-4 text-[#4D2957] text-[20px] underline font-montserrat text-center">VELVET</div>
-                </a>
-                 
-                <a href=""" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="sliki/orient.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                        <div class="flex -ml-7 flex-col w-full items-center">
-                            <p class="text-7xl text-[#821A16] font-montserrat">Smidgin</p>
-                            <p class="text-7xl text-[#821A16] mr-[-150px] font-Papyrus">Orient</p>
-                        </div>
-                        <span class="mt-8 px-5 py-3 bg-[#821A16] rounded-xl font-montserrat text-white text-lg">Read more</span>
-                    </div>
-                   <div class="md:hidden mt-4 text-[#821A16] text-[20px] underline font-montserrat text-center">ORIENT</div>
-                </a>
-                 
-                <a href=""" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="img/Screenshot 2025-11-06 at 01.34.38.webp" class="w-[90%] md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                        <div class="flex -ml-7 flex-col w-full items-center">
-                            <p class="text-7xl text-[#4164AD] font-montserrat">Smidgin</p>
-                            <p class="text-7xl text-[#4164AD] mr-[-150px] font-montserrat">LIGHT</p>
-                        </div>
-                        <span class="mt-8 px-5 py-3 bg-[#4164AD] rounded-xl font-montserrat text-white text-lg">Read more</span>
-                    </div>
-                   <div class="md:hidden mt-4 text-[#4164AD] text-[20px] underline font-montserrat text-center">LIGHT</div>
-                </a>
-
-                <a href=""" class="relative group flex-shrink-0 md:w-1/3 w-1/2 mt-12 snap-start">
-                    <img src="./sliki/xo.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                        <div class="flex flex-col w-full items-center">
-                            <p class="text-7xl text-[#A24B1E] font-montserrat">Smidgin</p>
-                            <p class="text-7xl text-[#A24B1E] mr-[-150px] font-Baskervville">XO</p>
-                        </div>
-                        <span class="mt-8 px-5 py-3 bg-[#A24B1E] rounded-xl font-montserrat text-white text-lg">Read more</span>
-                    </div>
-                   <div class="md:hidden mt-4 text-[#A24B1E] text-[20px] underline font-montserrat text-center">XO</div>
-                </a>
-            </div>
-        </div>
-
-        <button id="btn-prev-gin-main" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow-xl opacity-100 cursor-pointer">
-            <i class="fa-solid fa-chevron-left text-red-500 text-xl"></i>
-        </button>
-        <button id="btn-next-gin-main" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow-xl opacity-100 cursor-pointer">
-            <i class="fa-solid fa-chevron-right text-red-500 text-xl"></i>
-        </button>
-    </div>
-        <div class="flex space-x-3 justify-end md:hidden pr-8 items-center -mt-5">
-      <p class="font-montserrat text-[14px] text-gray-700">Scroll to see more</p><i class="fa-solid text-[16px] text-gray-700 fa-arrow-right text-xl"></i>
-    </div>
-
-
-</div>
+@include('partials.gin-carousel')
 
 <!-- Contact Booking -->
 <div class="flex flex-col items-center space-y-6 py-7 md:py-0 md:pt-0 pt-8">
@@ -839,9 +677,9 @@ document.addEventListener("DOMContentLoaded", function() {
        <p class="font-montserrat pt-2"><i class="fa-solid fa-phone"></i>  +389 76 405 175</p>
    </div>
    <div class="font-montserrat underline text-center w-1/3">
-       <a href=""">Bottle Return Offer</a><br/>
-       <a href=""">Privacy Policy</a><br/>
-       <a href=""">Terms and Conditions</a>
+       <a href="{{ url('/returnoffer') }}">Bottle Return Offer</a><br/>
+       <a href="{{ url('/privacypolicy') }}">Privacy Policy</a><br/>
+       <a href="{{ url('/termsandconditions') }}">Terms and Conditions</a>
    </div>
    <div class="w-1/3 flex  flex-col items-end space-y-7  md:pr-8">
      <div id="socialmedia" class="flex space-x-3 ">
@@ -860,9 +698,9 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="flex flex-col justify-center items-center">
     <img src="./img/logoFooter.png" class="w-1/3" loading="lazy" decoding="async"/>
     <img src="./img/Screenshot 2025-10-31 at 00.17.38.png" class="w-1/3 mt-2" loading="lazy" decoding="async"/>
-    <a class="underline text-gray-500 font-montserrat text-[14px] mt-5" href=""">Bottle Return Offer</a><br/>
-    <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href=""">Privacy Policy</a><br/>
-    <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href=""">Terms and Conditions</a>
+    <a class="underline text-gray-500 font-montserrat text-[14px] mt-5" href="{{ url('/returnoffer') }}">Bottle Return Offer</a><br/>
+    <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href="{{ url('/privacypolicy') }}">Privacy Policy</a><br/>
+    <a class="underline text-gray-500 font-montserrat text-[14px] -mt-5" href="{{ url('/termsandconditions') }}">Terms and Conditions</a>
 </div>
 
 <div class="flex justify-between pr-7">

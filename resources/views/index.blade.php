@@ -200,7 +200,7 @@ window.addEventListener("DOMContentLoaded", () => {
 @endif
 <div id="homepage" class="font-montserrat md:px-28 pt-14 bg-[#FEF2F1] md:h-[650px] h-[350px] space-y-16 flex flex-col items-center">
     <div id="navbar" class="flex w-[99%] md:px-0 px-9 justify-between items-center">
-        <a href="./" id="logo" class="md:w-[208px] w-[180px]">
+        <a href="{{ url('/') }}" id="logo" class="md:w-[208px] w-[180px]">
             <img src="./img/logo.png" loading="lazy" decoding="async"/>
         </a>
         <i onclick="openModal('ham-menu')" class="fa-solid right-10 top-12 fixed z-50 cursor-pointer md:hidden w-[46px] text-xl h-[46px] text-center flex justify-center items-center text-white bg-red-500 rounded-full p-2 fa-bars"></i>
@@ -624,91 +624,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 <!-- Slideshow Section -->
-<div id="slideshow" class="md:pt-20 pt-14">
-    <div class="md:pl-36 pl-9 flex justify-start space-x-3 font-Baskervville">
-        <p class="md:text-5xl text-[32px]">DISCOVER OUR</p>
-        <p class="md:text-5xl text-[32px] text-red-500">GIN</p>
-    </div>
-    
-    <div class="relative group/slider">
-        <div id="DiscoverOurGinMain" class="overflow-x-auto md:pt-9 scroll-smooth scrollbar-hide">
-            <div class="flex items-end flex-nowrap py-12 md:px-24 pl-4 space-x-2 md:space-x-9">
-                
-                <a href="./classic" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                   <img src="img/Screenshot 2025-09-20 at 04.39.20.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                   <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                       <div class="-mt-7 -ml-7 flex flex-col w-full items-center">
-                           <p class="text-7xl text-[#EF4135] font-montserrat">Smidgin</p>
-                           <p class="text-7xl text-[#EF4135] mr-[-150px] font-montserrat">Classic</p> 
-                       </div>
-                       <span class="mt-8 px-5 py-3 bg-red-500 rounded-xl font-montserrat text-white text-lg">Read more</span>
-                   </div>
-                   <div class="md:hidden mt-4 text-[#EF4135] text-[20px] underline font-montserrat text-center">CLASSIC</div>
-                </a>
+@include('partials.gin-carousel')
 
-                <a href="./velvet" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="img/velvet.jpeg" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                        <div class="flex flex-col w-full items-center">
-                            <p class="text-7xl text-[#4D2957] font-montserrat">Smidgin</p>
-                            <img class="mr-[-150px] w-[216px]" src="sliki/velvetFont.png" loading="lazy" decoding="async"/>
-                        </div>
-                        <span class="mt-8 px-5 py-3 bg-[#4D2957] rounded-xl font-montserrat text-white text-lg">Read more</span>
-                    </div>
-                   <div class="md:hidden mt-4 text-[#4D2957] text-[20px] underline font-montserrat text-center">VELVET</div>
-                </a>
-                 
-                <a href="./orient" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="sliki/orient.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                        <div class="flex -ml-7 flex-col w-full items-center">
-                            <p class="text-7xl text-[#821A16] font-montserrat">Smidgin</p>
-                            <p class="text-7xl text-[#821A16] mr-[-150px] font-Papyrus">Orient</p>
-                        </div>
-                        <span class="mt-8 px-5 py-3 bg-[#821A16] rounded-xl font-montserrat text-white text-lg">Read more</span>
-                    </div>
-                   <div class="md:hidden mt-4 text-[#821A16] text-[20px] underline font-montserrat text-center">ORIENT</div>
-                </a>
-                 
-                <a href="./light" class="relative group flex-shrink-0 md:w-1/3 w-1/2 snap-start">
-                    <img src="img/Screenshot 2025-11-06 at 01.34.38.webp" class="w-[90%] md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                        <div class="flex -ml-7 flex-col w-full items-center">
-                            <p class="text-7xl text-[#4164AD] font-montserrat">Smidgin</p>
-                            <p class="text-7xl text-[#4164AD] mr-[-150px] font-montserrat">LIGHT</p>
-                        </div>
-                        <span class="mt-8 px-5 py-3 bg-[#4164AD] rounded-xl font-montserrat text-white text-lg">Read more</span>
-                    </div>
-                   <div class="md:hidden mt-4 text-[#4164AD] text-[20px] underline font-montserrat text-center">LIGHT</div>
-                </a>
-
-                <a href="./xo" class="relative group flex-shrink-0 md:w-1/3 w-1/2 mt-12 snap-start">
-                    <img src="./sliki/xo.webp" class="w-full md:group-hover:blur-md group-hover:cursor-pointer md:group-hover:opacity-60 duration-500 delay-100" loading="lazy" decoding="async"/>
-                    <div class="absolute inset-0 hidden md:flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 pointer-events-none">
-                        <div class="flex flex-col w-full items-center">
-                            <p class="text-7xl text-[#A24B1E] font-montserrat">Smidgin</p>
-                            <p class="text-7xl text-[#A24B1E] mr-[-150px] font-Baskervville">XO</p>
-                        </div>
-                        <span class="mt-8 px-5 py-3 bg-[#A24B1E] rounded-xl font-montserrat text-white text-lg">Read more</span>
-                    </div>
-                   <div class="md:hidden mt-4 text-[#A24B1E] text-[20px] underline font-montserrat text-center">XO</div>
-                </a>
-            </div>
-        </div>
-
-        <button id="btn-prev-gin-main" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow-xl opacity-100 cursor-pointer">
-            <i class="fa-solid fa-chevron-left text-red-500 text-xl"></i>
-        </button>
-        <button id="btn-next-gin-main" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow-xl opacity-100 cursor-pointer">
-            <i class="fa-solid fa-chevron-right text-red-500 text-xl"></i>
-        </button>
-    </div>
-        <div class="flex space-x-3 justify-end md:hidden pr-8 items-center -mt-5">
-      <p class="font-montserrat text-[14px] text-gray-700">Scroll to see more</p><i class="fa-solid text-[16px] text-gray-700 fa-arrow-right text-xl"></i>
-    </div>
-
-
-</div>
 
 <!-- 14 Botanicals Section -->
 <!-- 14 BOTANICALS  -->

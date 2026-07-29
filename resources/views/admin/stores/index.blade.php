@@ -103,6 +103,12 @@ use Illuminate\Support\Str;
         <p class="text-xs text-slate-500">Промотивен банер</p>
     </button>
 
+    <button @click="activeTab = 'gins'"
+        class="bg-white border border-slate-200 rounded-2xl p-5 text-left hover:border-indigo-500 hover:shadow transition">
+        <h3 class="font-bold text-slate-900">Џинови</h3>
+        <p class="text-xs text-slate-500">Discover Our Gin</p>
+    </button>
+
 </div>
             <!-- 1. ПРОДАВНИЦИ И ЛОКАЛИ -->
             <section x-show="activeTab === 'stores'" x-data="{ search: '', visible: 4 }" class="space-y-4">
@@ -1107,6 +1113,95 @@ use Illuminate\Support\Str;
                 Зачувај
             </button>
         </form>
+    </div>
+</section>
+
+<!-- 9. ЏИНОВИ / DISCOVER OUR GIN -->
+<section x-show="activeTab === 'gins'" class="space-y-4">
+
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+            <div class="flex items-center gap-2.5">
+                <h2 class="text-xl font-bold text-slate-900">Џинови</h2>
+                <span class="bg-indigo-50 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full border border-indigo-100">
+                    {{ $gins->count() }}
+                </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5 max-w-2xl leading-relaxed">
+                Палетата џинови: истиот список го полни каруселот „Discover Our Gin“ на почетната страница,
+                лентата во менито на сите страници и тизерот „следен џин“ на дното од страниците за џин.
+                Секој нов џин добива и своја страница.
+            </p>
+        </div>
+
+        <a href="{{ route('gins.create') }}"
+           class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-xs whitespace-nowrap">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span>Додади џин</span>
+        </a>
+    </div>
+
+    @if(session('success'))
+        <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold px-4 py-3 rounded-xl">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        @forelse($gins as $gin)
+            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden flex flex-col">
+
+                <div class="h-40 bg-slate-50 border-b border-slate-100 flex items-center justify-center overflow-hidden">
+                    @if($gin->card_image)
+                        <img src="{{ asset($gin->card_image) }}" alt="{{ $gin->name }}" class="w-full h-full object-cover">
+                    @else
+                        <span class="text-xs text-slate-400">Нема слика</span>
+                    @endif
+                </div>
+
+                <div class="p-4 flex-1 flex flex-col gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3.5 h-3.5 rounded-full border border-slate-200 flex-shrink-0"
+                              style="background-color: {{ $gin->accent_color }}"></span>
+                        <h3 class="font-bold text-slate-900 text-sm">{{ $gin->name }}</h3>
+
+                        @unless($gin->active)
+                            <span class="text-[10px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full">Скриен</span>
+                        @endunless
+                    </div>
+
+                    <a href="{{ $gin->url }}" target="_blank"
+                       class="text-[11px] font-mono text-indigo-600 hover:underline break-all">{{ $gin->url }}</a>
+
+                    @if($gin->tagline)
+                        <p class="text-xs text-slate-500 line-clamp-2">{{ Str::limit($gin->tagline, 90) }}</p>
+                    @endif
+
+                    <div class="flex items-center gap-2 mt-auto pt-3">
+                        <a href="{{ route('gins.edit', $gin) }}"
+                           class="px-3 py-1.5 text-xs font-medium text-indigo-600 bg-indigo-50 border border-indigo-200 rounded-lg hover:bg-indigo-100 transition">
+                            Измени
+                        </a>
+
+                        <form action="{{ route('gins.destroy', $gin) }}" method="POST" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                    onclick="return confirm('Дали сте сигурни дека сакате да го избришете овој џин?')"
+                                    class="px-3 py-1.5 text-xs font-medium text-rose-600 bg-rose-50 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+                                Избриши
+                            </button>
+                        </form>
+
+                        <span class="ml-auto text-[11px] text-slate-400">#{{ $gin->sort_order }}</span>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="col-span-full text-center py-12 text-slate-400 bg-white rounded-2xl border border-slate-200/80">
+                Сè уште нема џинови.
+            </div>
+        @endforelse
     </div>
 </section>
 

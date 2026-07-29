@@ -11,6 +11,8 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
 use App\Http\Controllers\Admin\StoreLocationController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\GinController;
+use App\Http\Controllers\GinPageController;
 
 
 Route::view('/', 'index');
@@ -24,6 +26,10 @@ Route::view('/privacypolicy', 'privacypolicy');
 Route::view('/returnoffer', 'returnoffer');
 
 Route::get('/findourstores', [StorePageController::class, 'index']);
+
+// Pages for gins added from the admin panel. The five original gins keep
+// their hand-built pages above and are redirected there.
+Route::get('/gins/{gin:slug}', [GinPageController::class, 'show'])->name('gins.show');
 
 Route::get('/whatweoffer', [TourController::class, 'index']);
 Route::view('/whoweare', 'whoweare');
@@ -54,6 +60,9 @@ Route::prefix('admin')->group(function () {
         ->name('store-locations.reorder');
 
     Route::resource('store-locations', StoreLocationController::class)
+        ->except(['index', 'show']);
+
+    Route::resource('gins', GinController::class)
         ->except(['index', 'show']);
 
     Route::get('subscribers/export', [AdminSubscriberController::class, 'export'])

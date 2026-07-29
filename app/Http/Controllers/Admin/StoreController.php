@@ -9,6 +9,7 @@ use App\Models\Recipe;
 use App\Models\TourRequest;
 use App\Models\Tour;
 use App\Models\Event;
+use App\Models\Gin;
 use App\Models\Subscriber;
 use App\Models\SubscriptionSetting;
 use App\Models\StoreLocation;
@@ -25,6 +26,7 @@ class StoreController extends Controller
         $events = Event::latest()->get();
         $subscribers = Subscriber::latest()->get();
         $subscriptionSetting = SubscriptionSetting::current();
+        $gins = Gin::ordered()->get();
         $storeLocations = StoreLocation::ordered()->get()->groupBy('region');
         $banner = PromotionBanner::firstOrCreate(
     [],
@@ -39,7 +41,7 @@ class StoreController extends Controller
 );
 
 
-        return view('admin.stores.index', compact('stores', 'recipes', 'requests', 'tours', 'events', 'subscribers', 'subscriptionSetting', 'storeLocations', 'banner'));
+        return view('admin.stores.index', compact('stores', 'recipes', 'requests', 'tours', 'events', 'subscribers', 'subscriptionSetting', 'gins', 'storeLocations', 'banner'));
     }
 
     public function create()
