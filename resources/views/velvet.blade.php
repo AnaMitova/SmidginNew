@@ -167,8 +167,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   <!-- Content Section -->
   <div class="md:px-32 px-7 md:pt-16 flex md:flex-row flex-col items-center md:items-end justify-between">
-    <div id="bottle" class="w-1/3 md:w-1/2">
-      <img class="md:h-[1100] py-5 w-full h-auto md:w-[471px]" src="./sliki/velvett.webp" loading="lazy" decoding="async"/>
+    <div id="bottle" class="w-1/3 md:w-1/2 flex justify-start items-start self-start">
+      <img class="pr-28 pl-14 w-full " src="./sliki/velvett.webp" loading="lazy" decoding="async"/>
     </div>
     <div class="md:w-1/2 md:pr-11 md:space-y-2 flex-col flex ">   
     <div class="self-start hidden md:flex -mt-20 pb-10  md:pt-0 pt-8  space-x-4 md:space-x-5 items-center">

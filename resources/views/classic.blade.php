@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <div class="md:px-32 px-7 md:pt-16 flex md:flex-row flex-col items-center justify-between ">
         <div id="bottle" class="w-1/3 md:w-1/2">
-            <img class="md:h-[1100] py-5 w-full h-auto md:w-[471px]" src="./img/classic.webp" loading="lazy" decoding="async"/>
+            <img class="pr-28 pl-20 w-full " src="./img/classic.webp" loading="lazy" decoding="async"/>
         </div>
         <div class="md:w-1/2 md:pr-11 flex-col flex ">
             <p class="hidden md:block pb-12 -mt-20 font-montserrat text-[34px] md:text-[50px]">SMIDGIN <span class="font-Baskervville text-red-500">CLASSIC</span></p>
@@ -183,168 +183,13 @@ document.addEventListener("DOMContentLoaded", function() {
             <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">Flavor & Botanicals</p>
             <p class="text-[18px] font-montserrat">Bright juniper leads the nose, followed by herbal mountain tea and zesty citrus. Notes of black pepper and mint round out a clean, complex finish. Made with 14 botanicals, including juniper, citrus peels, wild sage, almond, ginger, and black pepper, each chosen for purity and aroma.</p>
             <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">How To <span class="text-red-500">Enjoy</span> It</p>
-            <p class="text-[18px] font-montserrat">Smidgin Classic was made to shine in your favorite cocktail, from the classic G&T to your own signature mix.</p>
-            <div class="flex items-end justify-start mt-8">
-        <!-- GIN TONIC -->
-        <div class="md:w-[300px] md:px-6 flex flex-col group justify-center items-center">
-                <img src="img/gintonik.webp" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('ST')" loading="lazy" decoding="async"/>
-                <p class="font-Baskervville md:text-2xl text-[18px] group-hover:underline  transition-transform duration-500 delay-100">S&T</p>  
-        </div>
-<div id="ST" class="fixed inset-0 hidden flex items-center justify-center z-50">
-  <div
-    class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-20 md:w-[773px] w-[95%] h-auto  max-h-[90vh]  relative flex flex-col justify-center items-center"
-    onclick="event.stopPropagation()"
-  >
-    <h2 class="text-xl md:text-2xl font-Baskervville mb-6 md:mb-3 text-center">S&T</h2>
+            <div class="flex md:flex-row flex-col md:space-x-9">
+              <p class="text-[18px] font-montserrat">Smidgin Classic was made to shine in your favorite cocktail, from the classic G&T to your own signature mix.</p></p>
+              <img class="md:w-1/3 w-2/3 mx-auto mt-5 md:mt-0" src="./sliki/lightNesto.webp" loading="lazy" decoding="async"/>
+            </div>
 
-    <div class="flex items-center justify-center font-montserrat font-bold scale-90 md:scale-100">
-      <div class="-mb-2 w-1/3 -mr-4 md:-mr-7 text-[12px] md:text-[18px] text-center space-y-10 md:space-y-20" id="levo-velvet">
-        <div><p>50ml SMIDGIN <br />VELVET</p></div>
-        <div><p>100ml TONIC WATER</p></div>
-      </div>
 
-      <div
-        class="w-[180px] h-[220px] md:w-[312px] md:h-[388px] -mr-10 md:-mr-20 overflow-hidden -mt-5"
-        id="sredina-velvet"
-      >
-        <img src="img/gintonik.webp" class="w-full h-full object-cover object-bottom"  loading="lazy" decoding="async"/>
-      </div>
-
-      <div class="w-1/2 text-[12px] md:text-[18px] text-center -mb-16 md:-mb-32" id="desno-velvet">
-        <p>LIME SQUEEZE</p>
-      </div>
-    </div>
-
-    <p class="mt-4 text-gray-600 text-xs md:text-sm text-center font-montserrat leading-snug md:leading-relaxed px-2">
-      Pour Smidgin into a glass filled with ice and top with tonic water. Gently stir and garnish with
-      juniper berries, mountain tea and lime.
-    </p>
-  </div>
-</div>
-        <script>
-          // Open a modal
-          function openModal(id) {
-            document.getElementById(id).classList.remove("hidden");
-          }
-        
-          // Close a modal
-          function closeModal(id) {
-            document.getElementById(id).classList.add("hidden");
-          }
-        
-          // Close when clicking outside (special handling for "&" in ID)
-          document.querySelector('#ST').addEventListener('click', function () {
-            closeModal('ST');
-          });
-        </script>
-                <!-- FIG SOUR -->
-                <div class="md:w-[255px]  md:px-6 flex flex-col group justify-center items-center">
-                    <img src="img/figsour.webp" class=" hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('fig-sour')" loading="lazy" decoding="async"/>
-                    <p class="font-Baskervville md:text-xl text-[18px] transition-transform group-hover:duration-500 delay-100 group-hover:underline cursor-pointer" onclick="openModal('fig-sour')">Fig Sour</p>  
-        </div>
-<div id="fig-sour" class="fixed inset-0 hidden flex items-center justify-center z-50">
-  <div
-    class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-20 md:w-[773px] w-[95%] h-auto  max-h-[90vh]  relative flex flex-col justify-center items-center"
-    onclick="event.stopPropagation()"
-  >
-    <h2 class="text-xl md:text-2xl font-Baskervville mb-8 md:mb-14 text-center">Fig Sour</h2>
-
-    <div id="main" class="flex items-center justify-center font-montserrat font-bold scale-90 md:scale-100">
-      <!-- Left column -->
-      <div id="levo" class="flex flex-col space-y-12 md:space-y-32 -mt-12 md:-mt-24 text-[12px] md:text-base text-center">
-        <div><p>50ml SMIDGIN <br />CLASSIC</p></div>
-        <div><p>20ml SQUEEZED <br />LEMON</p></div>
-      </div>
-
-      <!-- Center image -->
-      <div id="sredina" class="-mt-3 md:-mt-5 w-[180px] h-[160px] md:w-[330px] md:h-[292px] overflow-hidden mx-4 md:mx-8">
-        <img src="img/figsour.webp" class="w-full h-full object-cover object-bottom"  loading="lazy" decoding="async"/>
-      </div>
-
-      <!-- Right column -->
-      <div id="desno" class="flex flex-col space-y-5 md:space-y-10 text-[12px] md:text-base text-center">
-        <div><p class="-mt-8 md:-mt-16 pb-3 md:pb-7">1 FIG</p></div>
-        <div><p>1 EGG WHITE</p></div>
-        <div><p class="pl-2 md:pl-5">10ml SHERBET</p></div>
-      </div>
-    </div>
-
-    <p class="mt-4 text-gray-600 text-xs md:text-sm text-center font-montserrat leading-snug md:leading-relaxed px-2">
-      Combine all ingredients in a shaker with ice. Stir, then strain into a Rocks glass with ice.
-      Garnish with fresh Mediterranean fig.
-    </p>
-  </div>
-</div>
-
-        <script>
-          // Open the modal
-          function openModal(id) {
-            document.getElementById(id).classList.remove("hidden");
-          }
-        
-          // Close the modal
-          function closeModal(id) {
-            document.getElementById(id).classList.add("hidden");
-          }
-        
-          // Close when clicking outside the white box
-          document.getElementById("fig-sour").addEventListener("click", function () {
-            closeModal("fig-sour");
-          });
-        </script>
-            <!-- NEGRONI -->
-
-        <div class="md:w-[300px] md:-space-y-4 md:px-6 flex flex-col group justify-center items-center">
-                <img src="img/negroni.webp" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('negroni')" loading="lazy" decoding="async"/>
-                <p class="font-Baskervville md:text-xl text-[18px] group-hover:underline  transition-transform duration-500 delay-100">Negroni</p>  
-        </div>
-<div id="negroni" class="fixed inset-0 hidden flex items-center justify-center z-50">
-  <div
-    class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-20 md:w-[773px] w-[95%] h-auto  max-h-[90vh] relative flex flex-col justify-center items-center"
-    onclick="event.stopPropagation()"
-  >
-    <h2 class="text-xl md:text-2xl font-Baskervville mb-10 md:mb-20 text-center">Negroni</h2>
-
-    <div class="flex items-center justify-center font-montserrat font-bold scale-90 md:scale-100">
-      <div class="mb-20 md:mb-40 -mr-4 md:-mr-7 text-[12px] md:text-[18px] text-center space-y-10 md:space-y-20" id="levo-velvet">
-        <p>50ml SMIDGIN <br />CLASSIC</p>
-      </div>
-
-      <div
-        class="w-[200px] h-[190px] md:w-[362px] md:h-[350px] -mt-24 md:-mt-44 -mr-4 md:-mr-10 overflow-hidden"
-        id="sredina-velvet"
-      >
-        <img src="img/negroni.webp" class="w-full h-full object-cover"  loading="lazy" decoding="async"/>
-      </div>
-
-      <div class="flex flex-col text-[12px] md:text-[18px] text-center" id="desno-velvet">
-        <div><p class="-mt-16 md:-mt-32 md:-mr-16">25ml CAMPARI</p></div>
-        <div><p>25ml SWEET <br />VERMOUTH</p></div>
-      </div>
-    </div>
-
-    <p class="mt-4 text-gray-600 text-xs md:text-sm text-center font-montserrat leading-snug md:leading-relaxed px-2">
-      Combine all ingredients in a shaker with ice. Stir, then strain into Rocks glass with ice.
-      Garnish with Orange Twist.
-    </p>
-  </div>
-</div>
-        <script>
-          // Open modal
-          function openModal(id) {
-            document.getElementById(id).classList.remove("hidden");
-          }
-        
-          // Close modal
-          function closeModal(id) {
-            document.getElementById(id).classList.add("hidden");
-          }
-        
-          // Close when clicking outside
-          document.getElementById("negroni").addEventListener("click", function () {
-            closeModal("negroni");
-          });
-        </script>            
+          
         </div>
         </div>
     </div>

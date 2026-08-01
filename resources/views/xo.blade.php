@@ -158,8 +158,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   <!-- Content -->
   <div class="md:px-32 px-7 md:pt-5 flex md:flex-row flex-col items-center justify-between">
-    <div id="bottle" class="w-1/3 md:w-1/2 ">
-      <img class="md:h-[1088px] py-5 w-full h-auto md:w-[461px]" src="./sliki/XOO.webp" loading="lazy" decoding="async"/>
+    <div id="bottle" class="w-1/3 md:w-1/2 flex items-end justify-end">
+      <img class="w-full pr-28 pl-20" src="./sliki/xoPola.webp" loading="lazy" decoding="async"/>
     </div>
     <div class="md:w-1/2 md:pr-11 flex-col flex">
       <p class="md:pr-24 md:block pb-7 -mt-20 hidden font-montserrat text-[34px] md:text-[50px]">SMIDGIN <span class="font-Baskervville text-[#A24B1E]">XO</span></p>

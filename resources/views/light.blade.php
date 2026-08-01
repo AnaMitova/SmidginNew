@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <!-- Content -->
   <div class="md:px-32 px-7 md:pt-7 flex md:flex-row flex-col items-center justify-between">
     <div id="bottle" class="w-1/3 md:w-1/2 ">
-      <img class="md:h-[1050] py-5 w-full h-auto md:w-[471px]" src="./sliki/light.webp" loading="lazy" decoding="async"/>
+      <img class="pr-28 pl-20 w-full " src="./sliki/light.webp" loading="lazy" decoding="async"/>
     </div>
     <div class="md:w-1/2 md:pr-11 flex-col flex">
       <p class="md:pr-24 hidden md:block -mt-20 pb-7 font-montserrat text-[34px] md:text-[50px]">SMIDGIN <span class="font-Baskervville text-[#4164AD]">LIGHT</span></p>
