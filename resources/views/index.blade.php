@@ -1472,14 +1472,27 @@ fetch('/recipes', {
     </div>
 </div>
 
+
 <div id="InstagramSmall" class="flex md:hidden flex-col items-center py-14 bg-white font-sans">
-    <div class="text-[25px] self-start font-Baskervville pl-8 font-medium mb-5 text-gray-800 flex space-x-2">
-        <p class="text-red-500">FOLLOW</p> 
-        <p class=""> THE JOURNEY</p>
-    </div>
-<div class="w-full mt-2 px-4">
-            <iframe src="//lightwidget.com/widgets/6eada317a7b8588da7e0ba99550ceaaa" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+
+    <div class="w-full px-8 mb-5 flex justify-between items-center">
+        <div class="text-[25px] font-Baskervville font-medium text-gray-800 leading-none">
+            <p class="text-red-500">FOLLOW</p>
+            <p>THE JOURNEY</p>
         </div>
+
+        <a href="https://www.instagram.com/smidgin.mk/?hl=en"
+           target="_blank"
+           class="px-3 py-2 bg-red-500 shadow-lg text-[14px] font-normal font-montserrat rounded-xl text-white">
+            FOLLOW
+        </a>
+    </div>
+
+    <div class="w-full mt-2 px-4">
+            <iframe src="https://cdn.lightwidget.com/widgets/986bc09b0055537b98f251611267f20a.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+
+    </div>
+
 </div>
 
 <!-- Footer -->
