@@ -1456,17 +1456,25 @@ fetch('/recipes', {
 <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
 
 <div id="InstagramBig" class="hidden md:flex flex-col items-center py-14 bg-white font-sans">
-    <div class="text-4xl self-start pl-48 font-Baskervville font-medium mb-10 text-gray-800 flex space-x-2">
-        <p class="text-red-500">FOLLOW</p> 
-        <p class=""> THE JOURNEY</p>
+<div class="text-4xl self-start pl-48 pr-48 w-full font-Baskervville font-medium mb-10 text-gray-800 flex justify-between items-end">
+    
+    <div>
+        <p class="text-red-500">FOLLOW</p>
+        <p>THE JOURNEY</p>
     </div>
+
+    <div class="pr-8">
+        <a href="https://www.instagram.com/smidgin.mk/?hl=en" class="px-3 py-3 bg-red-500  shadow-[0_6px_12px_rgba(239,68,68,0.6)] text-[18px] font-normal font-montserrat rounded-xl text-white">FOLLOW</a>
+    </div>
+
+</div>
+
 
     <div class="w-[76%] rounded-2xl shadow-2xl pb-9 px-6 bg-white">
         
 
 <div class="w-full mt-2 px-4">
-            <iframe src="//lightwidget.com/widgets/6eada317a7b8588da7e0ba99550ceaaa" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
-        </div>
+<iframe src="https://cdn.lightwidget.com/widgets/986bc09b0055537b98f251611267f20a.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>        </div>
 
     </div>
 </div>
