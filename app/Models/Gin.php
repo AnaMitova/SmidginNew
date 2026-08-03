@@ -30,6 +30,7 @@ class Gin extends Model
         'heading_three',
         'body_three',
         'custom_path',
+        'next_gin_id',
         'sort_order',
         'active',
     ];
@@ -70,11 +71,22 @@ class Gin extends Model
     }
 
     /**
-     * The next gin in the carousel, wrapping back to the first — used by the
-     * teaser at the bottom of every gin page.
+     * The gin shown by the teaser at the bottom of this gin's page — the one
+     * picked in the admin panel, otherwise the next in carousel order,
+     * wrapping back to the first.
      */
     public function nextGin(): ?self
     {
+        if ($this->next_gin_id) {
+            $chosen = static::active()->find($this->next_gin_id);
+
+            // A gin that was hidden or deleted meanwhile falls through to the
+            // running order rather than leaving a hole at the bottom of the page.
+            if ($chosen && ! $chosen->is($this)) {
+                return $chosen;
+            }
+        }
+
         $gins = static::active()->ordered()->get();
         if ($gins->count() < 2) {
             return null;
@@ -103,6 +115,11 @@ class Gin extends Model
     {
         static::saving(function (self $gin) {
             $gin->slug = static::uniqueSlug($gin->slug ?: $gin->name, $gin->id);
+        });
+
+        // Nobody should keep pointing their teaser at a gin that is gone.
+        static::deleted(function (self $gin) {
+            static::where('next_gin_id', $gin->id)->update(['next_gin_id' => null]);
         });
     }
 

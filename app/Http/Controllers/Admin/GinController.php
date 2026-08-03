@@ -75,6 +75,7 @@ class GinController extends Controller
             'heading_three'  => 'nullable|string|max:120',
             'body_three'     => 'nullable|string',
             'custom_path'    => 'nullable|string|max:255',
+            'next_gin_id'    => 'nullable|integer|exists:gins,id',
             'sort_order'     => 'nullable|integer|min:0',
             'card_image'     => 'nullable|image|max:5120',
             'bottle_image'   => 'nullable|image|max:5120',
@@ -87,6 +88,11 @@ class GinController extends Controller
 
         $data['active'] = $request->boolean('active');
         $data['sort_order'] = $data['sort_order'] ?? 0;
+
+        // A gin pointing at itself would dead-end the page.
+        if ($gin && (int) ($data['next_gin_id'] ?? 0) === $gin->id) {
+            $data['next_gin_id'] = null;
+        }
 
         foreach (['card_image', 'bottle_image', 'wordmark_image'] as $field) {
             if ($request->hasFile($field)) {

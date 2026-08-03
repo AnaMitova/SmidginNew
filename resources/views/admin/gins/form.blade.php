@@ -89,6 +89,36 @@
             </div>
         </div>
 
+        <div>
+            @php
+                $otherGins = \App\Models\Gin::ordered()->get()->reject(fn ($other) => $gin->exists && $other->is($gin));
+                $selectedNext = old('next_gin_id', $gin->next_gin_id);
+            @endphp
+
+            <label for="next_gin_id" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                Шише на дното од страницата
+            </label>
+
+            <select id="next_gin_id" name="next_gin_id"
+                    class="w-full sm:w-80 px-4 py-2 text-sm border border-slate-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition">
+                <option value="">Автоматски — следниот по редослед</option>
+
+                @foreach($otherGins as $other)
+                    <option value="{{ $other->id }}" {{ (int) $selectedNext === $other->id ? 'selected' : '' }}>
+                        Smidgin {{ $other->name }}{{ $other->active ? '' : ' (скриен)' }}
+                    </option>
+                @endforeach
+            </select>
+
+            <p class="text-[11px] text-slate-400 mt-1.5 max-w-xl leading-relaxed">
+                На дното од страницата на овој џин се прикажува шише од друг џин, за посетителот да продолжи натаму.
+                Изберете кое шише да биде тоа. „Автоматски“ го зема следниот по редослед и се врти во круг —
+                {{ optional($gin->exists ? $gin->nextGin() : null)?->name
+                    ? 'сега тоа е Smidgin ' . $gin->nextGin()->name . '.'
+                    : 'како досега.' }}
+            </p>
+        </div>
+
         <label class="flex items-start gap-3 text-sm">
             <input type="checkbox" name="active" value="1" {{ old('active', $gin->active ?? true) ? 'checked' : '' }}
                    class="w-4 h-4 mt-0.5 rounded border-slate-300">
