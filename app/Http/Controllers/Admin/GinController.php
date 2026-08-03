@@ -80,6 +80,7 @@ class GinController extends Controller
             'card_image'     => 'nullable|image|max:5120',
             'bottle_image'   => 'nullable|image|max:5120',
             'wordmark_image' => 'nullable|image|max:5120',
+            'image_three'    => 'nullable|image|max:5120',
         ], [
             'name.required'   => 'Внесете име на џинот.',
             'buy_url.url'     => 'Линкот за купување мора да биде целосна адреса (https://...).',
@@ -94,7 +95,7 @@ class GinController extends Controller
             $data['next_gin_id'] = null;
         }
 
-        foreach (['card_image', 'bottle_image', 'wordmark_image'] as $field) {
+        foreach (['card_image', 'bottle_image', 'wordmark_image', 'image_three'] as $field) {
             if ($request->hasFile($field)) {
                 $this->deleteUpload($gin?->{$field});
                 $data[$field] = 'storage/' . $request->file($field)->store('gins', 'public');

@@ -202,6 +202,13 @@
                 кај постоечките џинови тоа се „Distilled to Perfection“, „Flavor &amp; Botanicals“ и „How To Enjoy It“.
                 Секција без текст воопшто не се прикажува, па слободно оставете празно ако не ви треба.
             </p>
+
+            <p class="text-xs text-slate-600 mt-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 leading-relaxed">
+                <span class="font-semibold">Совет:</span>
+                ставете <span class="font-mono">*ѕвездички*</span> околу збор за да биде во бојата на џинот
+                (на пр. <span class="font-mono">Distilled to *Perfection*</span>), или
+                <span class="font-mono">**двојни**</span> за задебелен збор.
+            </p>
         </div>
 
         @foreach([
@@ -220,6 +227,41 @@
                           class="w-full px-4 py-2 text-sm border border-slate-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition">{{ old('body_' . $key, $gin->{'body_' . $key}) }}</textarea>
 
                 <p class="text-[11px] text-slate-400">{{ $hint }} Новите редови се задржуваат.</p>
+
+                {{-- Само третата секција носи слика — таму каде што рачните страници имаат коктели. --}}
+                @if($key === 'three')
+                    <div class="flex flex-col sm:flex-row gap-4 items-start pt-2">
+                        <div class="w-full sm:w-40 flex-shrink-0">
+                            @if($gin->image_three)
+                                <img src="{{ asset($gin->image_three) }}" alt=""
+                                     class="w-full h-28 object-cover rounded-xl border border-slate-200 bg-slate-50">
+                            @else
+                                <div class="w-full h-28 rounded-xl border border-dashed border-slate-200 bg-slate-50 flex items-center justify-center text-[11px] text-slate-400">
+                                    Сè уште нема слика
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="flex-1">
+                            <label for="image_three" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                                Слика до текстот <span class="font-normal text-slate-400">(незадолжително)</span>
+                            </label>
+
+                            <input type="file" id="image_three" name="image_three" accept="image/*"
+                                   class="w-full text-xs text-slate-600 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200">
+
+                            <p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">
+                                Се прикажува десно од текстот на оваа секција, а на мобилен паѓа под него.
+                                Овде обично оди слика од коктел или од сервирано пијалак — на рачно направените
+                                страници на тоа место стојат коктелите.
+                            </p>
+                            @if($gin->image_three)
+                                <p class="text-[11px] text-slate-400">Ако не изберете нова слика, останува постоечката.</p>
+                            @endif
+                            @error('image_three')<p class="text-xs font-semibold text-rose-600 mt-1.5">{{ $message }}</p>@enderror
+                        </div>
+                    </div>
+                @endif
             </div>
         @endforeach
 

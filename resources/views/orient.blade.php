@@ -57,6 +57,12 @@
 </script>
 
 <body id="top" class="font-montserrat">
+
+@php
+    // Содржината на оваа страница доаѓа од табот „Џинови“ во админ панелот.
+    $gin = \App\Models\Gin::where('slug', 'orient')->first()
+        ?: new \App\Models\Gin(['name' => 'orient', 'accent_color' => '#EF4135', 'name_font' => 'font-montserrat']);
+@endphp
       @php
     $banner = \App\Models\PromotionBanner::where('active', true)->first();
 @endphp
@@ -168,35 +174,11 @@ document.addEventListener("DOMContentLoaded", function() {
   <!-- Content -->
   <div class="md:px-32 px-7 md:pt-10 flex md:flex-row flex-col items-center justify-between">
     <div id="bottle" class="w-1/3 md:w-1/2">
-      <img class="w-full pr-28 pl-14" src="./img/orient2.jpeg" loading="lazy" decoding="async"/>
+      <img class="w-full pr-28 pl-14" src="{{ asset($gin->bottle_image) }}" loading="lazy" decoding="async"/>
     
     </div>
     <div class="md:w-1/2 md:pr-11 flex-col flex">
-      <p class="md:pr-24 hidden md:block -mt-20 pb-7 font-montserrat text-[34px] md:text-[50px]">SMIDGIN <span class="font-Papyrus text-[#821A16]">ORIENT</span></p>
-      <p class="italic text-[17px] md:text-[20px] text-gray-500 font-serif mb-12">
-        A spiced gin inspired by oriental flavors — crafted in Skopje with notes of nutmeg, star anise, cinnamon, and sweet citrus.
-      </p>
-      <a href="https://smidgin-shop.myshopify.com/products/smidgin-orient-gin-700ml" class="md:self-start self-center font-montserrat px-5 py-3 bg-[#821A16] shadow-[0_8px_16px_rgba(130,26,22,0.6)] rounded-xl text-white">BUY ORIENT</a>
-
-      <p class="text-[30px] mt-14 mb-7  font-Baskervville font-semibold"><span class="text-[#821A16]">Aromatic</span> Fire</p>
-      <p class="text-[18px] font-montserrat">
-        Orient is distilled in small copper stills using a meticulous method that includes slow heat application and extended maceration of ingredients.
-        The result is a warm, multi-layered gin that balances Eastern spices with a traditional juniper backbone.
-      </p>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">Flavor & Botanicals</p>
-      <p class="text-[18px] font-montserrat">
-        Bright juniper leads the nose, followed by herbal mountain tea and zesty citrus. Notes of black pepper and mint round out a clean, complex finish.
-        Made with 14 botanicals, including juniper, citrus peels, wild sage, almond, ginger, and black pepper, each chosen for purity and aroma.
-      </p>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">How To <span class="text-[#821A16]">Enjoy</span> It</p>
-      <div class="flex md:flex-row flex-col items-center md:space-x-9">
-        <p class="text-[18px] font-montserrat md:w-2/3">
-          Smidgin Orient shines best when paired with a crisp tonic or bold ginger soda. Add a cinnamon stick and a twist of orange peel to unlock its warm, spicy soul.
-        </p>
-        <img class="md:w-1/3 w-2/3 mx-auto mt-5 md:mt-0" src="./sliki/orientNesto.webp" loading="lazy" decoding="async"/>
-      </div>
+      @include('partials.gin-copy', ['gin' => $gin])
     </div>
   </div>
 

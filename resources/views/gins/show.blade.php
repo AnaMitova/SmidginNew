@@ -165,12 +165,32 @@
       @endif
 
       {{-- A heading with nothing under it is just noise, so the body decides. --}}
-      @foreach([[$gin->heading_one, $gin->body_one], [$gin->heading_two, $gin->body_two], [$gin->heading_three, $gin->body_three]] as [$heading, $body])
+      @foreach([
+          [$gin->heading_one, $gin->body_one, null],
+          [$gin->heading_two, $gin->body_two, null],
+          [$gin->heading_three, $gin->body_three, $gin->image_three],
+      ] as [$heading, $body, $image])
         @if($body)
-          @if($heading)
-            <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">{{ $heading }}</p>
+          @if($image)
+            {{-- Section with a picture beside it: text left, image right. --}}
+            <div class="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 mt-12">
+              <div class="flex-1 min-w-0">
+                @if($heading)
+                  <p class="text-[30px] mb-7 font-Baskervville font-semibold">{{ $heading }}</p>
+                @endif
+                <p class="text-[18px] font-montserrat whitespace-pre-line">{{ $body }}</p>
+              </div>
+
+              <img src="{{ asset($image) }}" alt="{{ $heading ?: $gin->name }}"
+                   class="w-full sm:w-[38%] sm:max-w-[260px] flex-shrink-0 rounded-2xl object-cover self-center sm:self-start"
+                   loading="lazy" decoding="async"/>
+            </div>
+          @else
+            @if($heading)
+              <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">{{ $heading }}</p>
+            @endif
+            <p class="text-[18px] font-montserrat whitespace-pre-line">{{ $body }}</p>
           @endif
-          <p class="text-[18px] font-montserrat whitespace-pre-line">{{ $body }}</p>
         @endif
       @endforeach
     </div>

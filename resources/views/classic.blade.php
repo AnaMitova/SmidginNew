@@ -57,6 +57,12 @@
 </script>
 
 <body id="top">
+
+@php
+    // Содржината на оваа страница доаѓа од табот „Џинови“ во админ панелот.
+    $gin = \App\Models\Gin::where('slug', 'classic')->first()
+        ?: new \App\Models\Gin(['name' => 'classic', 'accent_color' => '#EF4135', 'name_font' => 'font-montserrat']);
+@endphp
       @php
     $banner = \App\Models\PromotionBanner::where('active', true)->first();
 @endphp
@@ -172,21 +178,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <div class="md:px-32 px-7 md:pt-16 flex md:flex-row flex-col items-center justify-between ">
         <div id="bottle" class="w-1/3 md:w-1/2">
-            <img class="pr-28 pl-20 w-full " src="./img/classic.webp" loading="lazy" decoding="async"/>
+            <img class="pr-28 pl-20 w-full " src="{{ asset($gin->bottle_image) }}" loading="lazy" decoding="async"/>
         </div>
         <div class="md:w-1/2 md:pr-11 flex-col flex ">
-            <p class="hidden md:block pb-12 -mt-20 font-montserrat text-[34px] md:text-[50px]">SMIDGIN <span class="font-Baskervville text-red-500">CLASSIC</span></p>
-            <p class="italic text-[17px] md:text-[20px] text-gray-500 font-serif mb-12">A premium one-shot London Dry Gin made with wild juniper berries and mountain tea — distilled in small batches in the heart of Skopje.</p>
-            <a href="https://smidgin-shop.myshopify.com/products/smidgin-classic-london-dry-gin-1" class="md:self-start self-center font-montserrat px-5 py-3 bg-red-500 shadow-[0_6px_12px_rgba(239,68,68,0.6)] rounded-xl text-white">BUY CLASSIC</a>
-            <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">Distilled to <span class="text-red-500">Perfection</span></p>
-            <p class="text-[18px] font-montserrat">Distilled in small batches using the London Dry method, Smidgin is pure, precise, and never blended. We use only fresh, handpicked botanicals no additives, no shortcuts. Every drop reflects the richness of the land it comes from.</p>
-            <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">Flavor & Botanicals</p>
-            <p class="text-[18px] font-montserrat">Bright juniper leads the nose, followed by herbal mountain tea and zesty citrus. Notes of black pepper and mint round out a clean, complex finish. Made with 14 botanicals, including juniper, citrus peels, wild sage, almond, ginger, and black pepper, each chosen for purity and aroma.</p>
-            <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">How To <span class="text-red-500">Enjoy</span> It</p>
-            <div class="flex md:flex-row flex-col md:space-x-9">
-              <p class="text-[18px] font-montserrat">Smidgin Classic was made to shine in your favorite cocktail, from the classic G&T to your own signature mix.</p></p>
-              <img class="md:w-1/3 w-2/3 mx-auto mt-5 md:mt-0" src="./sliki/lightNesto.webp" loading="lazy" decoding="async"/>
-            </div>
+      @include('partials.gin-copy', ['gin' => $gin])
 
 
           

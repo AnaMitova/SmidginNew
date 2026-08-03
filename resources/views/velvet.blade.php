@@ -56,6 +56,12 @@
 </script>
 
 <body id="top" class="font-montserrat">
+
+@php
+    // Содржината на оваа страница доаѓа од табот „Џинови“ во админ панелот.
+    $gin = \App\Models\Gin::where('slug', 'velvet')->first()
+        ?: new \App\Models\Gin(['name' => 'velvet', 'accent_color' => '#EF4135', 'name_font' => 'font-montserrat']);
+@endphp
       @php
     $banner = \App\Models\PromotionBanner::where('active', true)->first();
 @endphp
@@ -168,23 +174,13 @@ document.addEventListener("DOMContentLoaded", function() {
   <!-- Content Section -->
   <div class="md:px-32 px-7 md:pt-16 flex md:flex-row flex-col items-center md:items-end justify-between">
     <div id="bottle" class="w-1/3 md:w-1/2 flex justify-start items-start self-start">
-      <img class="pr-28 pl-14 w-full " src="./sliki/velvett.webp" loading="lazy" decoding="async"/>
+      <img class="pr-28 pl-14 w-full " src="{{ asset($gin->bottle_image) }}" loading="lazy" decoding="async"/>
     </div>
     <div class="md:w-1/2 md:pr-11 md:space-y-2 flex-col flex ">   
-    <div class="self-start hidden md:flex -mt-20 pb-10  md:pt-0 pt-8  space-x-4 md:space-x-5 items-center">
-      <p class=" font-montserrat text-[34px] md:text-[50px]">SMIDGIN</p>                       
-      <img class="w-[130px] h-[35px] md:w-[170px] md:h-[50px]" src="sliki/velvetFont.png" loading="lazy" decoding="async"/>
-    </div>
-      <p class="italic text-[17px] md:text-[20px] text-gray-500 font-serif md:pb-8">A premium colored gin distilled in Skopje — with blueberry, butterfly pea, and lavender — slow-distilled in copper stills and sweetened naturally.</p>
-      <a href="https://smidgin-shop.myshopify.com/products/smidgin-velvet-single-700ml-bottle" class="md:self-start   self-center font-montserrat px-5 py-3 bg-[#4D2957] shadow-[0_6px_12px_rgba(77,41,87,0.6)] rounded-xl text-white">BUY VELVET</a>
-      <p class="text-[30px] md:pt-5 mb-7 mt-12 font-Baskervville font-semibold md:pt-7">Not Just a <span class="text-[#4D2957]">Pretty Color</span></p>
-      <p class="text-[18px] font-montserrat">Velvet is our smoothest gin yet, triple-distilled in small copper stills in Skopje for a soft, balanced texture. Its vibrant lavender-blue color comes from Butterfly Pea flowers, while a touch of honey in the distillation brings just enough natural sweetness. No sugar, no shortcuts — just a velvety gin with a floral twist.</p>
+      @include('partials.gin-copy', ['gin' => $gin])
 
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">Flavor & Botanicals</p>
-      <p class="text-[18px] font-montserrat">Velvet opens with fresh notes of blueberry and cranberry, layered with floral hints of lavender and rosehip. Citrus and mountain tea bring a zesty lift to the middle, rounded out by soft almond, ginger, and a touch of warm spice. The finish is silky and refreshing with a tangy twist that defines Velvet.<br/><br/>Crafted with 19 botanicals—from blueberries and butterfly pea to mountain tea and Mediterranean spices—Velvet is a masterful blend of flavor, aroma, and elegance.</p>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">How To <span class="text-[#4D2957]">Enjoy</span> It</p>
-      <p class="text-[18px] font-montserrat">Smidgin Velvet was made to shine in your favorite cocktail, from the classic G&T to your own signature mix.</p>
+      {{-- Коктелот се прикажува само ако нема слика качена во админ панелот. --}}
+      @if(! $gin->image_three)
       <div class="flex md:items-end items-center justify-center md:justify-start mt-8">
         <div class="w-[250px]  md:pr-12 flex flex-col group justify-center items-center">
                 <img src="img/velvetperfect.webp" class="h- hover:cursor-pointer transition-transform hover:scale-105 duration-500 delay-100" onclick="openModal('velvetperfect')" loading="lazy" decoding="async"/>
@@ -237,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function() {
             closeModal("velvetperfect");
           });
         </script>      </div>
+      @endif
     </div>
   </div>
 

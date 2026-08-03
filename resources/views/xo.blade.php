@@ -52,6 +52,12 @@
 </script>
 
 <body id="top" class="font-montserrat">
+
+@php
+    // Содржината на оваа страница доаѓа од табот „Џинови“ во админ панелот.
+    $gin = \App\Models\Gin::where('slug', 'xo')->first()
+        ?: new \App\Models\Gin(['name' => 'xo', 'accent_color' => '#EF4135', 'name_font' => 'font-montserrat']);
+@endphp
       @php
     $banner = \App\Models\PromotionBanner::where('active', true)->first();
 @endphp
@@ -159,32 +165,10 @@ document.addEventListener("DOMContentLoaded", function() {
   <!-- Content -->
   <div class="md:px-32 px-7 md:pt-5 flex md:flex-row flex-col items-center justify-between">
     <div id="bottle" class="w-1/3 md:w-1/2 flex items-end justify-end">
-      <img class="w-full pr-28 pl-20" src="./sliki/xoPola.webp" loading="lazy" decoding="async"/>
+      <img class="w-full pr-28 pl-20" src="{{ asset($gin->bottle_image) }}" loading="lazy" decoding="async"/>
     </div>
     <div class="md:w-1/2 md:pr-11 flex-col flex">
-      <p class="md:pr-24 md:block pb-7 -mt-20 hidden font-montserrat text-[34px] md:text-[50px]">SMIDGIN <span class="font-Baskervville text-[#A24B1E]">XO</span></p>
-      <p class="italic text-[17px] md:text-[20px] text-gray-500 font-serif mb-12">
-        An extraordinary barrel-aged gin — rested in Cabernet Sauvignon casks for layers of smooth oak, fruit, and warm spice.
-      </p>
-      <a href="https://smidgin-shop.myshopify.com/" class="md:self-start self-center font-montserrat px-7 py-3 bg-[#A24B1E] shadow-[0_8px_16px_rgba(162,75,30,0.6)] rounded-xl text-white">BUY XO</a>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">Aged to<span class="text-[#A24B1E]"> Impress</span></p>
-      <p class="text-[18px] font-montserrat">
-        Smidgin XO is where craftsmanship meets patience. Rested in oak barrels previously used for Macedonian Cabernet Sauvignon, resulting in a golden-hued spirit with deeper complexity and a soft, rounded mouthfeel.
-      </p>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">Tasting Notes & Barrel Influence</p>
-      <p class="text-[18px] font-montserrat">
-        XO opens with a harmony of fresh juniper and oak spice. Layers of red fruit, warm vanilla, and soft herbal notes unfold. The finish is long, refined, and slightly sweet from the wine-soaked wood.
-      </p>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">How To <span class="text-[#A24B1E]">Enjoy</span> It</p>
-      <div class="flex md:flex-row flex-col md:space-x-9">
-        <p class="text-[18px] font-montserrat md:w-2/3">
-          Smidgin XO shines when served neat or over a big cube of ice. To bring out its wine-barrel character, garnish with a twist of orange peel or a dried grape.
-        </p>
-        <img class="md:w-1/3 w-2/3 mx-auto mt-5 md:mt-0" src="./sliki/xoNesto.webp" loading="lazy" decoding="async"/>
-      </div>
+      @include('partials.gin-copy', ['gin' => $gin])
     </div>
   </div>
 

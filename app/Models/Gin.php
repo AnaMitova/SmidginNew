@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
 /**
@@ -29,6 +30,7 @@ class Gin extends Model
         'body_two',
         'heading_three',
         'body_three',
+        'image_three',
         'custom_path',
         'next_gin_id',
         'sort_order',
@@ -97,6 +99,25 @@ class Gin extends Model
         return $position === false
             ? $gins->first()
             : $gins[($position + 1) % $gins->count()];
+    }
+
+    /**
+     * Renders the little markup the panel allows inside headings and body text:
+     * *word* paints a word in the gin's colour, **word** makes it bold.
+     * The text is escaped first, so nothing else can slip through.
+     */
+    public function highlight(?string $text): HtmlString
+    {
+        $html = e((string) $text);
+
+        $html = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $html);
+        $html = preg_replace(
+            '/\*(.+?)\*/s',
+            '<span style="color: ' . e($this->accent_color) . '">$1</span>',
+            $html
+        );
+
+        return new HtmlString(nl2br($html));
     }
 
     /**

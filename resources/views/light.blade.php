@@ -52,6 +52,12 @@
 </script>
 
 <body id="top" class="font-montserrat">
+
+@php
+    // Содржината на оваа страница доаѓа од табот „Џинови“ во админ панелот.
+    $gin = \App\Models\Gin::where('slug', 'light')->first()
+        ?: new \App\Models\Gin(['name' => 'light', 'accent_color' => '#EF4135', 'name_font' => 'font-montserrat']);
+@endphp
       @php
     $banner = \App\Models\PromotionBanner::where('active', true)->first();
 @endphp
@@ -159,32 +165,10 @@ document.addEventListener("DOMContentLoaded", function() {
   <!-- Content -->
   <div class="md:px-32 px-7 md:pt-7 flex md:flex-row flex-col items-center justify-between">
     <div id="bottle" class="w-1/3 md:w-1/2 ">
-      <img class="pr-28 pl-20 w-full " src="./sliki/light.webp" loading="lazy" decoding="async"/>
+      <img class="pr-28 pl-20 w-full " src="{{ asset($gin->bottle_image) }}" loading="lazy" decoding="async"/>
     </div>
     <div class="md:w-1/2 md:pr-11 flex-col flex">
-      <p class="md:pr-24 hidden md:block -mt-20 pb-7 font-montserrat text-[34px] md:text-[50px]">SMIDGIN <span class="font-Baskervville text-[#4164AD]">LIGHT</span></p>
-      <p class="italic text-[17px] md:text-[20px] text-gray-500 font-serif mb-12">
-        A lighter spirit crafted with the same Macedonian soul — distilled with juniper, citrus, and wild mountain tea.
-      </p>
-      <a href="https://smidgin-shop.myshopify.com/products/smidgin-light-gin-700ml" class="md:self-start self-center font-montserrat px-5 py-3 bg-[#4164AD] shadow-[0_8px_16px_rgba(65,100,173,0.6)] rounded-xl text-white">BUY LIGHT</a>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold"><span class="text-[#4164AD]">A Lighter</span> Expression</p>
-      <p class="text-[18px] font-montserrat">
-        Smidgin Light is a low-alcohol expression of our signature gin, designed for those who seek balance without compromise. At just <b>18% ABV</b>, it delivers all the flavor, with a gentler touch.
-      </p>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">Flavor & Botanicals</p>
-      <p class="text-[18px] font-montserrat">
-        Bright and crystal-clear, Smidgin Light opens with fresh juniper and zesty citrus on the nose, followed by a delicate floral finish from wild Macedonian mountain tea.
-      </p>
-
-      <p class="text-[30px] mb-7 mt-12 font-Baskervville font-semibold">How To <span class="text-[#4164AD]">Enjoy</span> It</p>
-      <div class="flex md:flex-row flex-col md:space-x-9">
-        <p class="text-[18px] font-montserrat md:w-2/3">
-          Serve chilled, over ice, or in a simple tonic for a bright and effortless drink. Smidgin Light shines when mixed into spritzes or low-ABV cocktails.
-        </p>
-        <img class="md:w-1/3 w-2/3 mx-auto mt-5 md:mt-0" src="./sliki/lightNesto.webp" loading="lazy" decoding="async"/>
-      </div>
+      @include('partials.gin-copy', ['gin' => $gin])
     </div>
   </div>
 
