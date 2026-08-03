@@ -17,6 +17,7 @@
     <script src="https://kit.fontawesome.com/e70ea989f6.js" crossorigin="anonymous"></script>
 
         <script src="https://cdn.tailwindcss.com"></script>
+@include('partials.tailwind-config')
 
 
 

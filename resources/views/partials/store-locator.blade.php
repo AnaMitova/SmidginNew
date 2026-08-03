@@ -189,7 +189,7 @@ html.sgloc-locked, body.sgloc-locked { overflow: hidden; }
 .sgloc-flag svg, .sgloc-flag img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* ── Mobile: region label stacks above its buttons ───────────────────── */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
     #sgloc-overlay { padding: 14px; align-items: flex-start; }
 
     .sgloc-modal { max-width: 100%; max-height: calc(100vh - 28px); padding: 22px 18px 24px; border-radius: 20px; margin: auto; }

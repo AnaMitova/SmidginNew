@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+@include('partials.tailwind-config')
 
     <link href="./output.css" rel="stylesheet" type="text/css"/>
     
@@ -631,7 +632,7 @@ document.querySelectorAll("[id^='tourModal']").forEach(modal => {
     <!-- PERSONALIZED BOTTLES -->
 <h1 class="font-Baskervville md:px-48 px-5 py-12 md:py-20 text-3xl md:text-[43px]">PERSONALIZED BOTTLES</h1>
     <div class="flex flex-col justify-center space-y-8 md:space-y-14 items-center px-5 md:px-0">
-        <div class="flex flex-col md:flex-row justify-between space-x-0 md:space-x-4 px-5 md:px-7 py-5 md:py-7 items-center w-full md:w-[1057px] rounded-2xl text-center bg-white shadow-2xl">
+        <div class="flex flex-col md:flex-row justify-between space-x-0 md:space-x-4 px-5 md:px-7 py-5 md:py-7 items-center w-full max-w-[1057px] rounded-2xl text-center bg-white shadow-2xl">
             <div class="w-full md:w-1/2">
                 <img class="w-full h-auto md:h-[306px] object-cover" src="./img/personalizedbottle1.webp" loading="lazy" decoding="async"/>
             </div>
@@ -642,7 +643,7 @@ document.querySelectorAll("[id^='tourModal']").forEach(modal => {
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row-reverse justify-between space-x-0 md:space-x-4 px-5 md:px-7 py-5 md:py-7 items-center w-full md:w-[1057px] rounded-2xl text-center bg-white shadow-2xl">
+        <div class="flex flex-col md:flex-row-reverse justify-between space-x-0 md:space-x-4 px-5 md:px-7 py-5 md:py-7 items-center w-full max-w-[1057px] rounded-2xl text-center bg-white shadow-2xl">
             <div class="w-full md:w-1/2">
                 <img class="w-full h-auto md:h-[306px] object-cover" src="./img/personalizedbottle2.webp" loading="lazy" decoding="async"/>
             </div>

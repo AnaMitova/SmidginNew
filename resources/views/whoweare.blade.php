@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+@include('partials.tailwind-config')
 
     <link href="./output.css" rel="stylesheet" type="text/css"/>
     
@@ -341,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
       <!-- BOOK A TOUR SPINNING CIRCLE -->
       <div class="flex md:pt-56 -mt-32 md:-mt-0">
-        <div class="relative w-[240px] h-[240px] md:left-0 left-36 md:right-32">
+        <div class="relative w-[240px] h-[240px] md:left-0 left-20 sm:left-36 md:right-32">
       
           <!-- Spinning text -->
           <svg viewBox="0 0 300 300" class="absolute inset-0 w-full h-full spin-circle">

@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Baskervville:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
+@include('partials.tailwind-config')
 
     <script src="https://kit.fontawesome.com/e70ea989f6.js" crossorigin="anonymous"></script>
     <script>
@@ -366,12 +367,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 <div id="gin" class="bg-white font-Baskervville flex md:flex-row flex-row-reverse items-center justify-center md:items-center md:justify-start md:space-x-40 md:px-36 px-0 md:pt-52">
     
-    <div class="md:w-1/3 w-[140px] md:pl-14 relative">
-    
+    <div class="md:w-1/3 w-[40%] max-w-[260px] flex-shrink-0 md:max-w-none md:pl-14 relative">
+
         <!-- Base bottle -->
         <img src="img/classic.webp"
              id="bottle-image"
-             class="w-[303px] block"
+             class="w-full md:w-[303px] block"
              loading="lazy"
              decoding="async"/>
     

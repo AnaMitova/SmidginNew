@@ -36,7 +36,7 @@
 
                 <div class="sgsub-media">
                     <picture>
-                        <source media="(max-width: 767px)" srcset="{{ asset('img/subscribePopup_mobile.png') }}">
+                        <source media="(max-width: 1023px)" srcset="{{ asset('img/subscribePopup_mobile.png') }}">
                         <img src="{{ asset('img/subscribePopup.png') }}" alt="Friends toasting with Smidgin gin and tonics" loading="lazy" decoding="async">
                     </picture>
                 </div>
@@ -566,7 +566,7 @@ html.sgsub-locked, body.sgsub-locked { overflow: hidden; }
 .sgsub-toast.is-open { opacity: 1; transform: translate(-50%, 0); }
 
 /* ── Mobile ──────────────────────────────────────────────────────────── */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
     .sgsub-overlay { padding: 16px; align-items: flex-start; }
     .sgsub-modal { max-width: 380px; margin: auto; border-radius: 22px; }
     .sgsub-modal.is-success { max-width: 380px; }
