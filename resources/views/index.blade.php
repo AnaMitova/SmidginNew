@@ -454,7 +454,7 @@ window.addEventListener("DOMContentLoaded", () => {
 /* Desktop / Tablet */
 @media (min-width: 768px) {
     .bottle-layer.active{
-        transform: translateX(22px);
+        transform: translateX(16px);
     }
 }
 </style>
